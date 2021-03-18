@@ -11,13 +11,17 @@
         src 이미지 파일 경로(상대경로, 절대경로, 웹주소),
          alt 엑박일때 뜨는 글자 내용
     -->
-    <!--상대경로 일때 : 현재 html 파일을 기준으로 해당 이미지까지의 경로-->
-    <img src="img/breakwater.jpg" alt="">
+    <!-- * 상대경로 일때 : 현재 html 파일을 기준으로 해당 이미지까지의 경로-->
+    <img src="img/breakwater.jpg" alt="" width="300" height="">
     <img src="img/sub/sea.jpg" alt="">
     <img src="shops.jpg" alt=""><!--같은 폴더에 있을때는 파일명만 설정-->
     <img src="../beverages.jpg" alt=""><!--.. 상위 폴더로 이동-->
-    <!--절대경로 일때-->
-    <img src="" alt="">
+    <!--URL-->
+    <img src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png" alt=""> <!--이미지가 위치한 URL-->
+    <img src="/0318/img/sub/sea.jpg" alt=""><!-- ***** URL root 폴더 기준으로 경로를 잡음-->
+    <!--절대경로 일때, 실제 컴퓨터에서 파일이 있는 위치-->
+    <hr>
+    <img src="file:///C:/workspace/0318/shops.jpg" alt="절대 경로로 잡은 이미지">
 </body>
 </html>
 

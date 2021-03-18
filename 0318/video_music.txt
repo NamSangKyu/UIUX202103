@@ -1,0 +1,11 @@
+동영상 format
+    mov, mp4, ogv, avi, mkv, wmv, ts, tp
+         --> 지원 코덱을 일일이 사용자 컴퓨터에 설치 X
+    문제는 외부 플러그인을 이용해서 재생(ActiveX, 외부 설치파일)
+
+    HTML5 별도의 코덱이 필요없이 웹브라우저에서 재생 가능하게 바꿈
+    webm, ogv, mp4 <--- HTML5에서 지원하는 동영상 포맷
+
+음악 format
+    mp3, ogg, AAC, flac....
+    mp3, ogg <--- HTML5에서 지원하는 음원 포맷
