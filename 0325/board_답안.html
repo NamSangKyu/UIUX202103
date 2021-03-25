@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>글목록 페이지</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        table{
+            border-collapse: collapse;
+            width: 1000px;
+        }
+        tr{
+            border-top: 1px solid #a8a8a8;
+        }
+        th{
+            background-color: #e9e9e9;
+        }
+        caption{
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px 0px;
+        }
+        td,th{
+            padding:10px;
+        }
+        .title{
+            width:600px;
+        }
+        td{
+            text-align: center;
+        }
+        .label{
+            border-radius: 16px;
+            padding: 1px 3px;
+            background-color: green;
+            color: white;
+            font-size: 1px;
+            font-weight: bold;
+        }
+        .pagging{
+            text-align: right;
+            padding-right: 100px;
+        }
+        button {
+            width:40px;
+            height: 40px;
+            background-color: #e8e8e8;
+            border:none;
+        }
+        .current_page{
+            color: white;
+            background-color: rgb(80, 147, 223);
+        }
+        .writer{
+            text-align: right;
+        }
+        .btn_writer{
+            width:100px;
+            color: white;
+            background-color: rgb(80, 147, 223);
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>게시판</caption>
+        <tr>
+            <th>No.</th>
+            <th class="title">title</th>
+            <th>count</th>
+            <th>date</th>
+            <th>좋아요</th>
+            <th>싫어요</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>제목<span class="label">N</span></td>
+            <td>11</td>
+            <td>2010-11-30</td>
+            <td>33</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>제목</td>
+            <td>11</td>
+            <td>2010-11-30</td>
+            <td>33</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>제목</td>
+            <td>11</td>
+            <td>2010-11-30</td>
+            <td>33</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>제목</td>
+            <td>11</td>
+            <td>2010-11-30</td>
+            <td>33</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td colspan="3" class="pagging">
+                <button>←</button>
+                <button>1</button>
+                <button class="current_page">2</button>
+                <button>3</button>
+                <button>4</button>
+                <button>→</button>
+            </td>
+            <td colspan="3" class="writer">
+                <button class="btn_writer">글쓰기</button>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
