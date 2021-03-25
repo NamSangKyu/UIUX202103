@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>테두리</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        div{
+            width:200px;
+            height: 200px;
+        }        
+        /*border : 선두께 선종류 색상; 상하좌우 동일한 디자인*/
+        /*
+            선종류 : solid, dashed, dotted, double, inset,outset
+        */
+        .border1{
+            border : 20px outset coral;
+            /* border-width: 20px;
+            border-style: outset;
+            border-color:coral; */
+        }
+        .border2{
+            border-left: 5px solid yellowgreen;
+            /* border-left-color: yellowgreen;
+            border-left-width: 5px;
+            border-left-style: outset; */
+        }
+        .border3{
+            border : 5px solid coral;
+            border-radius: 20px;
+        }
+        .border4{
+            width:300px;
+            height: 50px;
+            border : 1px solid coral;
+            border-radius: 25px;
+        }
+        .border5{
+            width: 300px;
+            height: 300px;
+            border-radius: 150px;
+            border : 1px solid coral;
+            background-color: #ff6347;
+            box-shadow: 0px 0px 20px yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="border1"></div>
+    <hr>
+    <div class="border2"></div>
+    <hr>
+    <div class="border3"></div>
+    <hr>
+    <div class="border4"></div>
+    <hr>
+    <div class="border5"></div>
+</body>
+</html>
