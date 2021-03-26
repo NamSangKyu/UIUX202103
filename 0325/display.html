@@ -5,23 +5,56 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>display</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        /*
+        태그가 inline, block으로 구분을 하는데,
+        태그를 inline,block 등 다른 형태로 변경을 할때 사용하는 CSS가 display
+        inline, block, inline-block, none
+        */
+      .img{
+          /* display: none; */
+          visibility: hidden;
+      }
+      /* ul{
+          list-style-type: none;
+      } */
+      li{
+          border:1px solid black;
+          width:100px;
+          /* height: 50px; */
+          display: inline-block;
+          text-align: center;
+      }
+      ul{
+         font-size: 0px;
+      }
+      .menu_a{
+          width: 100%;
+          font-size: 16px;
+          line-height: 16px;
+          padding:17px 5px;
+          color:black;
+          text-decoration: none;
+          display: inline-block;
+          box-sizing: border-box;
+      }
+    </style>
 </head>
 <body>
     <ul>
-        <li>항목1</li>
-        <li>항목2</li>
-        <li>항목3</li>
-        <li>항목4</li>
-        <li>항목5</li>
+        <li><a href="#" class="menu_a">항목1</a></li>
+        <li><a href="#" class="menu_a">항목2</a></li>
+        <li><a href="#" class="menu_a">항목3</a></li>
+        <li><a href="#" class="menu_a">항목4</a></li>
+        <li><a href="#" class="menu_a">항목5</a></li>
     </ul>
     <hr>
-    <a href="#">버튼</a>
-    <a href="#">버튼</a>
-    <a href="#">버튼</a>
-    <a href="#">버튼</a>
-    <hr>
-    <h2>display : none, visiblity : visible 차이</h2>
-    <img src="/0325/img/tree.jpg">
+    <h2>display : none, visiblity : hidden 차이</h2>
+    <img src="/0325/img/tree.jpg" class="img">
     <img src="/0325/img/tree.jpg">
 </body>
 </html>
