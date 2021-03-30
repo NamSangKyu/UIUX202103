@@ -6,6 +6,7 @@
     <title>레이아웃 연습 예제</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
         *{
             margin: 0;
             padding:0;
@@ -15,6 +16,43 @@
             background-color: khaki;
             margin: 0 auto;
             padding:30px 0px;
+        }
+        .header_container{
+            width: 100%;
+            display: inline-block;
+        }
+        .logo{
+            font-family: 'Black Han Sans', sans-serif;
+            float: left;
+            padding-left: 20px;
+            font-size: 32px;
+            line-height: 32px;
+            text-shadow: 4px 4px 5px gray;
+        }
+        .txt_search{
+            width: 300px;
+            border-radius: 5px;
+            font-size: 18px;
+            box-sizing: border-box;
+            padding:4px 0px 4px 36px;
+            background-image: url('/0329/img/search.png');
+            background-repeat: no-repeat;
+            background-size: 30px;
+            background-position:4px center;
+        }
+        .btn_search{
+            width: 70px;
+            background-color: lightgreen;
+            color: #406b40;
+            border-radius: 5px;
+            font-size: 18px;
+            border: none;
+            box-sizing: border-box;
+            margin-left: 10px;
+        }
+        .txt_search, .btn_search{
+            float:right;
+            height: 32px;
         }
         nav{
             min-width:1200px;
@@ -91,10 +129,10 @@
 </head>
 <body>
     <header>
-        <div>
-            <span>Logo</span>        
-            <button>검색</button>
-            <input type="text" id="search" placeholder="검색어 입력하세요">
+        <div class="header_container">
+            <span class="logo">Logo</span>        
+            <button class="btn_search">검색</button>
+            <input type="text" class="txt_search" id="search" placeholder="검색어 입력하세요">
         </div>
     </header>
     <nav>
