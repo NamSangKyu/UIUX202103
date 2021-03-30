@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -7,21 +8,25 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
-        *{
+
+        * {
             margin: 0;
-            padding:0;
-        }        
-        header{
-            width:1200px;
+            padding: 0;
+        }
+
+        header {
+            width: 1200px;
             background-color: khaki;
             margin: 0 auto;
-            padding:30px 0px;
+            padding: 30px 0px;
         }
-        .header_container{
+
+        .header_container {
             width: 100%;
             display: inline-block;
         }
-        .logo{
+
+        .logo {
             font-family: 'Black Han Sans', sans-serif;
             float: left;
             padding-left: 20px;
@@ -29,18 +34,20 @@
             line-height: 32px;
             text-shadow: 4px 4px 5px gray;
         }
-        .txt_search{
+
+        .txt_search {
             width: 300px;
             border-radius: 5px;
             font-size: 18px;
             box-sizing: border-box;
-            padding:4px 0px 4px 36px;
+            padding: 4px 0px 4px 36px;
             background-image: url('/0329/img/search.png');
             background-repeat: no-repeat;
             background-size: 30px;
-            background-position:4px center;
+            background-position: 4px center;
         }
-        .btn_search{
+
+        .btn_search {
             width: 70px;
             background-color: lightgreen;
             color: #406b40;
@@ -50,87 +57,140 @@
             box-sizing: border-box;
             margin-left: 10px;
         }
-        .txt_search, .btn_search{
-            float:right;
+
+        .txt_search,
+        .btn_search {
+            float: right;
             height: 32px;
         }
-        nav{
-            min-width:1200px;
+
+        nav {
+            min-width: 1200px;
             background-color: lavender;
             margin: 0 auto;
             text-align: center;
             font-size: 0px;
         }
-        footer{
-            min-width:1200px;
+
+        footer {
+            min-width: 1200px;
             height: 200px;
             background-color: lightgray;
             margin: 0 auto;
+            clear: both;
         }
-        ul{
+
+        ul {
             width: 1000px;
             list-style-type: none;
             display: inline-block;
         }
-        li{
-            width:200px;
+
+        li {
+            width: 200px;
             float: left;
         }
+
         /*하이퍼링크가 걸려있는 상태, 마우스가 올라갔을때(행오버),클릭*/
-        a:link,a:visited{
+        a:link,
+        a:visited {
             color: black;
             font-weight: bold;
             text-decoration: none;
             text-align: center;
-            padding:20px 0px;
+            padding: 20px 0px;
             display: inline-block;
             width: 200px;
             box-sizing: border-box;
-            font-size:20px;
+            font-size: 20px;
         }
+
         /*마우스가 올라갔을때*/
-        a:hover{
-            background-color:#8b8bce ;
-            color:white;
+        a:hover {
+            background-color: #8b8bce;
+            color: white;
             /* border-bottom : 2px solid white; */
         }
-        a:active{
-            background-color:lavender ;
+
+        a:active {
+            background-color: lavender;
         }
-        section{
+
+        section {
             width: 1200px;
-            margin: 0 auto;
+            float: left;
         }
-        .content_thumnail{
-            width:150px;
+
+        .content_thumnail {
+            width: 150px;
             height: 300px;
             display: inline-block;
             margin-left: 70px;
         }
-        img{
+
+        img {
             width: 150px;
             height: 150px;
         }
-        h2{
-            padding:10px 5px;
+
+        h2 {
+            padding: 10px 5px;
         }
-        h3{
-            padding:3px 5px;
+
+        h3 {
+            padding: 3px 5px;
             height: 50px;
             box-sizing: border-box;
         }
-        p{
-            height: 100px;
+
+        p {
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
         }
+
+        .container {
+            width: 1600px;
+            margin: 0 auto;
+        }
+
+        .banner_area {
+            width: 200px;
+            height: 600px;
+            float: left;
+            box-sizing: border-box;
+            margin-top: 30px
+        }
+
+        .banner_1:link,
+        .banner_1:hover,
+        .banner_1:visited {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            padding: 0px;
+        }
+
+        .banner_img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .banner_2:link,
+        .banner_2:hover,
+        .banner_2:visited {
+            display: inline-block;
+            width: 180px;
+            height: 120px;
+            padding: 0px;
+        }
     </style>
 </head>
+
 <body>
     <header>
         <div class="header_container">
-            <span class="logo">Logo</span>        
+            <span class="logo">Logo</span>
             <button class="btn_search">검색</button>
             <input type="text" class="txt_search" id="search" placeholder="검색어 입력하세요">
         </div>
@@ -144,75 +204,120 @@
             <li><a href="#" title="메뉴5 페이지 이동">메뉴5</a></li>
         </ul>
     </nav>
-    <section>
-        <article>
-            <h2>article 제목</h2>
-            <div class="content_thumnail">
-                <img src="/0329/img/tree.jpg" alt="콘텐츠 썸네일 이미지">
-                <h3>것이다 석가는</h3>
-                <p>얼음 속에서 불러내는 것이 따뜻한</p>
-            </div>
-            <div class="content_thumnail">
-                <img src="/0329/img/tree.jpg" alt="콘텐츠 썸네일 이미지">
-                <h3>것이다 석가는</h3>
-                <p>얼음 속에서 불러내는 것이 따뜻한</p>
-            </div>
-            <div class="content_thumnail">
-                <img src="/0329/img/tree.jpg" alt="콘텐츠 썸네일 이미지">
-                <h3>것이다 석가는</h3>
-                <p>얼음 속에서 불러내는 것이 따뜻한</p>
-            </div>
-            <div class="content_thumnail">
-                <img src="/0329/img/tree.jpg" alt="콘텐츠 썸네일 이미지">
-                <h3>것이다 석가는</h3>
-                <p>얼음 속에서 불러내는 것이 따뜻한</p>
-            </div>
-            <div class="content_thumnail">
-                <img src="/0329/img/tree.jpg" alt="콘텐츠 썸네일 이미지">
-                <h3>것이다 석가는</h3>
-                <p>얼음 속에서 불러내는 것이 따뜻한</p>
-            </div>  
-        </article>
-        <article>
-            <h2>article 제목</h2>
-            <div class="content_thumnail">
-                <img src="/0329/img/tree.jpg" alt="콘텐츠 썸네일 이미지">
-                <h3>것이다 석가는</h3>
-                <p>얼음 속에서 불러내는 것이 따뜻한</p>
-            </div>
-            <div class="content_thumnail">
-                <img src="/0329/img/tree.jpg" alt="콘텐츠 썸네일 이미지">
-                <h3>것이다 석가는</h3>
-                <p>얼음 속에서 불러내는 것이 따뜻한</p>
-            </div>
-            <div class="content_thumnail">
-                <img src="/0329/img/tree.jpg" alt="콘텐츠 썸네일 이미지">
-                <h3>것이다 석가는</h3>
-                <p>얼음 속에서 불러내는 것이 따뜻한</p>
-            </div>
-            <div class="content_thumnail">
-                <img src="/0329/img/tree.jpg" alt="콘텐츠 썸네일 이미지">
-                <h3>것이다 석가는</h3>
-                <p>얼음 속에서 불러내는 것이 따뜻한</p>
-            </div>
-            <div class="content_thumnail">
-                <img src="/0329/img/tree.jpg" alt="콘텐츠 썸네일 이미지">
-                <h3>것이다 석가는</h3>
-                <p>얼음 속에서 불러내는 것이 따뜻한</p>
-            </div>  
-        </article>
-    </section>
+    <div class="container">
+        <aside class="banner_area">
+            <a href="#" title="OO회사 OO제품 광고 페이지 이동" class="banner_1">
+                <img src="/0329/img/tree.jpg" alt="OO회사 OO제품 광고 이미지" class="banner_img">
+            </a>
+        </aside>
+        <section>
+            <article>
+                <h2>article 제목</h2>
+                <div class="content_thumnail">
+                    <img src="/0329/img/tree.jpg" alt="콘텐츠 썸네일 이미지">
+                    <h3>것이다 석가는</h3>
+                    <p>얼음 속에서 불러내는 것이 따뜻한</p>
+                </div>
+                <div class="content_thumnail">
+                    <img src="/0329/img/tree.jpg" alt="콘텐츠 썸네일 이미지">
+                    <h3>것이다 석가는</h3>
+                    <p>얼음 속에서 불러내는 것이 따뜻한</p>
+                </div>
+                <div class="content_thumnail">
+                    <img src="/0329/img/tree.jpg" alt="콘텐츠 썸네일 이미지">
+                    <h3>것이다 석가는</h3>
+                    <p>얼음 속에서 불러내는 것이 따뜻한</p>
+                </div>
+                <div class="content_thumnail">
+                    <img src="/0329/img/tree.jpg" alt="콘텐츠 썸네일 이미지">
+                    <h3>것이다 석가는</h3>
+                    <p>얼음 속에서 불러내는 것이 따뜻한</p>
+                </div>
+                <div class="content_thumnail">
+                    <img src="/0329/img/tree.jpg" alt="콘텐츠 썸네일 이미지">
+                    <h3>것이다 석가는</h3>
+                    <p>얼음 속에서 불러내는 것이 따뜻한</p>
+                </div>
+            </article>
+            <article>
+                <h2>article 제목</h2>
+                <div class="content_thumnail">
+                    <img src="/0329/img/tree.jpg" alt="콘텐츠 썸네일 이미지">
+                    <h3>것이다 석가는</h3>
+                    <p>얼음 속에서 불러내는 것이 따뜻한</p>
+                </div>
+                <div class="content_thumnail">
+                    <img src="/0329/img/tree.jpg" alt="콘텐츠 썸네일 이미지">
+                    <h3>것이다 석가는</h3>
+                    <p>얼음 속에서 불러내는 것이 따뜻한</p>
+                </div>
+                <div class="content_thumnail">
+                    <img src="/0329/img/tree.jpg" alt="콘텐츠 썸네일 이미지">
+                    <h3>것이다 석가는</h3>
+                    <p>얼음 속에서 불러내는 것이 따뜻한</p>
+                </div>
+                <div class="content_thumnail">
+                    <img src="/0329/img/tree.jpg" alt="콘텐츠 썸네일 이미지">
+                    <h3>것이다 석가는</h3>
+                    <p>얼음 속에서 불러내는 것이 따뜻한</p>
+                </div>
+                <div class="content_thumnail">
+                    <img src="/0329/img/tree.jpg" alt="콘텐츠 썸네일 이미지">
+                    <h3>것이다 석가는</h3>
+                    <p>얼음 속에서 불러내는 것이 따뜻한</p>
+                </div>
+            </article>
+        </section>
+        <aside class="banner_area">
+            <a href="#" title="OO회사 OO제품 광고 페이지 이동" class="banner_2">
+                <img src="/0329/img/tree.jpg" alt="OO회사 OO제품 광고 이미지" class="banner_img">
+            </a>
+            <a href="#" title="OO회사 OO제품 광고 페이지 이동" class="banner_2">
+                <img src="/0329/img/tree.jpg" alt="OO회사 OO제품 광고 이미지" class="banner_img">
+            </a>
+            <a href="#" title="OO회사 OO제품 광고 페이지 이동" class="banner_2">
+                <img src="/0329/img/tree.jpg" alt="OO회사 OO제품 광고 이미지" class="banner_img">
+            </a>
+
+        </aside>
+    </div>
     <footer>
-        <div>
-            <p>회사명 : OOOOOOO</p>
-            <p>대표 : OOO</p>
-            <p>사업자번호 : OOO-OOOO-OOOOO</p>
-            <p>통신판매업신고번호 : OOO-OOOO-OOOOO</p>
-                                <!--문자 : sms-->
-            <p>고객센터 연락처 : <a href="tel:00-0000-0000" title="고객센터에 전화하기">OO-OOOO-OOOO</a></p>
-            <p>담당자 이메일 : <a href="mailto:OOOOO@gmail.com" title="담당자에게 메일 보내기">OOOOO@gmail.com</a></p>
+        <div class="footer_container">
+            <p class="footer_p">
+                회사명 : OOOOOOO<br>
+                대표 : OOO<br>
+                사업자번호 : OOO-OOOO-OOOOO<br>
+                통신판매업신고번호 : OOO-OOOO-OOOOO
+            </p>
+            <!--문자 : sms-->
+            <p class="footer_p">
+                고객센터 연락처 : <a href="tel:00-0000-0000" class="footer_link" title="고객센터에 전화하기">OO-OOOO-OOOO</a><br>
+                담당자 이메일 : <a href="mailto:OOOOO@gmail.com" class="footer_link" title="담당자에게 메일 보내기">OOOOO@gmail.com</a>
+            </p>
             <!--<address>OOOOO@gmail.com</address>-->
         </div>
     </footer>
+    <style>
+        .footer_container {
+            width: 1200px;
+            padding-top: 20px;
+            margin: 0 auto;
+        }
+        .footer_p{
+            width: 50%;
+            line-height: 32px;
+            float: left;
+        }
+        .footer_link:link, .footer_link:visited{
+            padding:0px;
+            font-weight: normal;
+        }
+        .footer_link:hover{
+            text-decoration: underline ;
+            color:black;
+            background-color:rgba(255, 255, 255, 0);
+        }
+    </style>
 </body>
+
 </html>
