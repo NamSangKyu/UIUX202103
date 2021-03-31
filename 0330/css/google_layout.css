@@ -55,3 +55,39 @@ border-radius: 32px;
     text-decoration: none;
     box-shadow: 0px 0px 3px #2e86f8;
 }
+section{
+    margin-top: 200px;
+    text-align: center;
+}
+section input{
+    width: 400px;
+    height: 44px;
+    padding-left: 50px;
+    font-size: 20px;
+    background-image: url('/0330/img/search.png');
+    background-repeat: no-repeat;
+    background-size: 32px;
+    background-position: 10px center;
+    border-style: none;
+}
+form{
+    border:1px solid #e8e8e8;
+    border-radius: 22px;
+    display: inline-block;
+    padding:0px 20px;
+}
+form > * {
+    float: left;
+}
+form a {
+    display: inline-block;
+    height: 32px;
+    padding:8px 0px;
+    margin-left: 10px;
+}
+form a > img{
+    width:32px;
+}
+article > button{
+    clear: both;
+}
