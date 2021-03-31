@@ -68,7 +68,14 @@ section input{
     background-repeat: no-repeat;
     background-size: 32px;
     background-position: 10px center;
-    border-style: none;
+    border:1px solid white;
+    /*
+     탭이나 focus 효과가 들어갔을때 표시되는 테두리
+     사용방법 및 속성값이 border와 동일함
+     선두께 선종류 선색상
+     outline-width, outline-style, outline-color
+     */
+    outline: none;
 }
 form{
     border:1px solid #e8e8e8;
@@ -88,6 +95,44 @@ form a {
 form a > img{
     width:32px;
 }
-article > button{
+article > div{
     clear: both;
+    text-align: center;
+    margin-top: 20px;
+}
+article button{
+    padding:0px 20px;
+    height: 32px;
+    margin-right: 5px;
+    border:none;
+    border-radius: 5px;
+}
+footer{
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    clear: both;
+    background-color: #e8e8e8;
+    color:gray;
+}
+footer > p,footer > div{
+    padding:10px 20px;
+    height: 32px;
+}
+footer ul:first-child {
+    float: left;
+    width: 650px;
+}
+footer ul:last-child {
+    width: 550px;
+    float: right;
+    text-align: right;
+}
+
+footer li{
+    display: inline-block;
+    margin-right: 50px;
+}
+footer a:link, footer a:visited{
+    color:gray;
 }
