@@ -3,3 +3,50 @@
     margin:0;
     padding:0;
 }
+ul{
+    list-style-type: none;
+}
+a:link, a:visited{
+    color:black;
+    font-size:16px;
+    line-height: 16px;
+    text-decoration: none;
+    padding:8px 0px;
+    display: inline-block;
+} 
+a:hover{
+    text-decoration: underline;
+}
+nav{
+    text-align: right;
+}
+nav ul{
+    padding: 15px;
+    display: inline-block;
+}
+nav li{
+    display: inline-block;
+    padding-left: 20px;
+    font-size: 0px;
+}
+a > img{
+    width:16px;
+}
+.app{
+    padding:16px !important;
+}
+.app:hover{
+background-color: #e8e8e8;
+border-radius: 32px;
+}
+.login:link, .login:visited{
+    width:100px;
+    height: 48px;
+    box-sizing: border-box;
+    padding:16px 0px;
+    text-align: center;
+    display: inline-block;
+    background-color: #4574bb;
+    color:white;
+    border-radius: 5px;
+}
