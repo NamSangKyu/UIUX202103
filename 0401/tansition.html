@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>transition 효과</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        a:link,a:visited{
+            width: 100px;            
+            height : 100px;
+            display: inline-block;
+            background-size: 80px;
+            background-image: url('/0401/img/youtube.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            border: 1px solid black;
+            transition-duration: 1s;
+            transition-property: all;
+        }
+        a:hover{
+            background-color: grey;
+            border-radius: 50px;
+            background-size: 90px;
+            background-image: url('/0401/img/home.png');
+        }
+        #box{
+            width: 150px;
+            height: 150px;
+            background-size: 100px;
+            background-image: url('/0401/img/youtube.png');
+            background-position: center;
+            background-repeat: no-repeat;
+           
+            animation-name: ani2;
+            animation-duration:5s;
+            /* 무한대-infinite, 반복횟수 */
+            animation-iteration-count:infinite; 
+            animation-direction: alternate;
+        }
+        #box:hover{
+        }
+        /* @keyframes 애니메이션명{}*/
+        @keyframes ani1 {
+            from{
+                background-image: url('/0401/img/youtube.png');
+            }
+            to{
+                background-image: url('/0401/img/home.png');
+            }
+        }
+        @keyframes ani2 {
+            0%{
+                margin-left: 0px;
+            }   
+            50%{
+                margin-left : 885px
+            }   
+            100%{
+                margin-left: 1845px;
+            }  
+        }
+    </style>
+</head>
+<body>
+    <a href="#"></a>
+    <hr>
+    <div id="box"></div>
+</body>
+</html>
