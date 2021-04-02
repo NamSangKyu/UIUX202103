@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        img{
+            width: 100px;
+        }
+        img:hover{
+            width: 200px;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background-image: url('/beverages.jpg');
+            background-size: 100% 100%;
+            /* display: inline-block; */
+            float: left;
+        }
+        .s1{transform: scaleX(2);}
+        .s2{transform: scaleY(2);}
+        .s3{transform: scaleZ(2);}
+        .s4{transform: scale(2,2);}
+    </style>
+</head>
+<body>
+    <!--scale 이용해서 이미지 확대/축소-->
+    <div class="s1"></div>    
+    <div class="s2"></div>    
+    <div class="s3"></div>    
+    <div class="s4"></div>    
+    <hr>
+    <!--width 이용해서 이미지 확대 축소-->
+    <img src="/beverages.jpg" class="i1">   
+    <img src="/beverages.jpg" class="i2">   
+    <img src="/beverages.jpg" class="i3">   
+    <img src="/beverages.jpg" class="i4">   
+</body>
+</html>
