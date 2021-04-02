@@ -7,14 +7,29 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <style>
         *{margin:0;padding:0}
+        /*좌측 세로 메뉴 CSS*/
         .left_menu{
             width:60px;
             height: 1040px;
-            border:1px solid black;
             box-sizing: border-box;
+            background-color: #e8e8e8;
             position: fixed;
             left: 0px;
             top:0px;
+        }
+        .left_menu li{
+            width: 100%;
+            height: 40px;
+            margin-top: 50px;
+            text-align: center;
+        }
+        .left_menu img{
+            width: 40px;
+            transition-duration: 0.5s;
+            transition-property: all;
+        }
+        .left_menu img:hover{
+            width: 50px;
         }
         header{
             width:1860px;
@@ -32,13 +47,7 @@
             margin-left: 60px;
            
         }
-        section{
-            width:1860px;
-            height: 1040px;
-            border:1px solid tan;
-            box-sizing: border-box;
-            margin-left: 60px;
-        }
+        
         ul{
             list-style-type: none;
         }
@@ -63,6 +72,31 @@
             width: 100%;
             height: 100%;
             display: inline-block;
+        }
+        section{
+            width:1860px;
+            height: 1040px;
+            border:1px solid tan;
+            box-sizing: border-box;
+            margin-left: 60px;
+        }
+        .product_info{
+            background-image: url('/0401/img/content_img.jpg');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+        .product_info_detail{
+            width: 500px;
+            background-color: #ff000067;
+            color:white;
+            top : 100px;
+            left: 200px;
+            position: relative;
+            padding:30px;
+            /* opacity: 0.5; */
+        }
+        .product_info_detail > p{
+            font-size: 20px;
         }
     </style>
 </head>
@@ -97,7 +131,12 @@
             <li><a href="#" title="문의 페이지 이동">문의하기</a></li>
         </ul>
     </nav>
-    <section></section>
+    <section class="product_info">
+        <article class="product_info_detail">
+            <h2>얼마나 아름다우냐?</h2>
+            <p>지방자치단체는 주민의 복리에 관한 사무를 처리하고 재산을 관리하며, 법령의 범위안에서 자치에 관한 규정을 제정할 수 있다. 모든 국민은 근로의 권리를 가진다. 국가는 사회적·경제적 방법으로 근로자의 고용의 증진과 적정임금의 보장에 노력하여야 하며, 법률이 정하는 바에 의하여 최저임금제를 시행하여야 한다.</p>
+        </article>
+    </section>
     <section></section>
     <section></section>
     <section></section>
