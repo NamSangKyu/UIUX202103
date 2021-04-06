@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        /*
+            정수 두개 저장할 변수와 문자열 저장할 변수 1개 선언
+        */
+       var n1 = 100, n2 = 150, msg = "Hello World";
+
+       document.write(msg+n1,"<br>");
+       document.write(msg+n2,"<br>");
+       //계산은 한번에 되는 것이 아니라 , 하나씩 순서대로 진행
+       //msg + n1 후에 그 결과로 + n2 진행
+       document.write(msg+n1+n2,"<br>");//Hello World100150
+       //()는 우선순위가 제일 높다
+       document.write(msg+(n1+n2),"<br>");//Hello World250
+       document.write(n1+n2+msg,"<br>");//250Hello World
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
