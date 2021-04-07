@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        /*
+            숫자 하나를 입력 받으면 해당 숫자의 팩토리얼 값을 출력
+
+            숫자 5를 입력 5!
+            1*2*3*4*5 ---> 팩토리얼 연산
+        */
+       //i는 1부터 곱할값, fac 팩토리얼 결과값, n 입력받을 숫자
+        /* var n, i=2, fac=1;
+        n = Number(prompt("계산할 팩토리얼 값을 입력"));
+        while(i<=n){
+            fac *= i;
+            //fac *= 1, fac *=2, fac*=3...
+            i++;
+        }
+        document.write(fac); */
+        var n, fac=1;
+        n = Number(prompt("계산할 팩토리얼 값을 입력"));
+
+        while(n>1){
+            fac *= n;
+            //fac *= 5, fac *=4, fac*=3...
+            n--;
+        }
+        document.write(fac);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
