@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>반복문 문제</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        var row = 0, col = 0, num = 1;
+        var table = "<table>";
+        while (row < 5) {//행 작성 반복문
+            table += "<tr>";
+            col = 0;
+            while (col < 5) {//열 작성 반복문
+                table += "<td>"+num+"</td>";
+                col++;
+                num++;
+            }
+            row++;
+            table += "</tr>";
+        }
+        table += "</table>";
+        document.write(table);
+    </script>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 20px;
+            font-size: 32px;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>
