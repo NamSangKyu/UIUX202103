@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        var num = 1;
+        var table = "<table>";
+        for (i = 0; i < 5; i++) {
+            table += "<tr>";
+            //첫번째 빈칸 영역
+            for (j = 0; j < 5 - i - 1; j++){
+                table +="<td class='bg_yellow'></td>";
+            }
+            //두번째 숫자영역
+            for(j=0;j<i*2+1;j++){
+                table +="<td class='bg_orange'>"+num+"</td>";
+                num++;
+            }
+            //세번째 빈칸영역
+            for (j = 0; j < 5 - i - 1; j++){
+                table +="<td class='bg_green'></td>";
+            }
+            table += "</tr>";
+        }
+        table += "</table>";
+        document.write(table);
+    </script>
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            text-align: center;
+            vertical-align: middle;
+            width: 150px;
+            height: 150px;
+            border: 1px solid black;
+        }
+        .bg_yellow{
+            background-color: yellow;
+        }
+        .bg_orange{
+            background-color: orange;
+        }
+        .bg_green{
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>
