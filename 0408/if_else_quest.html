@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>if-else 문제</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        var num = 1;
+        var table = "<table>";
+        for (i = 1; i <= 5; i++) {
+            if(i%2==0)
+                table += "<tr class='even'>";
+            else
+                table += "<tr class='odd'>";
+            for (j = 0; j < 5; j++) {
+                table+="<td>" + num + "</td>";
+                num++;
+            }
+            table += "</tr>";
+        }
+        table += "</table>";
+        document.write(table);
+    </script>
+    <style>
+        tr{background-color: violet;}
+        table{
+            border-collapse: collapse;
+        }
+        td{
+            width: 150px;
+            height: 150px;
+            border:1px solid black;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .even {
+            background-color: green;
+        }
+
+        .odd {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>
