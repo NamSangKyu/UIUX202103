@@ -21,16 +21,25 @@
         //      약수들 중에서 제일 큰 최대값을 구함
         var n1 = Number(prompt("숫자 입력"));
         var n2 = Number(prompt("숫자 입력"));
+        var gcd;
         //두 변수의 값을 교환하는 방법
         if(n1 > n2){
             var temp = n1;
             n1 = n2;
             n2 = temp;
         }
-        for(i=1;i<=n1;i++){
+        /* for(i=1;i<=n1;i++){
             if(n1 % i == 0 && n2 % i == 0)
-                document.write(i, " ");
+                gcd = i;
+        } */
+        for(i=n1;i>0;i--){
+            if(n1 % i == 0 && n2 % i == 0){
+                gcd = i;
+                break;
+            }
         }
+
+        document.write(gcd, " ");
     </script>
 </head>
 <body>
