@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>switch 예제</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        var num = Number(prompt("숫자 입력, 1-google,2-Naver,3-Daum"));
+        //switch로 비교할 수 있는 값은 정수, 문자열
+        var url = "https://";
+        //switch ()에는 값(사칙연산, 변수)
+        switch (num) {
+            case 1:
+                document.write("Google");
+                url += "google.co.kr";
+                break;
+            case 2:
+                document.write("Naver");
+                url += "naver.com";
+                break;
+            case 3:
+                document.write("Daum");
+                url += "daum.net";
+                break;
+            default:
+                document.write("None Data");
+                url = null;
+        }
+        if(url != null)
+            location.href = url;
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
