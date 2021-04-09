@@ -27,8 +27,17 @@
 <li>복합대입연산자</li>
 <li>증감연산자</li>
 </ol>
-
-
+<p>0408 진도 내용</p>
+<ol>
+<li>do-while, for </li>
+<li>if, else if, else</li>
+</ol>
+<p>0409 진도 내용</p>
+<ol>
+<li>break, continue </li>
+<li>switch</li>
+<li>function(함수)</li>
+</ol>
 
 
 

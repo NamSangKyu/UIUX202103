@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>break 문제</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        var num = 0, total = 0;
+
+        while(true){
+            num = Number(prompt("숫자 입력하세요"));
+            total += num;
+            //total이 5000 이상이 되거나, num에 0을 입력하면 입력 종료
+            if(total >= 5000 || num == 0)
+                break;//반복문 강제 종료
+        }
+        document.write(total);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
