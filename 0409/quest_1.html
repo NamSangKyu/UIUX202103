@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>반복/분기문 문제 - 1</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        /*
+            숫자 두개를 입력 받아서 두수의 최대 공약수를 출력
+            예>
+            6, 10 입력 받았으면
+            6, 10의 최대 공약수는 2
+
+            6 15
+            6, 15의 최대 공약수는 3
+        */
+        //숫자 두개 입력
+        //반복문 - 1부터 입력한 숫자 중 작은 숫자까지 나누기를 실행
+        //      두 숫자를 1부터 나누어서 둘다 나머지가 0이 나오면 약수
+        //      약수들 중에서 제일 큰 최대값을 구함
+        var n1 = Number(prompt("숫자 입력"));
+        var n2 = Number(prompt("숫자 입력"));
+        //두 변수의 값을 교환하는 방법
+        if(n1 > n2){
+            var temp = n1;
+            n1 = n2;
+            n2 = temp;
+        }
+        for(i=1;i<=n1;i++){
+            if(n1 % i == 0 && n2 % i == 0)
+                document.write(i, " ");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
