@@ -18,14 +18,19 @@
 <p>0331 레이아웃</p>
 <p>0401 레이아웃, 애니메이션</p>
 <p>0402 transform, 회원가입 CSS</p>
-<p>0402 회원가입 CSS, 라디오/체크박스 CSS</p>
-<p>0405 자바스크립트 기초</p>
+<p>0405 회원가입 CSS, 라디오/체크박스 CSS</p>
+<p>0406 자바스크립트 기초</p>
 <ol>
 <li>document, console 출력</li>
 <li>변수, 데이터 타입</li>
 <li>사칙연산자</li>
 <li>복합대입연산자</li>
 <li>증감연산자</li>
+</ol>
+<p>0407 자바스크립트 기초</p>
+<ol>
+<li>비교연산자, 관계 연산자</li>
+<li>반복문 while</li>
 </ol>
 <p>0408 진도 내용</p>
 <ol>
@@ -37,6 +42,11 @@
 <li>break, continue </li>
 <li>switch</li>
 <li>function(함수)</li>
+</ol>
+<p>0412 진도 내용</p>
+<ol>
+<li>Date 객체, 문제, 달력 </li>
+<li>문자열 함수</li>
 </ol>
 
 
