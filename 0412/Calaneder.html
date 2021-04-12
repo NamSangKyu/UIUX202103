@@ -22,7 +22,21 @@
         end.setDate(0);//0 전달 마지막날
         console.log(start);
         console.log(end);
+        //달력 첫칸 날짜 계산
+        start.setDate(start.getDate()-start.getDay()); 
+        //달력 마지막칸 날짜 계산
+        end.setDate(end.getDate()+6-end.getDay());
+        console.log("달력 첫칸 : " + start);
+        console.log("달력 마지막칸 : " + end);
+        //달력 줄수를 계산
+
         //주차별로 완성
+        tag+="<tr>";
+        for(i=0;i<7;i++){
+            tag+="<td>"+start.getDate()+"</td>";
+            start.setDate(start.getDate()+1);
+        }
+        tag+="</tr>";
         //----
         tag += "</table>";
         document.write(tag);
@@ -34,6 +48,13 @@
         th,td{
             border:1px solid black;
             width: 150px;
+            font-size: 20px;
+        }
+        td{
+            height: 150px;
+            text-align: right;
+            vertical-align: top;
+            padding:5px;
         }
     </style>
 </head>
