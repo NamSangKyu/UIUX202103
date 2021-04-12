@@ -14,6 +14,8 @@
             "<th>화</th><th>수</th><th>목</th>"+
             "<th>금</th><th>토</th></tr>";
         //달력 구성
+        //현재 월 정보 저장
+        var month = today.getMonth();
         //시작 날짜, 마지막 날짜 구함
         var start = new Date();
         start.setHours(0);
@@ -41,7 +43,10 @@
             //주차별로 완성
             tag+="<tr>";
             for(i=0;i<7;i++){
-                tag+="<td>"+start.getDate()+"</td>";
+                if(month != start.getMonth())
+                    tag+="<td class='disable'>"+start.getDate()+"</td>";
+                else
+                    tag+="<td>"+start.getDate()+"</td>";
                 start.setDate(start.getDate()+1);
             }
             tag+="</tr>";
@@ -70,6 +75,9 @@
         }
         td:nth-child(7n+1), th:nth-child(7n+1){
             color:red;
+        }
+        .disable{
+            color:#d8d5d5 !important;
         }
     </style>
 </head>
