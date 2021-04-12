@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>달력</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        //2021년도 4월달 달력을 만듬
+        var today = new Date("2021-04-12");
+        var tag = "<h2>" + (today.getMonth() + 1) + "월 달력</h2>";
+        tag += "<table><tr><th>일</th><th>월</th>"+
+            "<th>화</th><th>수</th><th>목</th>"+
+            "<th>금</th><th>토</th></tr>";
+        //달력 구성
+        //----
+        tag += "</table>";
+        document.write(tag);
+    </script>
+    <style>
+        table{
+            border-collapse: collapse;
+        }   
+        th,td{
+            border:1px solid black;
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>
