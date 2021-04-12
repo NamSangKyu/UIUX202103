@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>간단한 이벤트 예제</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function readTxt(){
+            //js에서 html 태그에 접근하는 방법 - id값을 이용해서 접근
+            var txt = document.getElementById("txt");
+            console.log(txt.value);//txt에 입력한 값을 읽어옴 
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="txt"><button onclick="readTxt()">실행</button>    
+</body>
+</html>
