@@ -16,9 +16,15 @@
         //달력 구성
         //시작 날짜, 마지막 날짜 구함
         var start = new Date();
+        start.setHours(0);
+        start.setMinutes(0);
+        start.setSeconds(0);
         start.setDate(1);
         var end = new Date();
         end.setMonth(end.getMonth()+1);//다음달 변경
+        end.setHours(0);
+        end.setMinutes(0);
+        end.setSeconds(0);
         end.setDate(0);//0 전달 마지막날
         console.log(start);
         console.log(end);
@@ -29,14 +35,17 @@
         console.log("달력 첫칸 : " + start);
         console.log("달력 마지막칸 : " + end);
         //달력 줄수를 계산
-
-        //주차별로 완성
-        tag+="<tr>";
-        for(i=0;i<7;i++){
-            tag+="<td>"+start.getDate()+"</td>";
-            start.setDate(start.getDate()+1);
+        var line = (end.getTime()-start.getTime()) / (1000*60*60*24*7);      
+        console.log("달력 줄수 : "+line);
+        for(j=0;j<line;j++){
+            //주차별로 완성
+            tag+="<tr>";
+            for(i=0;i<7;i++){
+                tag+="<td>"+start.getDate()+"</td>";
+                start.setDate(start.getDate()+1);
+            }
+            tag+="</tr>";
         }
-        tag+="</tr>";
         //----
         tag += "</table>";
         document.write(tag);
