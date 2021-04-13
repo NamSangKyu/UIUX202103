@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -18,15 +19,32 @@
             입력한 물품은 의약품입니다. <--- 출력 결과
 
         */
-       var codeNo = prompt("제품 코드를 입력하세요");
-       var code = codeNo.substring(codeNo.indexOf("-")+1,codeNo.lastIndexOf("-"));
-       //var code = codeNo.substring(codeNo.indexOf("-")+1,codeNo.indexOf("-",codeNo.indexOf("-")+1));
-       console.log(code);
-       
+        var codeNo = prompt("제품 코드를 입력하세요");
+        var code = codeNo.substring(codeNo.indexOf("-") + 1, codeNo.lastIndexOf("-"));
+        //var code = codeNo.substring(codeNo.indexOf("-")+1,codeNo.indexOf("-",codeNo.indexOf("-")+1));
+        console.log(code);
+        switch (code) {
+            case "1":
+                document.write("입력한 물품은 식품입니다.", "<br>");
+                break;
+            case "2":
+                document.write("입력한 물품은 전자제품입니다.", "<br>");
+                break;
+            case "3":
+                document.write("입력한 물품은 의약품입니다.", "<br>");
+                break;
+            case "4":
+                document.write("입력한 물품은 생활용품입니다.", "<br>");
+                break;
+            default:
+                document.write("입력한 코드 오류.", "<br>");
+        }
 
     </script>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>
