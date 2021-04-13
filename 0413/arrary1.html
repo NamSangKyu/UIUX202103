@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>배열</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        //변수에다가 저장할 수 있는 값은 1개
+        var n1 = 10, n2= 20, n3= 30, n4 = 40, n5 = 50;
+        var sum = 0;
+        //변수명이 달라서, 하는일이 같아도 반복문으로 묶을수가 없다.
+        sum += n1;
+        sum += n2;
+        sum += n3;
+        sum += n4;
+        sum += n5;
+
+        //배열(Array) : 하나의 변수명으로 여러개의 변수를 선언
+        var arr = [10,20,true,3.14154,"A"];
+        document.write("<h2>배열값 가져오는 방법 1</h2>");
+        //인덱스로 구분 : 0~개수-1
+        document.write(arr[0],"<br>");
+        document.write(arr[1],"<br>");
+        document.write(arr[2],"<br>");
+        document.write(arr[3],"<br>");
+        document.write(arr[4],"<br>");
+        
+        document.write("<h2>배열값 가져오는 방법 2</h2>");
+        for(i=0;i<arr.length;i++){
+            document.write(arr[i],"<br>");
+        }
+
+        document.write("<h2>배열값 가져오는 방법 3</h2>");
+        for(i in arr){
+            document.write(arr[i],"<br>");
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
