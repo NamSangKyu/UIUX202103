@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        /*
+            코드 : 제품, 사람, 학생들에 대한 고유번호 체계
+
+            제조사번호-물품종류-고유코드
+
+            물품 종류 : 1-식품, 2-전자제품, 3-의약품, 4-생활용품
+                        1~4에 해당하는 값이 아니면 코드 오류
+            제품코드를 입력받아서 해당 물품 종류를 출력
+            SM01010-3-RE244 <--- 입력된값
+            입력한 물품은 의약품입니다. <--- 출력 결과
+
+        */
+       var codeNo = prompt("제품 코드를 입력하세요");
+       var code = codeNo.substring(codeNo.indexOf("-")+1,codeNo.lastIndexOf("-"));
+       //var code = codeNo.substring(codeNo.indexOf("-")+1,codeNo.indexOf("-",codeNo.indexOf("-")+1));
+       console.log(code);
+       
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
