@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -7,21 +8,38 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script>
         //로또번호 하나 생성 1~45까지 번호를 랜덤 생성
-        function createNumber(){
-            return Math.floor(Math.random()*45)+1;
+        function createNumber() {
+            return Math.floor(Math.random() * 45) + 1;
         }
         //로또번호 한 셋트 생성
-        function createLotto(){
+        function createLotto() {
             //배열 생성
+            var arr = [];//배열 생성 방법 - 1
+            // var arr = new Array();//배열 생성 방법 - 2
             //반복문 - 배열에 저장된 값의 개수 7 이 될때까지
+            while (arr.length != 7) {
                 //숫자 랜덤으로 뽑아서 배열에 해당 숫자가 있는지 체크
-                //숫자가 중복되면 저장하지 않고 다음 반복으로 넘어감
+                var n = createNumber();
+                if (arr.indexOf(n) != -1) {
+                    //숫자가 중복되면 저장하지 않고 다음 반복으로 넘어감
+                    continue;
+                }
                 //숫자가 중복되지 않으면 배열에 저장
+                arr.push(n);
+            }
             //return 배열
+            return arr;
         }
+        document.write(createLotto(),"<br>");
+        document.write(createLotto(),"<br>");
+        document.write(createLotto(),"<br>");
+        document.write(createLotto(),"<br>");
+        document.write(createLotto(),"<br>");
     </script>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>
