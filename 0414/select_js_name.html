@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>name 속성으로 접근</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <!--로그인 폼, name 속성-->    
+    <form name="frm">
+        <input type="text" name="id"><br>
+        <input type="password" name="pass"><br>
+        <button type="button" onclick="loginCheck()">로그인</button>
+    </form>
+    <script>
+        function loginCheck(){
+            var id = document.getElementsByName("id")[0];
+            // var pass = document.getElementsByName("pass")[0];
+            var pass = document.frm.pass;
+            console.log(id.value + " : " + pass.value);
+            if(id.value.length == 0 || pass.value == "")
+                alert("아이디와 비밀번호를 반드시 입력하세요");
+        }
+    </script>
+</body>
+</html>
