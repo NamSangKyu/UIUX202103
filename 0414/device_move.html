@@ -15,6 +15,15 @@
         //iphone --> apple iphone 소개 페이지
         //android --> 구글 홈페이지
         //문자열 함수, if문 이용
+        if(info.indexOf("windows") != -1){
+            document.write("<a href='https://www.microsoft.com/ko-kr'>ms 홈페이지로 이동</a>");
+        }else if(info.indexOf("macintosh") != -1){
+            document.write("<a href='https://www.apple.com/kr/mac/'>apple Mac 소개페이지로 이동</a>");
+        }else if(info.indexOf("iphone") != -1){
+            document.write("<a href='https://www.apple.com/kr/iphone/'>apple 아이폰 소개페이지로 이동</a>");
+        }else{
+            document.write("<a href='https://www.google.com/'>구글 홈페이지로 이동</a>");
+        }
     </script>
 </head>
 <body>
