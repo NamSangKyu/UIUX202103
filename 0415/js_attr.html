@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>js에서 태그 속성 다루기</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <img src="/resource/img/grill1.jpg" alt="대체 텍스트"><br>
+    <input type="text" id="txt">
+    <button onclick="btnClick()">실행</button>
+    <script>
+        function btnClick(){
+            var img = document.getElementsByTagName("img")[0];
+            var txt = document.getElementById("txt");         
+            alert(img.src);
+            alert(txt.value);
+        }
+    </script>
+</body>
+</html>
