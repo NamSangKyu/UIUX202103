@@ -14,8 +14,12 @@
         function btnClick(){
             var img = document.getElementsByTagName("img")[0];
             var txt = document.getElementById("txt");         
-            alert(img.src);
-            alert(txt.value);
+            //alert(img.src); alert(txt.value);
+
+            //이미지는 다른이미지로 교체
+            img.src = "/resource/img/grill2.jpg";
+            //input 태그에는 값을 TEST 변경
+            txt.value="TEST";
         }
     </script>
 </body>
