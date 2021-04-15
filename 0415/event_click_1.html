@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+     <script>
+         window.onload = function () {
+            var btn = document.getElementsByTagName("button")[0];
+            //onclick 마우스 클릭 이벤트
+            btn.onclick = function(){
+                //태그를 선택
+                var id = document.getElementById("id");
+                var pass = document.getElementById("pass");
+                //아이디와 패스워드 값이 전부 입력이 되었는지 체크
+                //전부 입력이 안되어있으면 아이디 비밀번호를 입력하세요.
+                if(id.value.trim().length == 0 || pass.value.trim().length == 0){
+                    alert("id와 password를 입력하세요");
+                }else{
+                    //전부 입력이 되었으면 값이 정상입니다. 경고창 발생
+                    alert("정상적으로 입력하셨습니다.");
+                }
+            }         
+         }
+     </script>
+</head>
+<body>
+    <!--로그인-->
+    <input type="text" id="id"><br>
+    <input type="password" id="pass"><br>
+    <button>로그인</button>
+
+</body>
+</html>

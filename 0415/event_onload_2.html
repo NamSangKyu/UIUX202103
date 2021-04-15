@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        //모든 태그 로드된 후 해야될일 작성
+        window.onload = function(){
+            //이미 이미지가 로드된 후
+            //이미지 태그 선택
+            var img = document.getElementsByTagName("img")[0];
+            alert(img.src); 
+            //해당 이벤트는 이미 실행 된 후 실행 X
+            img.onload = function() {
+                alert("img load");
+            };
+        }
+        function imgLoad(){
+            alert("이미지 태그 로드");
+        }
+    </script>
+</head>
+<body>
+    <h1>onload 이벤트 테스트</h1>    
+    <img src="/resource/img/grill2.jpg" onload="imgLoad()">
+    <h2>h2 영역</h2>
+</body>
+</html>
