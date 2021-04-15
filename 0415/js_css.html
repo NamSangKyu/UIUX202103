@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        #back{
+            background-image: url("/resource/img/calendar.png");
+            width: 100px;
+            height: 100px;
+            background-size: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="pop">영역 태그</div>
+    <ul>
+        <li>A - list</li>
+        <li>B - list</li>
+        <li>C - list</li>
+        <li>D - list</li>
+    </ul>
+    <div id="back" onmouseover="rolloverImage()"></div>
+    <script>
+        var pop = document.getElementById("pop");
+        //alert(pop.innerHTML);
+        //선택된 태그에 css 적용하는 방법
+        pop.style.color = "#E8E8E8";
+        //css 속성이 background-color 처럼 -가 들어가면
+        //- 뺴고 단어를 붙이고 2번째 단어부터 첫글자를 대문자로
+        //backgroundColor, listStyleType 이런 형태로 작성함
+        pop.style.backgroundColor ="yellow";
+        //ul list-style-type : none으로 변경
+        var ul = document.getElementsByTagName("ul")[0];
+        ul.style.listStyleType = "none";
+
+        function rolloverImage(){
+            var back = document.getElementById("back");
+            back.style.backgroundImage="url('/resource/img/cup.png')";
+        }
+    </script>
+</body>
+</html>
