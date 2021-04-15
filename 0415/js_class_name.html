@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+           background-color: yellow;
+        }
+        .box1{
+            background-color: blue;
+        }
+        .box2{
+            background-color: red;
+        }
+        .border{
+            border:10px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1" onmouseover="changeBackground()" onclick="removeBorder()"></div>
+    <script>
+        function changeBackground(){
+            //box 선택
+            var box = document.getElementsByClassName("box1")[0];
+            //현재 선택된 박스의 배경색 값을 읽어오기
+            //box.style <-- 태그 style 속성에서 적용한 값들을 읽어옴
+            console.log(box.style.backgroundColor);
+            console.log(box.className);
+            box.className = "box2";
+            console.log(box.style.backgroundColor);
+            console.log(box.className);
+            //클래스 추가
+            box.className += " border";
+        }
+
+        function removeBorder(){
+            var box = document.getElementsByTagName("div")[0];
+            //클래스 속성값의 border 클래스 삭제
+            alert(box.className);
+            
+        }
+    </script>
+</body>
+</html>
