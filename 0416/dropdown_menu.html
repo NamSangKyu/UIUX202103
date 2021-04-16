@@ -41,6 +41,11 @@
         }
         #sub_menu_container{
             display: inline-block;
+            height: 0px;
+            overflow: hidden;
+            border: 1px solid blue;
+            box-sizing: content-box;
+            width: 100%;
         }
         .sub_menu{
             list-style-type: none;
@@ -59,7 +64,23 @@
             display: inline-block;
             border: 1px solid black;
         }
+      
     </style>
+    <script>
+        window.onload = function(){
+            //onmouseenter, onmouseleave
+            //nav에 적용해서 서브 메뉴를 보이거나 숨기는 처리
+            var nav = document.getElementsByTagName("nav")[0];
+            nav.onmouseenter = function(){
+                var sub = document.getElementById("sub_menu_container");
+                sub.style.height = "auto";
+            }
+            nav.onmouseleave = function(){
+                var sub = document.getElementById("sub_menu_container");
+                sub.style.height = "0px";
+            }
+        }
+    </script>
 </head>
 
 <body>
