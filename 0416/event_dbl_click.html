@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>event - dbl click</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function eventClick(){
+            console.log("클릭이벤트");
+        }
+        function eventDblClick(){
+            console.log("더블클릭이벤트");
+        }
+        window.onload = function(){
+            //h1 태그를 아이디 선택자로 선택
+            var h1 = document.getElementById("h1");
+            //eventClick 함수를 onclick 이벤트에 저장
+            h1.onclick = eventClick;
+            h1.ondblclick = eventDblClick; 
+            h1.ondblclick();           
+        }
+
+    </script>
+</head>
+<body>
+    <h1 id="h1">제목 태그</h1>
+</body>
+</html>
