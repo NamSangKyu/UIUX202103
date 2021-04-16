@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload = function(){
+            var img = document.getElementsByTagName("img")[0];
+
+            img.onmouseover = function(){
+                this.src = "/resource/img/grill1.jpg";
+            }
+            img.onmouseout = function(){
+                this.src = "/resource/img/header_img.jpg";
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <!-- 
+       onmouseover 일때 다른 이미지로 변경
+       onmouseout 일때 원본 이미지로 변경
+    -->
+    <img src="/resource/img/header_img.jpg">    
+</body>
+</html>
