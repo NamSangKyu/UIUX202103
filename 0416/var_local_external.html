@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>전역변수, 지역변수</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        //전역변수는 어떤 함수에서도 쓸수 있는 변수
+        //함수 밖에 선언해서 쓰는 변수
+        //각 함수에서 동일한 변수를 쓸수 있음
+        //onload 이벤트에서 전역변수가 초기화가 되어있지않으면
+        //전역변수 초기화를 우선적으로 수행
+        var t=null;
+        window.onload = function(){
+
+            var n = 0;
+            t = document.getElementById("num");
+            var btn = document.getElementsByTagName("button")[0];
+            btn.onclick = function(){
+                // var txt = document.getElementById("num");
+                // n++;
+                // txt.value = n;
+                n++;
+                t.value = n;
+            }
+            //btn onclick 이벤트 함수 안에 선언한 변수이기 때문에
+            //함수가 끝나면 자동적으로 메모리에서 해제, 외부에서 접근이 불가
+            //console.log(txt.value);
+        }
+        function btnClick(){
+            t.value=Number(t.value)-1;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="num" value="0">
+    <button>증가</button>
+    <button onclick="btnClick();">감소</button>
+    
+</body>
+</html>
