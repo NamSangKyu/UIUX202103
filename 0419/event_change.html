@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload = function(){
+            var sel = document.getElementById("sel");
+            var txt = document.getElementById("txt");
+            
+            sel.onchange = function(){
+                //현재 select가 선택된 값을 콘솔에다가 출력
+                //console.log(sel.value);
+                console.log(this.value);
+            }
+            txt.onchange = function(){
+                console.log(this.value);
+            }
+        }
+    </script>
+</head>
+<body>
+    <!--
+        change이벤트는 주로 select에서 자주 사용, 
+        input tag에서도 사용은 가능
+    -->    
+    <select id="sel">
+        <option value="0">선택</option>
+        <option value="1">데이터1</option>
+        <option value="2">데이터2</option>
+        <option value="3">데이터3</option>
+        <option value="4">데이터4</option>
+    </select>
+    <input type="text" id="txt">
+</body>
+</html>
