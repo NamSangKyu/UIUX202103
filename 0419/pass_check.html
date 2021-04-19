@@ -31,19 +31,22 @@
                     result.innerHTML = "암호는 8자리~16자리를 입력 하셨습니다.";
                 }
                 //pass1이 숫자가 들어가 있는지 체크
-                var pattern = "0123456789";
-                var res = false;
-                for(i=0;i<pattern.length;i++){
-                    if(pass1.value.indexOf(pattern.charAt(i))!= -1){
-                        res = true;
-                        break;
-                    }
-                }
+                var pattern = /[0-9]/;
+                var res = pattern.test(pass1.value);
+               
                 if(res)
                     result.innerHTML = "암호에 숫자가 들어가 있습니다.";
                 else
                     result.innerHTML = "암호에 숫자를 넣으세요";
                 //pass1이 특수문자가 들어가 있는지 체크
+                //                      \[ --> [ 인식
+                pattern = /[!@#$%^&*()_\+\=\-\[\]\"\']/
+                res = pattern.test(pass1.value);
+                console.log("특수문자 체크 : "+res);
+                //알파벳 입력 했는지 체크
+                pattern = /[a-zA-Z]/
+                res = pattern.test(pass1.value);
+                console.log("알파벳 체크 : "+res);
             }
         }
     </script>
