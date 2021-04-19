@@ -65,11 +65,18 @@
                     result.innerHTML = "암호에 공백을 입력하시면 안되요.";
                     result.className = "false";
                     return;
+                }//space check if end
+                //pass1과 pass2가 일치하는지 체크
+                if(pass1.value != pass2.value){
+                    result.innerHTML = "입력한 두 암호가 다릅니다.";
+                    result.className = "false";
+                    return;
                 }
-                result.innerHTML = "암호가 형식에 맞게 입력되었습니다.";
+                result.innerHTML = "암호가 형식에 맞고 두 암호가 일치합니다.";
                 result.className = "true";
-            }
-        }
+            }//pass1 onkeyup end
+            pass2.onkeyup = pass1.onkeyup;
+        }//window onload end
     </script>
 </head>
 <body>
