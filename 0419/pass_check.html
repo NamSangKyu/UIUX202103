@@ -59,6 +59,13 @@
                     result.className = "false";
                     return;
                 }
+                //공백 또는 탭, 줄바꿈 체크
+                pattern = /[\s]/
+                if(pattern.test(pass1.value)){
+                    result.innerHTML = "암호에 공백을 입력하시면 안되요.";
+                    result.className = "false";
+                    return;
+                }
                 result.innerHTML = "암호가 형식에 맞게 입력되었습니다.";
                 result.className = "true";
             }
