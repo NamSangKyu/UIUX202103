@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        //윈도우 객체  onload 이벤트 작성
+        //아이디, 비밀번호 태그 선택
+        window.onload = function(){
+            var id = document.getElementById("id");
+            var pass = document.getElementById("pass");
+            var frm = document.frm;
+            frm.onsubmit = function(e){
+                //입력한 아이디와 패스워드를 경고창으로 띄움
+                //alert(id.value + " " + pass.value);
+                //아이디와 패스워드를 입력했을떄만 페이지 이동이 되겠끔 처리
+                //if(id.value.length == 0 || pass.value.length == 0)
+                if(id.value == "" || pass.value == ""){
+                    alert("아이디와 비밀번호를 입력하세요");
+                    e.preventDefault();
+                    return false;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+       <!--
+           로그인 폼하나 작성
+            아이디 비밀번호 버튼
+            아이디 비밀번호 태그에는 id 속성값을 추가
+            반드시 폼태그 작성(form tag 적용)
+        --> 
+        <form action="" method="post" name="frm">
+            아이디<input type="text" id="id"><br>
+            비밀번호<input type="password" id="pass"><br>
+            <!--button 태그에 type속성을 작성하지 않으면
+                기본값으로 type='submit'으로 지정됨-->
+            <button>로그인</button> 
+            <input type="submit" value="로그인">
+        </form>
+</body>
+</html>

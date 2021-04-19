@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>암호 입력 체크 예제</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .true{
+            color : blue;
+            font-weight: bold;
+        }
+        .false{
+            color : red;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        //pass1에 입력된 내용이 8자리~16자리까지만 허용 <-- onkeyup
+        // 글자수가 개수 범위에 벗어나면
+        //result에 암호는 8자리~16자리를 입력해야 합니다. <-- 메세지 출력
+        window.onload = function(){
+            var pass1 = document.getElementById("pass1");        
+            var pass2 = document.getElementById("pass2");        
+            var result = document.getElementById("result");        
+
+            pass1.onkeyup = function(e){
+                if(pass1.value.length < 8 || pass1.value.length > 16){
+                    result.innerHTML = "암호는 8자리~16자리를 입력해야 합니다.";
+                }else{
+                    result.innerHTML = "암호는 8자리~16자리를 입력 하셨습니다.";
+                }
+                //pass1이 숫자가 들어가 있는지 체크
+                var pattern = "0123456789";
+                var res = false;
+                for(i=0;i<pattern.length;i++){
+                    if(pass1.value.indexOf(pattern.charAt(i))!= -1){
+                        res = true;
+                        break;
+                    }
+                }
+                if(res)
+                    result.innerHTML = "암호에 숫자가 들어가 있습니다.";
+                else
+                    result.innerHTML = "암호에 숫자를 넣으세요";
+                //pass1이 특수문자가 들어가 있는지 체크
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="password" id="pass1"><br>
+    <input type="password" id="pass2"><br>
+    <div id="result"></div>
+</body>
+</html>
