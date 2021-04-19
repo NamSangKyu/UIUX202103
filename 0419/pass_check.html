@@ -27,26 +27,40 @@
             pass1.onkeyup = function(e){
                 if(pass1.value.length < 8 || pass1.value.length > 16){
                     result.innerHTML = "암호는 8자리~16자리를 입력해야 합니다.";
-                }else{
-                    result.innerHTML = "암호는 8자리~16자리를 입력 하셨습니다.";
+                    result.className = "false";
+                    return;
                 }
                 //pass1이 숫자가 들어가 있는지 체크
                 var pattern = /[0-9]/;
                 var res = pattern.test(pass1.value);
                
-                if(res)
-                    result.innerHTML = "암호에 숫자가 들어가 있습니다.";
-                else
-                    result.innerHTML = "암호에 숫자를 넣으세요";
+                if(!res){
+                    result.innerHTML = "암호에 숫자를 입력하세요.";
+                    result.className = "false";
+                    return;
+                }
+
                 //pass1이 특수문자가 들어가 있는지 체크
                 //                      \[ --> [ 인식
                 pattern = /[!@#$%^&*()_\+\=\-\[\]\"\']/
                 res = pattern.test(pass1.value);
                 console.log("특수문자 체크 : "+res);
+                if(!res){
+                    result.innerHTML = "암호에 특수문자를 한개이상 입력하세요.";
+                    result.className = "false";
+                    return;
+                }
                 //알파벳 입력 했는지 체크
                 pattern = /[a-zA-Z]/
                 res = pattern.test(pass1.value);
                 console.log("알파벳 체크 : "+res);
+                if(!res){
+                    result.innerHTML = "암호에 알파벳을 입력하세요.";
+                    result.className = "false";
+                    return;
+                }
+                result.innerHTML = "암호가 형식에 맞게 입력되었습니다.";
+                result.className = "true";
             }
         }
     </script>
