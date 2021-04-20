@@ -9,13 +9,32 @@
         function checkList(){
             //체크박스를 선택
             var checkbox = document.getElementsByName("hobby");
+            //체크된 항목만 값을 출력
+            for(i=0;i<checkbox.length;i++){
+                if(checkbox[i].checked)
+                    console.log(checkbox[i].value + " , "+checkbox[i].checked);
+            }
+            //체크박스 항목 중 하나라도 선택이 안되어있으면 --방법1
+            //취미는 반드시 하나 이상 선택하세요 <--- 경고창 발생
+            var count = 0;
+            for(i=0;i<checkbox.length;i++){
+                if(checkbox[i].checked) count++;
+            }
+            if(count == 0)
+                alert("취미는 반드시 하나이상 선택하세요");
+            //방법2
+            var result = false;
             for(i=0;i<checkbox.length;i++)
-                console.log(checkbox[i].value);
+                result = result || checkbox[i].checked;
+            if(result) alert("취미는 반드시 하나이상 선택하세요");
         }
         window.onload = function(){
             //버튼 선택
             var btn = document.getElementById("btn");
             btn.onclick = checkList;
+            //속성만 있는 형태일 경우 값 조회
+            console.log(document.getElementById("txt").required);
+            document.getElementById("txt").readOnly = true;
         }
     </script>
 </head>
@@ -25,6 +44,7 @@
     <input type="checkbox" name="hobby" value="등산">등산<br>
     <input type="checkbox" name="hobby" value="낚시">낚시<br>
     <input type="checkbox" name="hobby" value="요리">요리<br>
+    <input type="text" id="txt" required><br>
     <button id="btn">실행</button>
 </body>
 </html>
