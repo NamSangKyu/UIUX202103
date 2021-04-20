@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function checkList(){
+            //체크박스를 선택
+            var checkbox = document.getElementsByName("hobby");
+            for(i=0;i<checkbox.length;i++)
+                console.log(checkbox[i].value);
+        }
+        window.onload = function(){
+            //버튼 선택
+            var btn = document.getElementById("btn");
+            btn.onclick = checkList;
+        }
+    </script>
+</head>
+<body>
+    <!--체크 박스 4개, 버튼 1개-->    
+    <input type="checkbox" name="hobby" value="게임">게임<br>
+    <input type="checkbox" name="hobby" value="등산">등산<br>
+    <input type="checkbox" name="hobby" value="낚시">낚시<br>
+    <input type="checkbox" name="hobby" value="요리">요리<br>
+    <button id="btn">실행</button>
+</body>
+</html>
