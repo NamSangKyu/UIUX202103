@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        /*
+            제출 버튼을 클릭하여 서버로 데이터를 전송을 하기전에
+            약관동의 버튼에 '예'가 체크 되었을떄만 전송이 되겠끔 처리하시오
+            단 약관동의 버튼 중 '아니오'가 체크 되어 있으면
+            경고창을 발생시켜서 '가입하실려면 약관 동의를 수락해주세요'
+            메세지를 나타내도록 하시오.
+        */
+       window.onload = function(){
+            var agree = document.getElementsByName("agree");
+            var frm = document.frm;
+            frm.onsubmit = function(e){
+                for(i=0;i<agree.length;i++){
+                    if(agree[i].checked && agree[i].value == "no"){
+                        alert("서비스 이용을 하실려면 약관에 동의하셔야 됩니다.");
+                        return false;
+                    }
+                }
+            }
+       }
+    </script>
+</head>
+<body>
+    <form action="" method="post" name="frm">
+        <input type="radio" name="agree" value="yes">예<br>
+        <input type="radio" name="agree" value="no" checked>아니오<br>
+        <button>제출</button>
+    </form>    
+</body>
+</html>
