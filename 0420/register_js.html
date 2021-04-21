@@ -198,6 +198,20 @@
             pass_result.className = "true";
             return true;
         }
+        function checkTel(){
+            var tel = document.getElementById("tel");
+            var pattern = /^[0-9]*$/;
+            //console.log(pattern.test(tel.value));
+            if(!pattern.test(tel.value)){
+                alert("전화번호에는 숫자만 입력하세요");
+                return false;
+            }
+            if(tel.value.length > 11 || tel.value.length < 9){
+                alert("전화번호는 9~11자리 까지입니다.");
+                return false;
+            }
+            return true;
+        }
         window.onload = function () {
             //폼 태그 선택
             var frm = document.frm;
@@ -206,6 +220,8 @@
                 if(!idCheck()) return false;
                 //암호 체크 처리
                 if(!passCheck()) return false;
+                //전화번호 체크 처리
+                if(!checkTel()) return false;
             }
             var pass = document.getElementById("pass");
             var pass_chk = document.getElementById("pass_chk");
@@ -221,7 +237,7 @@
                 var sub_txt = document.getElementsByClassName("sub_txt")[1];
                 sub_txt.innerHTML = this.value.length + "/20";
             }
-
+            
         }
     </script>
 </head>
