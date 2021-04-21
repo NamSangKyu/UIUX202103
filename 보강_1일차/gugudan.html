@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>입력/출력/연산</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        /*  
+            태그 접근하는 방법 : (태그명, 클래스명, name속성값) - 배열로 관리,
+                                아이디값 --> 단일 변수로 관리(아이디값은 중복 X)
+        */
+        window.onload = function(){
+            //dan, btn 접근
+            //아이디 값이 dan 태그를 선택 그 정보를 dan 변수에 저장
+            var dan = document.getElementById("dan");
+            var btn = document.getElementById("btn");
+            //위에처럼 변수에 객체가 저장된 경우에는 변수명.변수명을 사용해서 접근
+            //document안에 있는 getElementById라는 함수를 쓰겠다.
+            btn.onclick = function(){
+            //dan에 저장된 값중 value를 뽑아서 변수 n에다가 숫자로 변경해서 저장
+            var n = Number(dan.value);
+            var tag = "";
+            //숫자 n과, 아이디값이 result 태그 안에 변수 n에 해당하는 구구단 출력
+            for(i=1;i<10;i++){
+                //화면에 출력할 형태로 태그를 조립하는 과정
+                tag += "<p>";
+                tag += n +  " * " + i + " = " + n * i;
+                tag += "</p>";
+            }
+            result.innerHTML += tag;
+        }
+        }
+    </script>
+</head>
+<body>
+    <!--태그에 입력한 내용을 변수에 따로 저장-->
+    <input type="text" id="dan"><button id="btn">출력</button>   
+    <div id="result"></div> 
+</body>
+</html>
