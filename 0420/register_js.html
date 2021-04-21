@@ -222,6 +222,12 @@
                 if(!passCheck()) return false;
                 //전화번호 체크 처리
                 if(!checkTel()) return false;
+
+                var agree = document.getElementById("agree2");
+                if(agree.checked){
+                    alert("약관에 동의하셔야 서비스 이용이 가능합니다.");
+                    return false;
+                }
             }
             var pass = document.getElementById("pass");
             var pass_chk = document.getElementById("pass_chk");
