@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+         function makeRequest() {
+            httpRequest = new XMLHttpRequest();
+
+            if(!httpRequest) {
+            alert('XMLHTTP 인스턴스를 만들 수가 없어요 ㅠㅠ');
+            return false;
+            }
+            httpRequest.onreadystatechange = alertContents;
+            httpRequest.open('GET', 'http://nam2626.dothome.co.kr/papago.php');
+            httpRequest.send();//서버 요청
+        }
+        function alertContents() {
+            if (httpRequest.readyState === XMLHttpRequest.DONE) {//이상없음, 응답 완료
+	            if (httpRequest.status === 200) {//200 code 정상적으로 받았음
+	                console.log(httpRequest.responseText);
+	                var result = httpRequest.responseText;
+	                result = result.split("<br>")[1];
+	                var json_result = JSON.parse(result);
+	               document.getElementById("view").innerHTML =
+	            	   json_result.message.result.translatedText;
+	            } else {
+	                alert('request에 뭔가 문제가 있어요.');
+	            }
+           }
+        }
+        window.onload = function () {
+            document.getElementById("time").innerHTML = new Date();
+            var btn = document.getElementById("btn");
+            btn.onclick = function(){
+                    makeRequest();
+            };
+        };
+
+    </script>
+</head>
+<body>
+	<div id="time"></div><!--실제 웹페이지가 로드된 시간-->
+    <button id="btn">버튼</button>
+    <div id="view"></div>    
+</body>
+</html>
+
+
