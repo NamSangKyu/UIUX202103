@@ -20,20 +20,48 @@
         function alertContents() {
             if (httpRequest.readyState === XMLHttpRequest.DONE) {//이상없음, 응답 완료
                 if (httpRequest.status === 200) {//200 code 정상적으로 받았음
-                    //alert(httpRequest.responseText);
+                    console.log(httpRequest.responseText);
                     var result = httpRequest.responseText;
                     var xmlParser = new DOMParser();
                     var xmlDoc = xmlParser.parseFromString(result,"text/xml");
-                    var txt = 
-                    xmlDoc.getElementsByTagName("question")[0].childNodes[0].nodeValue
-                    + "<br>" + 
-                    xmlDoc.getElementsByTagName("answer")[0].childNodes[0].nodeValue;
-                    document.getElementById("view").innerHTML = txt ;
+                    allPrintXml(xmlDoc);
+                    printMenu(xmlDoc);
+                    // var txt = 
+                    // xmlDoc.getElementsByTagName("question")[0].childNodes[0].nodeValue
+                    // + "<br>" + 
+                    // xmlDoc.getElementsByTagName("answer")[0].childNodes[0].nodeValue;
+                    // document.getElementById("view").innerHTML = txt ;
                 } else {
                     alert('request에 뭔가 문제가 있어요.');
                 }
             }
         }
+        function allPrintXml(xmlDoc){
+            var root = xmlDoc.getElementsByTagName("root")[0];
+            console.log("root의 자식 태그 개수: "+root.childNodes.length);
+            for(i=0;i<root.childNodes.length;i++){
+                console.log(root.childNodes[i].nodeName);
+                for(j=0;j<root.childNodes[i].childNodes.length;j++){
+                    console.log("   " + root.childNodes[i].childNodes[j].nodeName
+                    +" : "+root.childNodes[i].childNodes[j].childNodes[0].nodeValue
+                    );
+                }
+
+            }
+        }
+        //------------------
+        function printMenu(xmlDoc){
+            var question = xmlDoc.getElementsByTagName("question");
+            var answer = xmlDoc.getElementsByTagName("answer");
+
+            for(i=0;i<question.length;i++){
+                document.getElementById("view").innerHTML += 
+                i+1 + "번문제 : " + question[i].childNodes[0].nodeValue + "<br>" +
+                answer[i].childNodes[0].nodeValue + "<br>";
+            }
+
+        }
+        //------------------
         window.onload = function () {
             
         var btn = document.getElementById("btn");
