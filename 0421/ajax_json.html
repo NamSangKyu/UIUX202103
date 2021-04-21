@@ -14,7 +14,8 @@
             return false;
             }
             httpRequest.onreadystatechange = alertContents;
-            httpRequest.open('GET', 'http://nam2626.dothome.co.kr/papago.php');
+            var txt = document.getElementById("txt").value;
+            httpRequest.open('GET', 'http://nam2626.dothome.co.kr/papago.php?txt='+txt);
             httpRequest.send();//서버 요청
         }
         function alertContents() {
@@ -26,6 +27,8 @@
 	                var json_result = JSON.parse(result);
 	               document.getElementById("view").innerHTML =
 	            	   json_result.message.result.translatedText;
+                    console.log(json_result.message);
+                    console.log(json_result.message.result);
 	            } else {
 	                alert('request에 뭔가 문제가 있어요.');
 	            }
@@ -43,6 +46,7 @@
 </head>
 <body>
 	<div id="time"></div><!--실제 웹페이지가 로드된 시간-->
+    <textarea id="txt"></textarea><br>
     <button id="btn">버튼</button>
     <div id="view"></div>    
 </body>
