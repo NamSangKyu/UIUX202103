@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='/resource/lib/jquery-3.6.0.min.js'></script>
+    <script>
+        $(document).ready(function(){
+            //자식 선택자 - 배경색 노랑, 텍스트 밑줄
+            $("#wrap > h1").css({"background-color":"yellow",
+                                "text-decoration":"underline"});
+            //하위 선택자 - 글자색 녹색
+            //아이디 wrap 내부에 있는 모든 p 태그를 선택
+            $("#wrap p").css({"color":"green"});
+            //아이디가 wrap 내부에 있는 모든 태그들에게 테두리를 적용 1px solid blue
+            $("#wrap *").css("border","1px solid blue");
+        });
+    </script>
+</head>
+<body>
+    <div id="wrap">
+		<h1>자식 요소 선택자</h1>
+		<p>내용1</p>
+		<section>
+			<h1>하위 요소 선택자</h1>
+			<p>내용2</p>
+		</section>
+	</div>
+</body>
+</html>
