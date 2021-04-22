@@ -18,6 +18,16 @@
                 var date = new Date();
                 time_view.innerHTML = date;
             },5000);//5초후에 등록된 함수를 실행
+            var btn_inter = document.getElementById("inter");
+            btn_inter.onclick = function(){
+                console.log("interval id : "+intervalID);
+                clearInterval(intervalID);//interval 중지
+            }
+            var btn_time = document.getElementById("time");
+            btn_time.onclick = function(){
+                console.log("timeout id : "+timeoutID);
+                clearTimeout(timeoutID);
+            }
         }
     </script>
     <style>
