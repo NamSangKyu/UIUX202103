@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Interval/Timeout</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload = function(){
+            var count = 0;
+            var intervalID = setInterval(function(){
+                var inter_view = document.getElementById("inter_view");
+                count++;
+                inter_view.innerHTML += "inter - "+count+"번째 실행<br>";
+            },2000);//2초마다 등록된 함수를 실행
+            var timeoutID = setTimeout(function(){
+                var time_view = document.getElementById("time_view");
+                var date = new Date();
+                time_view.innerHTML = date;
+            },5000);//5초후에 등록된 함수를 실행
+        }
+    </script>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        td{
+            border :1px solid black;
+            width: 300px;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+    <button id="inter">interval 정지</button>
+    <button id="time">timeout 정지</button>
+    <hr>
+    <table>
+        <tr>
+            <td id="inter_view"></td>
+            <td id="time_view"></td>
+        </tr>
+    </table>
+</body>
+</html>
