@@ -6,6 +6,30 @@
     <title>속성 선택자</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <style>
+        /*a 태그에 download 속성이 있는 a 태그를 선택*/
+        a[download]{
+            background-color: coral;
+        }
+        /*a 태그에 href 속성의 시작값이 http로 시작하는 경우 */
+        a[href^="http"]{
+            text-decoration: none;
+        }
+        /*a 태그에 href 속성의 값이 jpg로 끝나는 경우 */
+        a[href$="jpg"]{
+            background-image: url(/resource/img/picture.png);
+            background-position:0px center;
+            background-repeat: no-repeat;
+            background-size: 20px;
+            padding-left: 25px;
+        }
+        /*a 태그에 href 속성이 lib를 포함하는 경우 */
+        a[href*="lib"]{
+            font-weight: bold;
+        }
+        /* a 태그에 target속성이 _blank인 경우 -  동일값*/
+        a[target="_blank"]{
+            color:red;
+        }
 
     </style>
 </head>
