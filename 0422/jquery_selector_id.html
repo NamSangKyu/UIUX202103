@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>아이디 선택자</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function(){
+            //아이디값이 id인 태그 선택
+            /*
+                document.getElementById("id").value = "아이디 입력하세요";
+            */
+            $("#id").val("아이디 입력하세요");
+            //버튼 태그 선택
+            //document.getElementsByTagName("button")[0].onclick = function(){}
+            $("button").click(function(){
+                //var pass = document.getElementById("password").value;
+                var pass = $("#password").val();
+                //html함수 ---> innerHTML
+                $("#result").html("입력하신 암호는 " + pass+"<br>");
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="text" id="id"> <input type="password" id="password">
+    <button>로그인</button>
+    <hr>
+    <div id="result"></div>
+</body>
+</html>
