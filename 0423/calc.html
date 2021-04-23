@@ -5,6 +5,12 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        span{
+            display: inline-block;
+            width: 300px;
+        }
+    </style>
     <script src="/resource/lib/jquery-3.6.0.min.js"></script>
     <script>
         $(function(){
@@ -20,13 +26,17 @@
                     $("#result").val(n1*n2);  
                 else if(op == "/")
                     $("#result").val(n1/n2);  
+                //#history에 계산한 내역을 추가
+                var tag = "<p><span>" +n1 + op + n2 + " = " +  
+                    $("#result").val()+"</span>" +(new Date()) + "</p>";
+                $("#history").html($("#history").html() +tag);
            });
         });
    
     </script>
 </head>
 <body>
-    <input type="text" id="n1" value="test">
+    <input type="text" id="n1">
     <select id="op">
         <option value="+">+</option>
         <option value="-">-</option>
