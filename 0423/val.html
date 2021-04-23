@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            //input 태그에 적용된 value를 읽어옴
+            console.log($("#txt").val());
+            console.log($("#txt").attr("value"));
+            //버튼 선택, click 이벤트
+            $("#btn").click(function(){
+                console.log("---------클릭이벤트-----------");
+                //현재 live로 입력한 값을 기준으로 작업
+                console.log($("#txt").val());
+                //작성된 초기 value 속성을 읽기 떄문에 우리가 입력한 값이 나오지 않음
+                console.log($("#txt").attr("value"));
+                //새로운 값 지정
+                $("#txt").val("클릭이벤트 수행");
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="text" id="txt" value="test"><button id="btn">실행</button>
+</body>
+</html>
