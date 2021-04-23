@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        p{
+            background-color: cornflowerblue;
+            font-size: 20px;
+            color: white;
+        }
+        .back{
+            background-color: black;
+        }
+    </style>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            //현재 적용된 CSS 속성값 읽기
+            console.log($("p").css("background-color"));
+            //CSS 속성 값을 넣을때
+            $("p").css("background-color","red");
+            //동시에 여러개 CSS 속성 값을 넣을때
+            $("p").css({"font-weight":"bold",
+            "text-decoration":"underline"});
+        });
+    </script>
+</head>
+<body>
+    <p class="back">내용</p>
+    <div class="back">내용</div>
+</body>
+</html>
