@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .bold{
+            font-weight: bold;
+        }
+        .size{
+            font-size: 20px;
+        }
+        .underline{
+            text-decoration: underline;
+        }
+    </style>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            //현재 적용된 클래스 목록
+            console.log($("p").attr("class"));
+            //선택된 요소에 클래스를 추가
+            $("p").addClass("bold");
+            $("p").addClass("bold");
+            console.log($("p").attr("class"));
+            //선택된 요소에 해당 클래스를 삭제
+            $("p").removeClass("size");
+            //선택된 요소에 해당 클래스가 있는지? 확인
+            console.log($("p").hasClass("size"));
+            //선택된 요소에 해당 클래스가 있으면 제거, 없으면 추가
+            $("p").toggleClass("size");
+        });
+    </script>
+</head>
+<body>
+    <p class="size underline">내용</p>
+</body>
+</html>
+
+
+
