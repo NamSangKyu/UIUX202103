@@ -22,10 +22,11 @@
                 //각각의 인적 정보
                 console.log(row[i].split(","));
                 var content = row[i].split(",");
+                result += "<figcaption>";
                 for(j=0;j<content.length;j++){
                     result +=  `<p>${content[j]}</p>`;
                 }
-                result += "</figure>";
+                result += "</figcaption></figure>";
             }
             console.log(result);
             $("body").html(result);
