@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <!--if문은 () 조건이 true일때만 실행하는 조건문-->
+    <script>
+        $(function(){
+            /* 
+            //조건식 true/false
+            if( 조건식 ){
+                if에 있는 조건식이 true일때 실행되는 영역
+            }else if( 조건식 ){ //2번째 조건식부터
+                else if에 있는 조건식이 true일때 실행되는 영역
+            }else if( 조건식 ){ //2번째 조건식부터
+                else if에 있는 조건식이 true일때 실행되는 영역
+            }else if( 조건식 ){ //2번째 조건식부터
+                else if에 있는 조건식이 true일때 실행되는 영역
+            }else{
+                위에 나온 else if들이 전부 거짓일때 실행되는 영역
+            }
+             */
+            $("button").click(function(){
+                //alert($(this).attr("id"));
+                var result = "";
+                if($(this).attr("id") == "google")
+                    result ="https://www.google.com";
+                else if($(this).attr("id") == "naver")
+                    result ="https://www.naver.com";
+                else
+                    result ="https://www.daum.net";
+                $("div").html(result);
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="google">구글 URL</button>
+    <button id="naver">네이버 URL</button>
+    <button id="다음">다음 URL</button>
+    <hr>
+    <div></div>
+</body>
+</html>
