@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>반복문 연습</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            //반복문 - 똑같은 일을 연속적으로 반복을 해야될때 사용
+            var str = "홍길동,20,서울시 마포구 노고산동." +
+                "김철수,33,서울시 강서구 등촌동."+
+                "박영수,45,경기도 수원시";
+            var row = str.split(".");
+            console.log(row);
+          
+        });
+    </script>
+    <style>
+        *{
+            margin:0;padding: 0;
+        }
+        img{
+            float: left;
+            width: 150px;
+            border: 1px solid red;
+        }
+        figcaption{
+            width: 400px;
+            border: 1px solid blue;
+            float: left;
+            font-size: 0px;
+        }
+        figcaption p{
+            font-size: 16px;
+            padding:17px 10px;
+            line-height: 16px;
+            height: 50px;
+            border : 1px solid greenyellow;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <figure>
+        <img src="/resource/img/messenger.png">
+        <figcaption>
+            <p>이름 : OOO</p>
+            <p>나이 : 00</p>
+            <p>주소 : 서울시 OO구 OO동</p>
+        </figcaption>
+    </figure>
+</body>
+</html>
