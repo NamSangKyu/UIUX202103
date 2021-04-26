@@ -12,9 +12,23 @@
             var str = "홍길동,20,서울시 마포구 노고산동." +
                 "김철수,33,서울시 강서구 등촌동."+
                 "박영수,45,경기도 수원시";
+            //.으로 데이터를 구분
+            //row.length가 데이터 건수 ---> 데이터는 총 3건
             var row = str.split(".");
             console.log(row);
-          
+            var result = "";//결과 저장할 변수
+            for(i=0;i<row.length;i++){
+                result += "<figure><img src='/resource/img/messenger.png'>";
+                //각각의 인적 정보
+                console.log(row[i].split(","));
+                var content = row[i].split(",");
+                for(j=0;j<content.length;j++){
+                    result +=  `<p>${content[j]}</p>`;
+                }
+                result += "</figure>";
+            }
+            console.log(result);
+            $("body").html(result);
         });
     </script>
     <style>
@@ -22,8 +36,11 @@
             margin:0;padding: 0;
         }
         figure{
+            width: 100%;
             clear: both;
             margin:30px;
+            border : 5px dashed black ;
+            display: inline-block;
         }
         img{
             float: left;
@@ -47,29 +64,6 @@
     </style>
 </head>
 <body>
-    <figure>
-        <img src="/resource/img/messenger.png">
-        <figcaption>
-            <p>이름 : OOO</p>
-            <p>나이 : 00</p>
-            <p>주소 : 서울시 OO구 OO동</p>
-        </figcaption>
-    </figure>
-    <figure>
-        <img src="/resource/img/messenger.png">
-        <figcaption>
-            <p>이름 : OOO</p>
-            <p>나이 : 00</p>
-            <p>주소 : 서울시 OO구 OO동</p>
-        </figcaption>
-    </figure>
-    <figure>
-        <img src="/resource/img/messenger.png">
-        <figcaption>
-            <p>이름 : OOO</p>
-            <p>나이 : 00</p>
-            <p>주소 : 서울시 OO구 OO동</p>
-        </figcaption>
-    </figure>
+    
 </body>
 </html>
