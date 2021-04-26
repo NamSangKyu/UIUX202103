@@ -9,7 +9,16 @@
     <script>
         $(function(){
             console.log($(".pop p:hidden").html());//display 속성이 none일때
-
+            $("form input:checked").each(function (i,obj) {
+               console.log($(this).val()); 
+            });
+            $("input").each(function () {
+                console.log($(this).val() +" - " + $(this).is(":checked"));
+            });
+            //p 태그 선택 후 화면에 :hidden 상태 정보를 log로 출력
+            $("p").each(function (i,obj) {
+                console.log($(obj).html() + " - " + $(obj).is(":hidden"));
+            });
         });
     </script>
 </head>
