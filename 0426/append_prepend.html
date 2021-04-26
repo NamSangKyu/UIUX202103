@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            //해당 선택자에 자식 요소 추가하는 방법
+           $("ul").append("<li>마지막요소 - 1</li>");
+           $("ul").append("<li>마지막요소 - 2</li>");
+           $("ul").append("<li>마지막요소 - 3</li>");
+           $("<li>마지막요소 - 4</li>").appendTo("ul");
+           $("ul").prepend("<li>첫번째요소 - 1</li>");
+           $("ul").prepend("<li>첫번째요소 - 2</li>");
+           $("ul").prepend("<li>첫번째요소 - 3</li>");
+           $("<li>첫번째요소 - 4</li>").prependTo("ul");
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li>목록</li>
+    </ul>
+</body>
+</html>
