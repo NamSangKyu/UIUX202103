@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            var index = 0;
+            var maxCount = $("input").length;
+            console.log(maxCount);//선택된 라디오 버튼 개수
+            $("#result").html(index);
+            $("#prev").click(function(){
+                index--;
+                //인덱스 번호가 0에서 감소했을 경우에는 맨 마지막 번호로 이동
+                if(index < 0) index = maxCount-1;
+                $("#result").html(index);
+                $("input").removeAttr("checked");
+                $("input").eq(index).attr("checked","");
+            });
+            $("#next").click(function(){
+                index++;
+                //인덱스 번호가 5이상이 되었을 경우에는
+                //범위에 벗어났기 떄문 맨처음 번호로 이동
+                if(index > maxCount-1) index = 0
+                $("#result").html(index);
+                $("input").removeAttr("checked");
+                $("input").eq(index).attr("checked","");
+            });
+            setInterval(function(){
+                $("#next").click(); 
+            }, 1000);
+        });
+    </script>
+</head>
+<body>
+    <div id="result"></div>
+    <p>
+        <button id="prev">Prev</button>
+        <input type="radio" name="radio" value="r1" checked>
+        <input type="radio" name="radio" value="r2">
+        <input type="radio" name="radio" value="r3">
+        <input type="radio" name="radio" value="r4">
+        <input type="radio" name="radio" value="r5">
+        <button id="next">Next</button>
+    </p>
+</body>
+</html>
