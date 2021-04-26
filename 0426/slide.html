@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+           //제이쿼리로 버튼 3개 선택
+           $("button").click(function(){
+                //클릭한 버튼의 아이디 속성값을 경고창으로 출력
+                // alert($(this).attr("id"));
+                var id = $(this).attr("id");
+                if(id == "up")
+                    $("#img").slideUp(1000);
+                else if(id == "down")
+                    $("#img").slideDown(1000);
+                else
+                    $("#img").slideToggle(1000);
+           }) ;
+        });
+    </script>
+</head>
+<body>
+    <button id="up">slideUp</button>
+    <button id="down">slideDown</button>
+    <button id="toggle">slideToggle</button>    
+    <hr>
+    <img src="/resource/img/grill1.jpg" id="img">
+    <img src="/resource/img/grill2.jpg">
+</body>
+</html>
