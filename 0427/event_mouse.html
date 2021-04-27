@@ -24,8 +24,10 @@
                     + "y좌표 : "+ ypos;
                 $(this).html(result);
             });
-            $("#container").mousedown(function(event){
-                console.log(event.which + " "+ event.button);
+            //mouseup 이벤트 적용
+            $("#container").on("mousedown mouseup",function(event){
+                console.log(event.type + " : "+event.which)
+                // console.log(event.which + " "+ event.button);
                 if(event.which == 3)
                     alert("오른쪽 클릭은 사용할 수 없습니다.");
             });
