@@ -10,6 +10,10 @@
             margin:0;
             padding: 0;
         }
+        html{
+            /*스크롤바를 부드럽게 움직임*/
+            scroll-behavior: smooth;
+        }
         .container{
             height: 969px;
             /* border:1px solid red; */
@@ -32,7 +36,24 @@
     <script src="/resource/lib/jquery-3.6.0.min.js"></script>
     <script>
         $(function(){
-            var bgColor = ["red","blue","green","yellow","puple","skyblue"];
+            var slideNo = 0;//슬라이드 번호
+            var bgColor = ["red","blue","green","yellow","purple","skyblue"];
+            //class가 container인 요소에 배경색을 bgColor에 있는 배열 요소로 변경
+            $(".container").each(function(i){
+                $(this).css("background-color",bgColor[i]);
+            });
+            //아래 코드를 참고하여 화면 한 슬라이드씩 아래로 이동하게끔 처리
+            $("#next").click(function(){
+                if(slideNo == bgColor.length-1) return;
+                slideNo++;
+                $("html").scrollTop(slideNo*969);                
+            });
+            //화면 슬라이드를 하나씩 위로 이동하게끔 처리
+            $("#back").click(function(){
+                if(slideNo == 0) return;
+                slideNo--;
+                $("html").scrollTop(slideNo*969);                
+            });
         });
     </script>
 </head>
