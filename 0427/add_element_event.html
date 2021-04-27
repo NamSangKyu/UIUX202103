@@ -5,6 +5,37 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>동적엘리먼트 처리</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            var count = 0;
+            //버튼 태그 - click 이벤트
+            //  - result 선택
+            $("button").click(function(){
+                count++;
+                $("#result").append("<p>추가된 p 태그 - "+count+" </p>");
+                //추가된 태그에는 이벤트 처리코드가 저장되어있지 않음
+                //이미 문서가 로드되었을때 저장하기 떄문, 문서 로드때 해당 태그가 없음
+                //태그를 추가하면 해당 이벤트로 같이 처리
+                    /* 
+                    $("p").off("click"); //해당 이벤트 제거
+                    $("p").click(function(){
+                        alert($(this).html());
+                    });
+                    */
+                   //동적엘리먼트 태그에 이벤트 처리시 선택자를 사용해서
+                   //기존태그와 겹치지 않게끔 선택
+                    $("p:last").click(function(){
+                        alert($(this).html());
+                    });
+                });
+            
+            //p 태그 - click 이벤트 --> p태그가 담고 있는 내용 경고창으로 출력
+            $("p").click(function(){
+                alert($(this).html());
+            });
+        });
+    </script>
 </head>
 <body>
     <!--동적엘리먼트에 대한 이벤트 처리방법-->
