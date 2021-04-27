@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        #container{
+            width: 1000px;
+            height: 600px;
+            border : 1px solid black;
+            margin : 0 auto;
+        }
+    </style>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            //이벤트 객체 설정 - 꼭 e라고 안해도 됨
+            $("#container").mousemove(function(event){
+                var xpos = event.pageX - $(this).offset().left;
+                var ypos = event.pageY - $(this).offset().top;
+                var result = "x좌표 : "+ xpos +"<br>"
+                    + "y좌표 : "+ ypos;
+                $(this).html(result);
+            });
+            $("#container").mousedown(function(event){
+                console.log(event.which + " "+ event.button);
+                if(event.which == 3)
+                    alert("오른쪽 클릭은 사용할 수 없습니다.");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="container"></div>
+</body>
+</html>
