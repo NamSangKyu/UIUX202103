@@ -8,7 +8,13 @@
     <script src="/resource/lib/jquery-3.6.0.min.js"></script>
     <script>
         $(function(){
-
+            $("a").click(function(){
+                $("a").removeClass("select");//해당 클래스 제거
+                $(this).addClass("select");
+                $("p").removeClass("active");
+                //$(this).index() : 현재 선택된 a태그의 인덱스 값
+                $("p:eq("+$(this).index()+")").addClass("active");
+            });
         });
     </script>
     <style>
