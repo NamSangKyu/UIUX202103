@@ -13,6 +13,7 @@
                 $(this).addClass("select");
                 $("p").removeClass("active");
                 //$(this).index() : 현재 선택된 a태그의 인덱스 값
+                //$('a[href="http://wwww...."]')
                 $("p:eq("+$(this).index()+")").addClass("active");
             });
         });
