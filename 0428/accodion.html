@@ -8,7 +8,12 @@
     <script src="/resource/lib/jquery-3.6.0.min.js"></script>
     <script>
         $(function(){
-
+            $("h2").click(function(){
+                $(this).next().slideDown(500);
+                $("h2").not($(this)).removeClass("select");
+                $(this).addClass("select");
+                $("p").not($(this).next()).slideUp(500);
+            });
         });
     </script>
     <style>
