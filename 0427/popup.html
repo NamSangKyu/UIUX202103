@@ -11,7 +11,7 @@
             padding: 0;
         }
 
-        #container {
+        .container {
             top : 100px;
             left: 200px;
             width: 200px;
@@ -20,7 +20,7 @@
             border: 1px solid black;
         }
 
-        #container a {
+        .container a {
             display: inline-block;
             padding: 2px 5px;
             position: absolute;
@@ -31,7 +31,7 @@
             color: white;
         }
 
-        #container img {
+        .container img {
             width: 100%;
             height: 100%;
         }
@@ -67,7 +67,7 @@
         $(function () {
             var cookieCheck = getCookie("popup");
             if (cookieCheck == "N"){
-                $("#container").hide(0);
+                $(".container").hide(0);
             }
             $("#chk").click(function(){
                 //alert($(this).is(":checked"));
@@ -77,11 +77,12 @@
                     cookieInit("popup","Y",1);
 
             });
-            $("#container a").click(function () {
-                $(this).parent().css("display", "none");
+            $(".container a").click(function () {
+                // $(this).parent().css("display", "none");
+                $(this).parent().hide(0);
                 return false;
             });
-            $("#container img").click(function () {
+            $(".container img").click(function () {
                 location.href = "http://www.google.com";
             });
 
@@ -90,7 +91,15 @@
 </head>
 
 <body>
-    <div id="container">
+    <div class="container">
+        <a href="#">X</a> <img alt="" src="/resource/img/grill1.jpg">
+        <div id="pop_nav"><input type="checkbox" id="chk"> 다시보지 않기</div>
+    </div>
+    <div class="container" style="top: 400px;">
+        <a href="#">X</a> <img alt="" src="/resource/img/grill1.jpg">
+        <div id="pop_nav"><input type="checkbox" id="chk"> 다시보지 않기</div>
+    </div>
+    <div class="container" style="left: 400px;">
         <a href="#">X</a> <img alt="" src="/resource/img/grill1.jpg">
         <div id="pop_nav"><input type="checkbox" id="chk"> 다시보지 않기</div>
     </div>
