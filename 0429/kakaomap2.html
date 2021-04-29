@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>지도 생성하기</title>
+    
+</head>
+<body>
+<!-- 지도를 표시할 div 입니다 -->
+<div id="map" style="width:100%;height:350px;"></div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eb20edf543cd8f923bbd6f933314e6a1&libraries=services"></script>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new kakao.maps.LatLng(37.5406594, 126.852533), // 지도의 중심좌표
+        level: 2 // 지도의 확대 레벨
+    };
+
+// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+var map = new kakao.maps.Map(mapContainer, mapOption); 
+//주소로 좌표검색 
+var geocoder = new kakao.maps.services.Geocoder();
+//좌표검색
+geocoder.addressSearch('서울특별시 마포구 서강로 136 아비타워 2층,3층',
+function(result, status){
+    console.log(result);
+    console.log(status);
+    //좌표값 확인
+    console.log(result[0].x + " " + result[0].y );
+    //좌표 셋팅
+    var pos = new kakao.maps.LatLng(result[0].y, result[0].x);
+    map.setCenter(pos);
+
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
