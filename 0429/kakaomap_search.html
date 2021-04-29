@@ -15,12 +15,23 @@
                 var container = $("#map")[0];
                 var options = {
                     center : new kakao.maps.LatLng(33.450701, 126.570667),
-				    level : 3
+				    level : 1
                 };
                 var map = new kakao.maps.Map(container, options);
                 //  2 - 좌표 검색
-                //  3 - 지도 좌표 설정
-                //  4 - 마커 설정
+                var geocoder = new kakao.maps.services.Geocoder();
+                geocoder.addressSearch($("#address").val(),
+                function(result, status){
+                    //  3 - 지도 좌표 설정
+                    var pos = new kakao.maps.LatLng(result[0].y,result[0].x);
+                    $("#area").html(result[0].y + " " + result[0].x);
+                    map.setCenter(pos);
+                    //  4 - 마커 설정
+                    var marker = new kakao.maps.Marker({
+                        map : map,
+                        position : pos
+                    });
+                });
 
             });
         });
