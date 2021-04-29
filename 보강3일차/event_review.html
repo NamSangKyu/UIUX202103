@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!--
+        이벤트 : 사용자     ->     웹페이지에서 행동는 행위
+                웹브라우저
+
+        사용자 : onkeyup, onkeydown, keypress
+                onclick, ondblclick, onmousedown onmouseup
+                onsubmit
+                onchange, onfous,onblur
+                mouseover/mouseout ==>onmouseup/onmousedown
+                                    ==>onmouseup/onmousedown
+    -->
+    <script>
+        function test(){
+            var txt = document.getElementById("txt");
+            alert(txt.value);
+        }
+        window.onload = function(){
+            var btn = document.getElementsByTagName("button")[0];
+            /* btn.onclick = function(){
+                var txt = document.getElementById("txt");
+                alert(txt.value);
+            } */
+            btn.onclick = test;
+            var txt  = document.getElementById("txt");
+            //onblur 이벤트에 함수 test를 저장
+            txt.onblur = test;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="txt"><button>버튼</button>
+</body>
+</html>
