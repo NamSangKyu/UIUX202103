@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>함수 복습</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!--
+        함수(기능) : 사용자 필요한 또는 자주 사용하는 코드를 별도로 분리
+               사용자 필요할때 마다 불러다가 쓸수 있는 코드
+    -->
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        //msg 역할? ==> print_tag 일을 하기위해 필요한 데이터를 받는 변수(매개변수)
+        //함수 선언시 매개변수가 있다고 해서 반드시 데이터를 보내야되는 것은 아님
+        function print_tag(msg, val){
+            if(msg == undefined)
+                msg = "기본메세지";
+            if(val == undefined)
+                return;//함수를 중간에 중단
+            $("#result").append("<p>"+msg+"</p>");
+            return true;//함수의 결과값을 되돌려줌
+        }
+        //익명함수 : 함수에 이름이 없는 함수
+        var even = function(n){
+            if(n%2==0) 
+                return true;
+            else 
+                return false;
+        }
+        //es6
+        var test = () => {
+            alert("test");
+        }
+        $(function(){
+            var result;
+            result = print_tag();
+            console.log(result);
+            result = print_tag("내용 넣었다.");
+            console.log(result);
+            result = print_tag("내용",200);
+            console.log(result);
+            console.log(even(10))
+            test();
+            setInterval(test, 3000 );
+
+        });
+    </script>
+</head>
+<body>
+    <div id="result"></div>
+</body>
+</html>
