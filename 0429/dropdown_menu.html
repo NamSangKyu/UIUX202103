@@ -47,6 +47,29 @@
             font-size: 12px;
         }
     </style>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            var flag = false;
+            $(".sub_menu_bar").slideUp(0);
+            $("#menu_area").mouseenter(function(){
+                if(flag) return;
+                $(".sub_menu_bar").slideDown(1000,function(){flag = true;});
+            });
+            $("#menu_area").mouseleave(function(){
+                if(!flag) return;
+                $(".sub_menu_bar").slideUp(1000,function(){flag = false;});
+            });
+            //메뉴 영역 밖이나 메뉴를 클릭하면 메뉴를 접는 부분
+            $("#menu_area, html").on("click",function(){
+                if(!flag) return;
+                $(".sub_menu_bar").slideUp(1000,function(){flag = false;});
+            });
+            
+            
+        });
+
+    </script>
 </head>
 <body>
     <nav id="menu_area">
