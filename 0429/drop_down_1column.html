@@ -8,11 +8,29 @@
     <script src='/resource/lib/jquery-3.6.0.min.js'></script>
     <script>
         $(function(){
-
+            //true = 내려와 있는 상태
+            //false = 올라가 있는 상태
+            var flag = false;
+            $("#menu_bar").mouseenter(function(){
+                if(flag) return;
+                $("#sub_menu").slideDown(500,function(){
+                    flag = true;
+                });
+            });
+            $("#menu_bar").mouseleave(function(){
+                if(!flag) return;
+                $("#sub_menu").slideUp(500,function(){
+                    flag = false;
+                });
+            });
         });
     </script>
     <style>
         *{margin: 0; padding: 0;}
+        #menu_bar{
+            border:1px solid black;
+            width:150px;
+        }
         #main_menu{
             width:150px;
             height: 50px;
