@@ -3,7 +3,40 @@
 <head>
     <meta charset="utf-8">
     <title>지도 생성하기</title>
-    
+    <style type="text/css">
+        .customoverlay{
+            position: relative;
+            bottom: 85px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            border-bottom:2px solid #ddd;
+            float:left;
+        }
+        .customoverlay:nth-of-type(n){
+            border:0;
+            box-shadow:0px 1px 20px #888;
+        }
+        .customoverlay a{
+            display: block;
+            text-decoration: none;
+            color:#000;
+            text-align: center;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            overflow:hidden;
+            background: #FFBB00 url('route.png') no-repeat right center;
+        }
+        .customoverlay .title{
+            display: block;
+            text-align: center;
+            background-color: #fff;
+            margin-right: 35px;
+            padding:10px 15px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        </style>
 </head>
 <body>
 <!-- 지도를 표시할 div 입니다 -->
@@ -38,7 +71,15 @@ function(result, status){
     });
     //커스텀 오버레이
     var content = "<div class='customoverlay' id='info'>"+
-        "<a href=''>코리아IT신촌점<br>길찾기</a></div>";
+        "<a href='https://map.kakao.com/link/to/코리아IT아카데미신촌점,"
+            +result[0].y+","+result[0].x+"' target='_blank'>"
+            +"<span class='title'>코리아IT신촌점<br>길찾기</span></a></div>";
+    var customOverlay = new kakao.maps.CustomOverlay({
+        position : pos,
+        content : content,
+        yAnchor : 0.3
+    });
+    customOverlay.setMap(map);
 });
 </script>
 </body>
