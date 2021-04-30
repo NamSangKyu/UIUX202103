@@ -8,10 +8,61 @@
     <script src="/resource/lib/jquery-3.6.0.min.js"></script>
     <script>
         $(function(){
-
+            //true = 내려와 있는 상태
+            //false = 올라가 있는 상태
+            var flag = false;
+            $("#menu_bar").mouseenter(function(){
+                if(flag) return;
+                $("#sub_menu").slideDown(500,function(){
+                    flag = true;
+                });
+            });
+            $("#menu_bar").mouseleave(function(){
+                if(!flag) return;
+                $("#sub_menu").slideUp(500,function(){
+                    flag = false;
+                });
+            });
         });
     </script>
     <style>
+         *{margin: 0; padding: 0;}
+        #menu_bar{
+            border:1px solid black;
+            width:150px;
+        }
+        #main_menu{
+            width:150px;
+            height: 50px;
+            display: inline-block;
+            padding:15px;
+            line-height: 20px;
+            font-size: 20px;
+            text-align: center;
+            box-sizing: border-box;
+            background-color: #e8e8e8;
+            text-decoration: none;
+            color:black;
+            border: 1px solid gray;
+        }
+        #sub_menu{
+            list-style-type: none;
+            display: none;
+        }
+        #sub_menu a{
+            width:150px;
+            height: 40px;
+            display: inline-block;
+            padding:12px;
+            line-height: 16px;
+            font-size: 16px;
+            text-align: center;
+            box-sizing: border-box;
+            background-color: #e8e8e8;
+            text-decoration: none;
+            color:black;
+            border: 1px solid gray;
+        }
         div{
             width: 300px;
             border:1px solid black;
@@ -27,8 +78,16 @@
     </style>
 </head>
 <body>
-    <button>이벤트발생</button>
-    <hr>
+    <nav id="menu_bar">
+        <a href="#" id="main_menu">메인메뉴</a>
+        <ul id="sub_menu">
+            <li><a href="#">서브메뉴1</a></li>
+            <li><a href="#">서브메뉴2</a></li>
+            <li><a href="#">서브메뉴3</a></li>
+            <li><a href="#">서브메뉴4</a></li>
+            <li><a href="#">서브메뉴5</a></li>
+        </ul>
+    </nav>
     <div id="box1"></div>
     <div id="box2"></div>
 </body>
