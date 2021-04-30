@@ -8,7 +8,16 @@
     <script src="/resource/lib/jquery-3.6.0.min.js"></script>
     <script>
         $(function(){
-
+            //첫번쨰 이미지에 테두리
+            $("#thumnail img:first").css("border","3px solid green");
+            $("#thumnail img").click(function(){
+                //클릭 안된 나머지 이미지
+                $("#thumnail img").not($(this)).css("border","3px solid white");
+                //클릭된 이미지
+                $(this).css("border","3px solid green");
+                //이미지 교체
+                $("#container > img").attr("src",$(this).attr("src"));
+            });
         });
     </script>
     <style>
