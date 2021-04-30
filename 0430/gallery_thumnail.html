@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+
+        });
+    </script>
+    <style>
+        *{margin:0;padding:0;}
+        #container{
+            width: 1200px;
+            border:1px solid black;
+            margin:50px auto;
+        }
+        #container > img{
+            width: 600px;
+            height: 600px;
+            display: block;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+        a:link, a:visited{
+            color:black;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        #bar{
+            width:600px;
+            padding:10px 0px;
+            border:1px solid red;
+            margin:0 auto;
+            text-align: center;
+        }
+        #next{
+            margin-left: 100px;
+        }
+        #thumnail{
+            width: 600px;
+            height: 100px;
+            margin:0 auto;
+            border:1px solid green;
+            overflow: hidden;
+        }
+        #thumnail img{
+            width: 100px;
+            height: 100px;
+            border: 3px solid white;
+            box-sizing: border-box;
+        }
+        #thumnail-bar{
+            width: 1000px;
+            height:100px;
+            position: relative;
+            font-size: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img src="img/1.jpg" alt="갤러리 이미지">
+        <div id="thumnail">
+            <div id="thumnail-bar">
+                <img src="img/1.jpg" alt="">
+                <img src="img/2.jpg" alt="">
+                <img src="img/3.jpg" alt="">
+                <img src="img/4.jpg" alt="">
+                <img src="img/5.jpg" alt="">
+                <img src="img/6.jpg" alt="">
+                <img src="img/7.jpg" alt="">
+                <img src="img/8.jpg" alt="">
+                <img src="img/9.jpg" alt="">
+            </div>
+        </div>
+        <div id="bar">
+                <a href="#" id="pre"><<</a>
+                <a href="#" id="next">>></a>
+        </div>
+    </div>
+</body>
+</html>
