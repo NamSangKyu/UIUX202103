@@ -18,6 +18,19 @@
                 //이미지 교체
                 $("#container > img").attr("src",$(this).attr("src"));
             });
+            var index = 0;
+            //실제로 보여줄 썸네일 바 크기
+            var bar_width = $("#thumnail").width();//600px
+            //썸네일 바에있는 이미지 길이를 이용하여 전체 길이를 구함
+            var thumnail_bar_width = $("#thumnail-bar img").length * 100;
+            $("#next").click(function(){
+                if(index < $("#thumnail-bar img").length)
+                    index++;
+                if(thumnail_bar_width-bar_width >= index * 100)
+                    $("#thumnail-bar").stop().animate({left:-index*100+"px"});
+                else
+                    index--;
+            });
         });
     </script>
     <style>
