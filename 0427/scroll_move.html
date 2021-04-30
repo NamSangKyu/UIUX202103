@@ -10,10 +10,10 @@
             margin:0;
             padding: 0;
         }
-        html{
             /*스크롤바를 부드럽게 움직임*/
+       /*  html{
             scroll-behavior: smooth;
-        }
+        } */
         .container{
             height: 969px;
             /* border:1px solid red; */
@@ -46,13 +46,16 @@
             $("#next").click(function(){
                 if(slideNo == bgColor.length-1) return;
                 slideNo++;
-                $("html").scrollTop(slideNo*969);                
+                // $("html").scrollTop(slideNo*969);               
+                $("html").animate({scrollTop : slideNo*969},500); 
             });
             //화면 슬라이드를 하나씩 위로 이동하게끔 처리
             $("#back").click(function(){
                 if(slideNo == 0) return;
                 slideNo--;
-                $("html").scrollTop(slideNo*969);                
+                // $("html").scrollTop(slideNo*969);                
+                $("html").animate({scrollTop : slideNo*969},500); 
+
             });
         });
     </script>
