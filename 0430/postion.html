@@ -30,6 +30,9 @@
         #menu_bar{
             border:1px solid black;
             width:150px;
+            position: absolute;
+            z-index: 1000;
+            top:0px;
         }
         #main_menu{
             width:150px;
@@ -68,16 +71,24 @@
             border:1px solid black;
         }
         #box1{
-            height: 100px;
-            background-color: cornflowerblue;
+           height: 100px;
+           background-color: cornflowerblue;
+           margin-top: 100px;
+           text-align: right;
         }
         #box2{
             height: 400px;
             background-color: crimson;
         }
+       /*  header{
+            width: 300px;
+            height: 50px;
+            background-color: darkkhaki;
+        } */
     </style>
 </head>
 <body>
+    <!-- <header></header> -->
     <nav id="menu_bar">
         <a href="#" id="main_menu">메인메뉴</a>
         <ul id="sub_menu">
@@ -88,7 +99,7 @@
             <li><a href="#">서브메뉴5</a></li>
         </ul>
     </nav>
-    <div id="box1"></div>
+    <div id="box1">box1 내용</div>
     <div id="box2"></div>
 </body>
 </html>
