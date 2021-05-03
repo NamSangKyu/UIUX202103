@@ -65,6 +65,7 @@
     <script>
         $(function(){
             var max = 3;
+            var index = 1;
             var width = $("#carousel").width();
             console.log(width);
             var flag = setInterval(function(){
@@ -79,7 +80,12 @@
                    //맨뒤로 이동한 슬라이드의 margin-left를 0으로 변경
                    $(this).css("margin-left","0px");
                    //슬라이드 이동이 완료 된후 라디오 버튼의 체크 상태 변경
-                   
+                   index++;
+                   if(index > max) index = 1;//최대값 넘으면 다시 초기화
+                    console.log(index);
+                    
+                    //선택자로 라디오 버튼 선택 해서 체크
+                    $("input[type=radio]:nth-child("+index+")").click();
                 });
             },2000);
         });
