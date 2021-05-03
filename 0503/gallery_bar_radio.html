@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>갤러리 part1</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #carousel{
+            width: 1200px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            border:1px solid red;
+            margin: 30px auto;
+        }
+        #slide{
+            height: 300px;
+        }
+        #image_container{
+            width: 3600px;
+            height: 300px;
+        }
+        /*하나의 슬라이드 이미지 영역*/
+        #image_container > div{
+            width:1200px;
+            height: 300px;
+            float: left;
+        } 
+        .slide_image1{
+            background-image: url('/resource/img/grill1.jpg');
+            background-repeat: no-repeat;
+            background-position:center;
+            background-size: 100% 100%;
+        }
+        .slide_image2{
+            background-image: url('/resource/img/grill2.jpg');
+            background-repeat: no-repeat;
+            background-position:center;
+            background-size: 100% 100%;
+            
+        }
+        .slide_image3{
+            background-image: url('/resource/img/grill3.jpg');
+            background-repeat: no-repeat;
+            background-position:center;
+            background-size: 100% 100%;
+        }
+        #slide_navi{
+            width: 100%;
+            background-color:rgba(255, 255, 255, 0.5);
+            position: absolute;
+            bottom: 0px;
+            text-align: center;
+        }
+        #slide_navi input{
+            margin-right: 50px;
+        }
+    </style>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            var max = 3;
+            var width = $("#carousel").width();
+            console.log(width);
+            var flag = setInterval(function(){
+                //슬라이드 이미지 작업
+                //애니메이션 작업 후
+               //맨처음 슬라이드 이미지 선택
+                $("#image_container > div:first-child").animate({
+                    "margin-left" : -width + "px"
+                },1000,function(){
+                    //슬라이드에서 벗어난 부분을 맨뒤로 이동
+                    $("#image_container").append($(this));
+                   //맨뒤로 이동한 슬라이드의 margin-left를 0으로 변경
+                   $(this).css("margin-left","0px");
+                   //슬라이드 이동이 완료 된후 라디오 버튼의 체크 상태 변경
+                   
+                });
+            },2000);
+        });
+    </script>
+</head>
+<body>
+        <div id="carousel">
+            <div id="slide">
+                <div id="image_container">
+                    <div class="slide_image1"></div>
+                    <div class="slide_image2"></div>
+                    <div class="slide_image3"></div>
+                </div>
+            </div>
+            <!--
+                하단에 라디오 버튼 3개 추가, 가운데정렬
+                배경색, 알파값 0.5
+                css까지 작업하시겠습니다.
+            -->
+            <div id="slide_navi">
+                <input type="radio" name="slide" id="r1" checked>
+                <input type="radio" name="slide" id="r2">
+                <input type="radio" name="slide" id="r3">
+            </div>
+        </div>
+</body>
+</html>
