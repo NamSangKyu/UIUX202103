@@ -51,6 +51,24 @@
             background-size: 100% 100%;
         }
     </style>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            var max = 3;
+            var width = 400;
+            var index = 0;
+            var flag = setInterval(function(){
+                index++;
+                if(index == max) index=0;
+                $("#image_container").animate({"margin-left": (width*-1)*index+"px"},1000,
+                    function(){
+                        //슬라이드 마지막이면 멈춤
+                        // if(index == max - 1) clearInterval(flag);
+                    }
+                );
+            },3000);
+        });
+    </script>
 </head>
 <body>
         <div id="carousel">
