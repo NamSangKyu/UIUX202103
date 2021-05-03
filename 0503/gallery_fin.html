@@ -11,24 +11,24 @@
             padding:0;
         }
         #carousel{
-            width: 400px;
-            height: 250px;
+            width: 1200px;
+            height: 300px;
             overflow: hidden;
             position: relative;
-            border:10px solid red;
+            border:1px solid red;
             margin: 30px auto;
         }
         #slide{
-            height: 250px;
+            height: 300px;
         }
         #image_container{
-            width: 1200px;
-            height: 250px;
+            width: 3600px;
+            height: 300px;
         }
         /*하나의 슬라이드 이미지 영역*/
         #image_container > div{
-            width:400px;
-            height: 250px;
+            width:1200px;
+            height: 300px;
             float: left;
         } 
         .slide_image1{
@@ -55,13 +55,21 @@
     <script>
         $(function(){
             var max = 3;
-            var width = 400;
+            var width = $("#carousel").width();
+            console.log(width);
             var flag = setInterval(function(){
                 //슬라이드 이미지 작업
                 //애니메이션 작업 후
-                //슬라이드에서 벗어난 부분을 맨뒤로 이동
-                       $("#image_container > div");
-            },3000);
+               //맨처음 슬라이드 이미지 선택
+                $("#image_container > div:first-child").animate({
+                    "margin-left" : -width + "px"
+                },1000,function(){
+                    //슬라이드에서 벗어난 부분을 맨뒤로 이동
+                    $("#image_container").append($(this));
+                   //맨뒤로 이동한 슬라이드의 margin-left를 0으로 변경
+                   $(this).css("margin-left","0px");
+                });
+            },2000);
         });
     </script>
 </head>
