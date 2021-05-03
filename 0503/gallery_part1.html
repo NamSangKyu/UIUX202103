@@ -13,7 +13,7 @@
         #carousel{
             width: 400px;
             height: 250px;
-            /* overflow: hidden; */
+            overflow: hidden;
             position: relative;
             border:10px solid red;
             margin: 30px auto;
@@ -57,15 +57,13 @@
             var max = 3;
             var width = 400;
             var index = 0;
+            var sw = 1;
             var flag = setInterval(function(){
-                index++;
-                if(index == max) index=0;
-                $("#image_container").animate({"margin-left": (width*-1)*index+"px"},1000,
-                    function(){
-                        //슬라이드 마지막이면 멈춤
-                        // if(index == max - 1) clearInterval(flag);
-                    }
-                );
+                index+=sw;
+                $("#image_container").animate(
+                    {"margin-left": (width*-1)*index+"px"},1000);
+                if(index == max-1 || index == 0) 
+                    sw = -sw;//마지막이나 맨 처음 슬라이드면
             },3000);
         });
     </script>
