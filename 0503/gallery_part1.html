@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>갤러리 part1</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #carousel{
+            width: 400px;
+            height: 250px;
+            /* overflow: hidden; */
+            position: relative;
+            border:10px solid red;
+            margin: 30px auto;
+        }
+        #slide{
+            height: 250px;
+        }
+        #image_container{
+            width: 1200px;
+            height: 250px;
+        }
+        /*하나의 슬라이드 이미지 영역*/
+        #image_container > div{
+            width:400px;
+            height: 250px;
+            float: left;
+        } 
+        .slide_image1{
+            background-image: url('/resource/img/grill1.jpg');
+            background-repeat: no-repeat;
+            background-position:center;
+            background-size: 100% 100%;
+        }
+        .slide_image2{
+            background-image: url('/resource/img/grill2.jpg');
+            background-repeat: no-repeat;
+            background-position:center;
+            background-size: 100% 100%;
+            
+        }
+        .slide_image3{
+            background-image: url('/resource/img/grill3.jpg');
+            background-repeat: no-repeat;
+            background-position:center;
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+<body>
+        <div id="carousel">
+            <div id="slide">
+                <div id="image_container">
+                    <div class="slide_image1"></div>
+                    <div class="slide_image2"></div>
+                    <div class="slide_image3"></div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
