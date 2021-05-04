@@ -102,6 +102,9 @@
             $("#image_container > div:first-child").animate({
                 "margin-left" : "0px"
             },1000);
+            index--;
+            if(index==0)index = max;
+            $("input[type=radio]:nth-child("+index+")").click();
         }
         var max = 3;
         var index = 1;
