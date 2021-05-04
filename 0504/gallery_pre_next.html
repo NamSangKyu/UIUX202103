@@ -84,31 +84,34 @@
     </style>
     <script src="/resource/lib/jquery-3.6.0.min.js"></script>
     <script>
-        $(function(){
-            var max = 3;
-            var index = 1;
-            var width = $("#carousel").width();
-            console.log(width);
-            var flag = setInterval(function(){
-                //슬라이드 이미지 작업
-                //애니메이션 작업 후
-               //맨처음 슬라이드 이미지 선택
-                $("#image_container > div:first-child").animate({
+        function next(){
+            $("#image_container > div:first-child").animate({
                     "margin-left" : -width + "px"
                 },1000,function(){
-                    //슬라이드에서 벗어난 부분을 맨뒤로 이동
                     $("#image_container").append($(this));
-                   //맨뒤로 이동한 슬라이드의 margin-left를 0으로 변경
                    $(this).css("margin-left","0px");
-                   //슬라이드 이동이 완료 된후 라디오 버튼의 체크 상태 변경
                    index++;
-                   if(index > max) index = 1;//최대값 넘으면 다시 초기화
+                   if(index > max) index = 1;
                     console.log(index);
-                    
-                    //선택자로 라디오 버튼 선택 해서 체크
                     $("input[type=radio]:nth-child("+index+")").click();
                 });
-            },2000);
+        }
+        var max = 3;
+        var index = 1;
+        var width;
+        $(function(){
+            width = $("#carousel").width();
+            console.log(width);
+            var flag = setInterval(next,2000);
+            //다음 슬라이드 전환
+            $("#next").click(function(){
+                clearInterval(flag);
+                next();
+            });
+            //이전 슬라이드 전환
+            $("#pre").click(function(){
+                
+            });
         });
     </script>
 </head>
