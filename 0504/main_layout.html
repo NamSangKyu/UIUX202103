@@ -46,7 +46,7 @@
         }
         #carousel{
             width: 1200px;
-            height: 300px;
+            height: 400px;
             overflow: hidden;
             position: relative;
             margin: 0 auto;
@@ -106,7 +106,7 @@
             font-size: 0px;
             text-align: center;
             margin:0 auto;
-            margin-top: 300px;
+            margin-top: 400px;
         }
         nav ul{
             list-style-type: none;
@@ -146,6 +146,58 @@
             display: none;
         }
     </style>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        function next(){
+            $("#image_container > div:first-child").animate({
+                    "margin-left" : -width + "px"
+                },1000,function(){
+                    $("#image_container").append($(this));
+                   $(this).css("margin-left","0px");
+                   index++;
+                   if(index > max) index = 1;
+                    console.log(index);
+                    $("input[type=radio]:nth-child("+index+")").click();
+                });
+        }
+        function pre(){
+            $("#image_container > div:last-child").css("margin-left",-width+"px");
+            $("#image_container").prepend($("#image_container > div:last-child"));
+            $("#image_container > div:first-child").animate({
+                "margin-left" : "0px"
+            },1000);
+            index--;
+            if(index==0)index = max;
+            $("input[type=radio]:nth-child("+index+")").click();
+        }
+        var max = 4;
+        var index = 1;
+        var width;
+        $(function(){
+            width = $("#carousel").width();
+            console.log(width);
+            var flag = setInterval(next,3000);
+            //다음 슬라이드 전환
+            $("#next").click(function(){
+                clearInterval(flag);
+                next();
+            });
+            //이전 슬라이드 전환
+            $("#pre").click(function(){
+                clearInterval(flag);
+                pre();                
+            });
+            //메뉴바 설정
+            $(".main_menu").mouseenter(function(){
+                $(this).children(".sub_menu").stop().slideDown(500);
+
+            });
+            $(".main_menu").mouseleave(function(){
+                $(this).children(".sub_menu").stop().slideUp(500);
+            });
+        });
+
+    </script>
 </head>
 <body>
     <header>
