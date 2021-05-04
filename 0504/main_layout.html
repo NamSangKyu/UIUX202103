@@ -44,6 +44,62 @@
             color: #6d6564;
             text-decoration: none;
         }
+        #carousel{
+            width: 1200px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+            clear: both;
+        }
+        #slide{
+            height: 400px;
+        }
+        #image_container{
+            width: 4800px;
+            height: 400px;
+        }
+        #image_container > div{
+            width:1200px;
+            height: 400px;
+            float: left;
+            background-repeat: no-repeat;
+            background-position:center;
+            background-size: 100% 100%;
+        } 
+        .slide_image1{
+            background-image: url('/resource/img/main_1.jpg');
+        }
+        .slide_image2{
+            background-image: url('/resource/img/main_2.jpg');
+        }
+        .slide_image3{
+            background-image: url('/resource/img/main_3.jpg');
+        }
+        .slide_image4{
+            background-image: url('/resource/img/main_4.jpg');
+        }
+        #carousel button{
+            width:100px;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.336);
+            background-image: url('/resource/img/arrow.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position:center;
+            position: absolute;
+            border : none;
+        }
+        #next{
+            top:0px;
+            right: 0px;
+            transform: rotate(180deg);
+        }
+        #pre{
+            top:0px;
+            left: 0px;
+        }
+
     </style>
 </head>
 <body>
@@ -56,6 +112,18 @@
                     <p><a href="#">로그아웃</a> | <a href="#">회원정보수정</a></p>
                 </figcaption>
             </figure>
+        </div>
+        <div id="carousel">
+            <div id="slide">
+                <div id="image_container">
+                    <div class="slide_image1"></div>
+                    <div class="slide_image2"></div>
+                    <div class="slide_image3"></div>
+                    <div class="slide_image4"></div>
+                </div>
+            </div>
+            <button id="next"></button>
+            <button id="pre"></button>
         </div>
     </header>
 </body>
