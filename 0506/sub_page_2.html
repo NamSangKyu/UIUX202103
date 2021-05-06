@@ -226,6 +226,38 @@
             if(index==0)index = max;
             $("input[type=radio]:nth-child("+index+")").click();
         }
+        function createCalender(year, month){
+            var date = new Date(year+"-"+month+"-1");//시작 날짜
+            var tag = "";//빈 문자열
+            var end = new Date();
+            end.setFullYear(date.getFullYear());
+            end.setMonth(date.getMonth()+1);//다음달 설정
+            end.setDate(0);//전달 마지막 달
+            end.setHours(0);
+            end.setMinutes(0);
+            end.setSeconds(0);
+            console.log(date);
+            console.log(end);
+            //첫줄 일요일 날짜
+            date.setDate(date.getDate()-date.getDay());
+            // 마지막 줄 토요일 날짜
+            end.setDate(end.getDate()+6-end.getDay());
+            //달력 줄수
+            var line = (end.getTime()- date.getTime()) / (1000*60*60*24*7);
+            for(i=0;i<line;i++){
+                tag += "<tr>";
+                for(j=0;j<7;j++){
+                    if(date.getMonth() != month-1)
+                        tag += "<td class='disable'>"+date.getDate()+"</td>";
+                    else
+                        tag += "<td>"+date.getDate()+"</td>";
+                    date.setDate(date.getDate()+1);
+                }
+                tag += "</tr>";
+            }
+            console.log(tag);
+            return tag;
+        }
         var max = 4;
         var index = 1;
         var width;
@@ -251,7 +283,7 @@
             $(".main_menu").mouseleave(function(){
                 $(this).children(".sub_menu").stop().slideUp(500);
             });
-          
+            createCalender(2021,5);           
         });
 
     </script>
