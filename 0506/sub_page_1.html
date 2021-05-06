@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>메인 페이지</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            width: 1200px;
+            height: 50px;
+            background-color: #8f9d65;
+            margin:0 auto;
+        }
+        header figure{
+            height: 100%;
+            padding:5px 0px;
+            width: 300px;
+            float: right;
+        }
+        header figure img{
+            width: 40px;
+            float: left;
+        }
+        figure figcaption{
+            float: left;
+            height: 40px;
+            padding-left: 5px;
+        }
+        figure figcaption h3{
+            font-size:16px;
+            line-height: 20px;
+            color:#564c4b;
+        }
+        figure figcaption p{
+            font-size:12px;
+            line-height: 20px;
+        }
+        figure a:link,figure a:visited{
+            color: #6d6564;
+            text-decoration: none;
+        }
+        #carousel{
+            width: 1200px;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+            clear: both;
+        }
+        #slide{
+            height: 400px;
+        }
+        #image_container{
+            width: 4800px;
+            height: 400px;
+        }
+        #image_container > div{
+            width:1200px;
+            height: 400px;
+            float: left;
+            background-repeat: no-repeat;
+            background-position:center;
+            background-size: 100% 100%;
+        } 
+        .slide_image1{
+            background-image: url('/resource/img/main_1.jpg');
+        }
+        .slide_image2{
+            background-image: url('/resource/img/main_2.jpg');
+        }
+        .slide_image3{
+            background-image: url('/resource/img/main_3.jpg');
+        }
+        .slide_image4{
+            background-image: url('/resource/img/main_4.jpg');
+        }
+        #carousel button{
+            width:100px;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.336);
+            background-image: url('/resource/img/arrow.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position:center;
+            position: absolute;
+            border : none;
+        }
+        #next{
+            top:0px;
+            right: 0px;
+            transform: rotate(180deg);
+        }
+        #pre{
+            top:0px;
+            left: 0px;
+        }
+        nav{
+            width: 1200px;
+            height: 50px;
+            background-color: #8f9d65;
+            font-size: 0px;
+            text-align: center;
+            margin:0 auto;
+            margin-top: 400px;
+        }
+        nav ul{
+            list-style-type: none;
+            float:left;
+        }
+        .nav_container{
+            display: inline-block;
+        }
+        .main_menu > li > a:link, .main_menu > li > a:visited {
+            font-size: 18px;
+            font-weight: bold;
+            color:#6d6564;
+            width: 200px;
+            padding:16px 0px;
+            line-height: 18px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .main_menu > li > a:hover{
+            background-color: #6d6564;
+            color : white;
+        }
+        .sub_menu > li > a:link, .sub_menu > li > a:visited {
+            font-size: 16px;
+            color:#7c7574;
+            background-color: #c6d39e;
+            width: 200px;
+            padding:17px 0px;
+            line-height: 16px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .sub_menu > li > a:hover{
+            background-color: #6d6564;
+            color : white;
+        }
+        .sub_menu{
+            display: none;
+        }
+        section{
+            width: 1200px;
+            height: 300px;
+            margin: 0 auto;
+            padding-top:30px;
+        }
+        article{
+            float: left;
+        }
+        #map{
+            width: 100%;
+            height: 80%;
+        }
+        .road_map{
+            width:800px;
+            height: 400px;
+            padding-right: 20px;
+            box-sizing: border-box;
+        }
+       
+        .road_detail{
+            width:400px;
+        }
+        .road_detail > p{
+            padding:5px 0px 5px 30px;
+        }
+        
+        footer{
+            width: 1200px;
+            margin:0 auto;
+            clear: both;
+            margin-top: 10px;
+            background-color: #e8e8e8;
+            padding: 10px 0px;
+        }
+        footer ul{
+            list-style-type: none;
+            margin-left: 50px;
+        }
+        footer ul li{
+            padding: 5px 0px;
+        }
+
+    </style>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eb20edf543cd8f923bbd6f933314e6a1&libraries=services"></script>
+    <script>
+        function next(){
+            $("#image_container > div:first-child").animate({
+                    "margin-left" : -width + "px"
+                },1000,function(){
+                    $("#image_container").append($(this));
+                   $(this).css("margin-left","0px");
+                   index++;
+                   if(index > max) index = 1;
+                    console.log(index);
+                    $("input[type=radio]:nth-child("+index+")").click();
+                });
+        }
+        function pre(){
+            $("#image_container > div:last-child").css("margin-left",-width+"px");
+            $("#image_container").prepend($("#image_container > div:last-child"));
+            $("#image_container > div:first-child").animate({
+                "margin-left" : "0px"
+            },1000);
+            index--;
+            if(index==0)index = max;
+            $("input[type=radio]:nth-child("+index+")").click();
+        }
+        var max = 4;
+        var index = 1;
+        var width;
+        $(function(){
+            width = $("#carousel").width();
+            console.log(width);
+            var flag = setInterval(next,3000);
+            //다음 슬라이드 전환
+            $("#next").click(function(){
+                clearInterval(flag);
+                next();
+            });
+            //이전 슬라이드 전환
+            $("#pre").click(function(){
+                clearInterval(flag);
+                pre();                
+            });
+            //메뉴바 설정
+            $(".main_menu").mouseenter(function(){
+                $(this).children(".sub_menu").stop().slideDown(500);
+
+            });
+            $(".main_menu").mouseleave(function(){
+                $(this).children(".sub_menu").stop().slideUp(500);
+            });
+            //맵
+            var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = { 
+                center: new kakao.maps.LatLng(37.5406594, 126.852533), // 지도의 중심좌표
+                level: 2 // 지도의 확대 레벨
+            };
+
+            // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+            var map = new kakao.maps.Map(mapContainer, mapOption); 
+            //주소로 좌표검색 
+            var geocoder = new kakao.maps.services.Geocoder();
+            //좌표검색
+            geocoder.addressSearch('서울특별시 마포구 서강로 136 아비타워 2층,3층',
+            function(result, status){
+                console.log(result);
+                console.log(status);
+                //좌표값 확인
+                console.log(result[0].x + " " + result[0].y );
+                //좌표 셋팅
+                var pos = new kakao.maps.LatLng(result[0].y, result[0].x);
+                map.setCenter(pos);
+                //마커 셋팅
+                var marker = new kakao.maps.Marker({
+                    map : map,
+                    position : pos
+                });
+              
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <header>
+        <div>
+            <figure>
+                <img src="/resource/img/profile.png">
+                <figcaption>
+                    <h3>OOO님이 로그인 하셨습니다.</h3>
+                    <p><a href="#">로그아웃</a> | <a href="#">회원정보수정</a></p>
+                </figcaption>
+            </figure>
+        </div>
+        <div id="carousel">
+            <div id="slide">
+                <div id="image_container">
+                    <div class="slide_image1"></div>
+                    <div class="slide_image2"></div>
+                    <div class="slide_image3"></div>
+                    <div class="slide_image4"></div>
+                </div>
+            </div>
+            <button id="next"></button>
+            <button id="pre"></button>
+        </div>
+    </header>
+    <nav>
+        <div class="nav_container">
+        <ul class="main_menu">
+            <li><a href="#">HOME</a></li>
+        </ul>        
+        <ul class="main_menu">
+            <li><a href="#">예약</a></li>
+            <ul class="sub_menu">
+                <li><a href="#">예약하기</a></li>
+                <li><a href="#">예약조회</a></li>
+            </ul>
+        </ul>
+        <ul class="main_menu">
+            <li><a href="#">펜션스토리</a></li>
+            <ul class="sub_menu">
+                <li><a href="#">커뮤니티</a></li>
+                <li><a href="#">갤러리</a></li>
+                <li><a href="#">QnA</a></li>
+            </ul>
+        </ul>
+        <ul class="main_menu">
+            <li><a href="#">펜션소개</a></li>
+            <ul class="sub_menu">
+                <li><a href="#">오시는길</a></li>
+                <li><a href="#">시설안내</a></li>
+            </ul>
+        </ul>
+    </div>
+    </nav>
+    <section>
+        <article class="road_map">
+           <div id="map"></div>
+        </article>
+        <article class="road_detail">
+            <h2>1. 자동차로 오시는 경우</h2>
+            <p>강변 북로 타서 영동 고속도로를 이용하세요</p>
+            <p>강촌을 거쳐서 영서로로 진입하셔서 오시면 됩니다.</p>
+            <h2>2. ITX 이용하시는 경우</h2>
+            <p>ITX 춘천역에서 내려서 화천공용버스터미널 행 시외버스 탑승</p>
+            <p>화천읍에서 시외버스 탑승하여 원천상회에서 내리시면 됩니다.</p>
+        </article>
+    </section>
+    <footer>
+        <ul>
+            <li>사업자 번호 : 0000-0000-00000</li>
+            <li>고객센터 : <a href="tel:0000-0000" style="color:black;text-decoration: none;">0000-0000</a></li>
+            <li>홈페이지 담당자 : OOO</li>
+            <li>주소 : 서울시 OO구 OO동 000-00번지 1층</li>
+        </ul>
+    </footer>
+</body>
+</html>
