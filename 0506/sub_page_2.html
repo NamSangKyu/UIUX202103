@@ -305,8 +305,35 @@
             $(".main_menu").mouseleave(function(){
                 $(this).children(".sub_menu").stop().slideUp(500);
             });
-            var tag = createCalender(2021,5);           
+            //달력 셋팅 부분
+            var today = new Date();
+            today.setDate(1);
+            var tag = createCalender(today.getFullYear(),today.getMonth()+1);           
             $("#calender > tbody").html(tag);
+            $("article > h2").html(today.getFullYear() + "년 "+ (today.getMonth()+1)+"월" );
+            //이전달 버튼
+            $("#cal_pre").click(function(){
+                let temp = new Date();
+                temp.setDate(1)
+                temp.setHours(0);
+                temp.setMinutes(0);
+                temp.setSeconds(0);
+                today.setMonth(today.getMonth()-1);
+                if(today.getTime() < temp.getTime()){
+                    today.setMonth(today.getMonth()+1);
+                    return;
+                } 
+                let tag = createCalender(today.getFullYear(),today.getMonth()+1);           
+                $("#calender > tbody").html(tag);
+                $("article > h2").html(today.getFullYear() + "년 "+ (today.getMonth()+1)+"월" );
+            });          
+            //다음달 버튼
+            $("#cal_next").click(function(){
+                today.setMonth(today.getMonth()+1);
+                let tag = createCalender(today.getFullYear(),today.getMonth()+1);           
+                $("#calender > tbody").html(tag);
+                $("article > h2").html(today.getFullYear() + "년 "+ (today.getMonth()+1)+"월" );
+            });
         });
 
     </script>
