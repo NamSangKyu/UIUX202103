@@ -156,7 +156,7 @@
             height: 350px;
         }
         article > button{
-            width:100px;
+            width:65px;
             height: 100%;
             float: left;
             background-image: url('/resource/img/arrow.png');
@@ -170,7 +170,7 @@
             text-align: center;
         }
         article table{
-            width: 1000px;
+            width: 1050px;
             border-collapse: collapse;
             border : 1px solid black;
             float: left;
@@ -180,6 +180,28 @@
             float: none;
             margin:0 auto;
             height: 50px;
+        }
+        #calender td,#calender th{
+            border:1px solid gray;
+        }
+        #calender th{
+            padding: 5px 0px;
+        }
+        #calender td{
+            width:150px;
+            height: 50px;
+        }
+        #calender td:hover{
+            background-color: #e8e8e8;
+        }
+        #calender td:active{
+            background-color: transparent;
+        }
+        #calender td:first-child,#calender th:first-child{
+            color:red;
+        }
+        #calender td:last-child,#calender th:last-child{
+            color:blue;
         }
         #cal_next{
             transform: rotate(180deg);
@@ -283,7 +305,8 @@
             $(".main_menu").mouseleave(function(){
                 $(this).children(".sub_menu").stop().slideUp(500);
             });
-            createCalender(2021,5);           
+            var tag = createCalender(2021,5);           
+            $("#calender > tbody").html(tag);
         });
 
     </script>
@@ -346,9 +369,18 @@
             <h2>2021년 5월</h2>
             <button id="cal_pre"></button>
             <table id="calender">
-                <tr>
-                    <td></td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>일</th>
+                        <th>월</th>
+                        <th>화</th>
+                        <th>수</th>
+                        <th>목</th>
+                        <th>금</th>
+                        <th>토</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
             </table>
             <button id="cal_next"></button>
             <form action="">
