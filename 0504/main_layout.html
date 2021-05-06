@@ -145,6 +145,47 @@
         .sub_menu{
             display: none;
         }
+        section{
+            width: 1200px;
+            margin: 0 auto;
+            padding-top:30px;
+        }
+        article{
+            width: 600px;
+            float: left;
+            text-align: center;
+        }
+        article > table{
+            display: inline-block;
+            border-collapse: collapse;
+            border-bottom: 2px solid gray;
+        }
+        article > table td{
+            border-top: 1px solid gray;
+            padding: 5px 0px;
+        }
+        
+        article > table th{
+            border-top: 2px solid gray;
+            padding: 5px 0px;
+        }
+        .table_no {
+            width: 80px;
+        }
+        .table_title{
+            width:200px;
+        }
+        .table_date{
+            width:100px;
+        }
+        .table_writer{
+            width:120px;
+        }
+        table > caption{
+            padding: 10px;
+            font-size: 22px;
+            font-weight: bold;
+        }
     </style>
     <script src="/resource/lib/jquery-3.6.0.min.js"></script>
     <script>
@@ -257,10 +298,10 @@
             <table>
                 <caption>공지사항</caption>
                 <tr>
-                    <th>글번호</th>
-                    <th>제목</th>
-                    <th>작성일</th>
-                    <th>작성자</th>
+                    <th class="table_no">글번호</th>
+                    <th class="table_title">제목</th>
+                    <th class="table_date">작성일</th>
+                    <th class="table_writer">작성자</th>
                 </tr>
                 <tr>
                     <td>5</td>
@@ -276,6 +317,18 @@
                 </tr>
                 <tr>
                     <td>3</td>
+                    <td>공지사항 - 1</td>
+                    <td>2020.05.06</td>
+                    <td>운영자</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>공지사항 - 1</td>
+                    <td>2020.05.06</td>
+                    <td>운영자</td>
+                </tr>
+                <tr>
+                    <td>1</td>
                     <td>공지사항 - 1</td>
                     <td>2020.05.06</td>
                     <td>운영자</td>
@@ -286,10 +339,10 @@
             <table>
                 <caption>이벤트</caption>
                 <tr>
-                    <th>글번호</th>
-                    <th>제목</th>
-                    <th>작성일</th>
-                    <th>작성자</th>
+                    <th class="table_no">글번호</th>
+                    <th class="table_title">제목</th>
+                    <th class="table_date">작성일</th>
+                    <th class="table_writer">작성자</th>
                 </tr>
                 <tr>
                     <td>5</td>
@@ -306,6 +359,18 @@
                 <tr>
                     <td>3</td>
                     <td>이벤트 - 1</td>
+                    <td>2020.05.06</td>
+                    <td>운영자</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>공지사항 - 1</td>
+                    <td>2020.05.06</td>
+                    <td>운영자</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>공지사항 - 1</td>
                     <td>2020.05.06</td>
                     <td>운영자</td>
                 </tr>
