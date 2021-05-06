@@ -148,12 +148,42 @@
         }
         section{
             width: 1200px;
-            height: 300px;
+            height: 450px;
             margin: 0 auto;
             padding-top:30px;
         }
-       
-        
+        article{
+            height: 350px;
+        }
+        article > button{
+            width:100px;
+            height: 100%;
+            float: left;
+            background-image: url('/resource/img/arrow.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position:center;
+            background-color: transparent;
+            border: none;
+        }
+        article h2{
+            text-align: center;
+        }
+        article table{
+            width: 1000px;
+            border-collapse: collapse;
+            border : 1px solid black;
+            float: left;
+            text-align: center;
+        }
+        article form > table{
+            float: none;
+            margin:0 auto;
+            height: 50px;
+        }
+        #cal_next{
+            transform: rotate(180deg);
+        }
         footer{
             width: 1200px;
             margin:0 auto;
@@ -282,11 +312,13 @@
     <section>
         <article>
             <h2>2021년 5월</h2>
-            <button id="pre"></button>
+            <button id="cal_pre"></button>
             <table id="calender">
-
+                <tr>
+                    <td></td>
+                </tr>
             </table>
-            <button id="next"></button>
+            <button id="cal_next"></button>
             <form action="">
                 <table>
                     <tr>
