@@ -332,6 +332,7 @@
                 });
             });          
             //다음달 버튼
+            var sw = true;
             $("#cal_next").click(function(){
                 today.setMonth(today.getMonth()+1);
                 let tag = createCalender(today.getFullYear(),today.getMonth()+1);           
@@ -340,8 +341,17 @@
                 $("#calender > tbody").html(tag);
                 $("article > h2").html(today.getFullYear() + "년 "+ (today.getMonth()+1)+"월" );
                 $("#calender td").click(function(){
-                alert(today.getFullYear() + "-" 
-                + (today.getMonth()+1) + "-" + $(this).text());
+                    let cdate = new Date(today);
+                    cdate.setDate($(this).text());
+                    //sw가 true면 체크인에 날짜값 저장
+
+                    //sw가 false면 체크아웃에 날짜값을 저장
+                    
+                    sw = !sw;
+                    console.log(cdate.toISOString().substr(0,10));
+                    
+                /* alert(today.getFullYear() + "-" 
+                + (today.getMonth()+1) + "-" + $(this).text()); */
                 });
             });
             $("#calender td").click(function(){
