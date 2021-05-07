@@ -392,6 +392,12 @@
             });
             $("#calender td").click(function(){
                 let cdate = new Date(today);
+                    //alert($(this).parent().index() + " " + $("#calender > tbody > tr").length);
+                    if($(this).parent().index()==0 && $(this).text() > 7)
+                        cdate.setMonth(cdate.getMonth()-1);
+                    else if($(this).parent().index()==$("#calender > tbody > tr").length-1 
+                                    && $(this).text() < 7)
+                        cdate.setMonth(cdate.getMonth()+1);
                     cdate.setDate($(this).text());
                     //sw가 true면 체크인에 날짜값 저장
                     console.log(sw);
