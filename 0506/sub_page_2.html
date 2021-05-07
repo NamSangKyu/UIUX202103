@@ -327,8 +327,18 @@
                 $("#calender > tbody").html(tag);
                 $("article > h2").html(today.getFullYear() + "년 "+ (today.getMonth()+1)+"월" );
                 $("#calender td").click(function(){
-                alert(today.getFullYear() + "-" 
-                + (today.getMonth()+1) + "-" + $(this).text());
+                    let cdate = new Date(today);
+                    cdate.setDate($(this).text());
+                    //sw가 true면 체크인에 날짜값 저장
+                    console.log(sw);
+                    if(sw){
+                        $("input[name=check_in]").val(cdate.toISOString().substr(0,10));
+                        //$("#calender td").prevAll($(this)).off("click");
+                    }
+                    else//sw가 false면 체크아웃에 날짜값을 저장
+                        $("input[name=check_out]").val(cdate.toISOString().substr(0,10))
+                    
+                    sw = !sw;
                 });
             });          
             //다음달 버튼
@@ -344,8 +354,13 @@
                     let cdate = new Date(today);
                     cdate.setDate($(this).text());
                     //sw가 true면 체크인에 날짜값 저장
-
-                    //sw가 false면 체크아웃에 날짜값을 저장
+                    console.log(sw);
+                    if(sw){
+                        $("input[name=check_in]").val(cdate.toISOString().substr(0,10));
+                        //$("#calender td").prevAll($(this)).off("click");
+                    }
+                    else//sw가 false면 체크아웃에 날짜값을 저장
+                        $("input[name=check_out]").val(cdate.toISOString().substr(0,10))
                     
                     sw = !sw;
                     console.log(cdate.toISOString().substr(0,10));
@@ -355,8 +370,28 @@
                 });
             });
             $("#calender td").click(function(){
-                alert(today.getFullYear() + "-" 
-                + (today.getMonth()+1) + "-" + $(this).text());
+                let cdate = new Date(today);
+                    cdate.setDate($(this).text());
+                    //sw가 true면 체크인에 날짜값 저장
+                    console.log(sw);
+                    if(sw){
+                        $("input[name=check_in]").val(cdate.toISOString().substr(0,10));
+                        //$("#calender td").prevAll($(this)).off("click");
+                    }
+                    else//sw가 false면 체크아웃에 날짜값을 저장
+                        $("input[name=check_out]").val(cdate.toISOString().substr(0,10))
+                    
+                    sw = !sw;
+            });
+            //인원수 카운트
+            $("#plus").click(function(){
+                let count = Number($("input[name=count]").val());
+                count++;
+                //숙박인원 최대 인원 4 
+                $("input[name=count]").val(count);
+            });
+            $("#minus").click(function(){
+                //숙박인원 최소 인원 1
             });
         });
 
