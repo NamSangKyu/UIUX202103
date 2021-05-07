@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="/resource/ui/jquery-ui.css">
+    <script src="/resource/ui/external/jquery/jquery.js"></script>
+    <script src="/resource/ui/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+            $("#datepicker").datepicker( "option", "dateFormat","yy-mm-dd");
+            $("#date").datepicker();
+            $("#date .ui-datepicker-calendar a").click(function(){
+                alert($(this).children(".ui-state-active").text());
+            });
+        });
+    </script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <p>Date: <input type="text" id="datepicker"></p>
+    <div id="date"></div>
+</body>
+
+</html>
