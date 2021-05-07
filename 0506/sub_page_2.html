@@ -206,6 +206,27 @@
         #cal_next{
             transform: rotate(180deg);
         }
+        #plus,#minus{
+            width: 30px;
+            height: 30px;
+        }
+        input[name=count]{
+            width:50px;
+            height: 30px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        #reservation{
+            width: 70px;
+            height: 50px;
+            background-color: darkgreen;
+            border: 2px rgb(110, 139, 59) outset;
+            color: white;
+            font-weight: bold;
+        }
+        #reservation:active{
+            border-style: inset;
+        }
         footer{
             width: 1200px;
             margin:0 auto;
@@ -357,7 +378,7 @@
                     console.log(sw);
                     if(sw){
                         $("input[name=check_in]").val(cdate.toISOString().substr(0,10));
-                        //$("#calender td").prevAll($(this)).off("click");
+                        
                     }
                     else//sw가 false면 체크아웃에 날짜값을 저장
                         $("input[name=check_out]").val(cdate.toISOString().substr(0,10))
@@ -376,7 +397,7 @@
                     console.log(sw);
                     if(sw){
                         $("input[name=check_in]").val(cdate.toISOString().substr(0,10));
-                        //$("#calender td").prevAll($(this)).off("click");
+                        //$("#calender td").prevUntil($(this)).off("click");
                     }
                     else//sw가 false면 체크아웃에 날짜값을 저장
                         $("input[name=check_out]").val(cdate.toISOString().substr(0,10))
@@ -386,12 +407,17 @@
             //인원수 카운트
             $("#plus").click(function(){
                 let count = Number($("input[name=count]").val());
-                count++;
+                if(count < 4)
+                    count++;
                 //숙박인원 최대 인원 4 
                 $("input[name=count]").val(count);
             });
             $("#minus").click(function(){
                 //숙박인원 최소 인원 1
+                let count = Number($("input[name=count]").val());
+                if(count > 1)
+                    count--;
+                $("input[name=count]").val(count);
             });
         });
 
@@ -489,7 +515,7 @@
                         </td>
                         <td>
                             <button type="button" id="minus">-</button>
-                            <input type="number" name="count">
+                            <input type="text" name="count" readonly>
                             <button type="button" id="plus">+</button>
                         </td>
                     </tr>
