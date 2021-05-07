@@ -351,6 +351,11 @@
                 $("article > h2").html(today.getFullYear() + "년 "+ (today.getMonth()+1)+"월" );
                 $("#calender td").click(function(){
                     let cdate = new Date(today);
+                    if($(this).parent().index()==0 && $(this).text() > 7)
+                        cdate.setMonth(cdate.getMonth()-1);
+                    else if($(this).parent().index()==$("#calender > tbody > tr").length-1 
+                                    && $(this).text() < 7)
+                        cdate.setMonth(cdate.getMonth()+1);
                     cdate.setDate($(this).text());
                     //sw가 true면 체크인에 날짜값 저장
                     console.log(sw);
@@ -373,6 +378,11 @@
                 $("article > h2").html(today.getFullYear() + "년 "+ (today.getMonth()+1)+"월" );
                 $("#calender td").click(function(){
                     let cdate = new Date(today);
+                    if($(this).parent().index()==0 && $(this).text() > 7)
+                        cdate.setMonth(cdate.getMonth()-1);
+                    else if($(this).parent().index()==$("#calender > tbody > tr").length-1 
+                                    && $(this).text() < 7)
+                        cdate.setMonth(cdate.getMonth()+1);
                     cdate.setDate($(this).text());
                     //sw가 true면 체크인에 날짜값 저장
                     console.log(sw);
