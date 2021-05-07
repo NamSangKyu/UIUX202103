@@ -138,6 +138,7 @@
             line-height: 16px;
             text-decoration: none;
             display: inline-block;
+            position: relative;
         }
         .sub_menu > li > a:hover{
             background-color: #6d6564;
@@ -180,6 +181,7 @@
             float: none;
             margin:0 auto;
             height: 50px;
+            border:none;
         }
         #calender td,#calender th{
             border:1px solid gray;
@@ -354,11 +356,9 @@
                     console.log(sw);
                     if(sw){
                         $("input[name=check_in]").val(cdate.toISOString().substr(0,10));
-                        //$("#calender td").prevAll($(this)).off("click");
                     }
                     else//sw가 false면 체크아웃에 날짜값을 저장
-                        $("input[name=check_out]").val(cdate.toISOString().substr(0,10))
-                    
+                        $("input[name=check_out]").val(cdate.toISOString().substr(0,10));
                     sw = !sw;
                 });
             });          
@@ -397,7 +397,6 @@
                     console.log(sw);
                     if(sw){
                         $("input[name=check_in]").val(cdate.toISOString().substr(0,10));
-                        //$("#calender td").prevUntil($(this)).off("click");
                     }
                     else//sw가 false면 체크아웃에 날짜값을 저장
                         $("input[name=check_out]").val(cdate.toISOString().substr(0,10))
@@ -515,7 +514,7 @@
                         </td>
                         <td>
                             <button type="button" id="minus">-</button>
-                            <input type="text" name="count" readonly>
+                            <input type="text" name="count" value="1" readonly>
                             <button type="button" id="plus">+</button>
                         </td>
                     </tr>
