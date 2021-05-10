@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="/resource/ui/jquery-ui.css">
+    <script src="/resource/ui/external/jquery/jquery.js"></script>
+    <script src="/resource/ui/jquery-ui.js"></script>
+    <script>
+        $(function(){
+           $("#slider").slider({
+               slide:function(event,ui){
+                   console.log(ui.value);
+               }
+           });
+        });
+    </script>
+    <style>
+      
+    </style>
+</head>
+<body>
+    <div id="slider"></div>
+</body>
+</html>
