@@ -10,6 +10,10 @@
     <script src="/resource/lib/jquery-3.6.0.min.js"></script>
     <script src="/resource/bootstrap/js/bootstrap.js"></script>
     <style>
+        *{
+            margin:0;
+            padding:0;
+        }
         .header{
             height: 50px;
             background-color: #8f9d65;
@@ -53,7 +57,63 @@
             width: 100% !important;
             height: 300px !important;
         }
+
+        .nav{
+            height: 50px;
+            background-color: #8f9d65;
+            font-size: 0px;
+            text-align: center;
+        }
+        .nav ul{
+            list-style-type: none;
+            float:left;
+        }
+        .nav_container{
+            display: inline-block;
+        }
+        .main_menu > li > a:link, .main_menu > li > a:visited {
+            font-size: 18px;
+            font-weight: bold;
+            color:#6d6564;
+            width: 200px;
+            padding:16px 0px;
+            line-height: 18px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .main_menu > li > a:hover{
+            background-color: #6d6564;
+            color : white;
+        }
+        .sub_menu > li > a:link, .sub_menu > li > a:visited {
+            font-size: 16px;
+            color:#7c7574;
+            background-color: #c6d39e;
+            width: 200px;
+            padding:17px 0px;
+            line-height: 16px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .sub_menu > li > a:hover{
+            background-color: #6d6564;
+            color : white;
+        }
+        .sub_menu{
+            display: none;
+        }
     </style>
+    <script>
+        $(function(){
+            $(".main_menu").mouseenter(function(){
+                $(this).children(".sub_menu").stop().slideDown(500);
+
+            });
+            $(".main_menu").mouseleave(function(){
+                $(this).children(".sub_menu").stop().slideUp(500);
+            });
+        });
+    </script>
 </head>
 <body>  
     <div class="container">
@@ -112,8 +172,46 @@
                       <span class="sr-only">Next</span>
                     </a>
                   </div>
-
+        </div>
+        <div class="row">
+            <div class="col-xs-12 nav">
+                <div class="nav_container">
+                    <ul class="main_menu">
+                        <li><a href="/0504/main_layout.html">HOME</a></li>
+                    </ul>        
+                    <ul class="main_menu">
+                        <li><a href="#">예약</a></li>
+                        <ul class="sub_menu">
+                            <li><a href="/0506/sub_page_2.html">예약하기</a></li>
+                            <li><a href="#">예약조회</a></li>
+                        </ul>
+                    </ul>
+                    <ul class="main_menu">
+                        <li><a href="#">펜션스토리</a></li>
+                        <ul class="sub_menu">
+                            <li><a href="#">커뮤니티</a></li>
+                            <li><a href="#">갤러리</a></li>
+                            <li><a href="#">QnA</a></li>
+                        </ul>
+                    </ul>
+                    <ul class="main_menu">
+                        <li><a href="#">펜션소개</a></li>
+                        <ul class="sub_menu">
+                            <li><a href="/0506/sub_page_1.html">오시는길</a></li>
+                            <li><a href="#">시설안내</a></li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
