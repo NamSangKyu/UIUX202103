@@ -14,6 +14,9 @@
             margin:0;
             padding:0;
         }
+        .container{
+            width: 1170px;
+        }
         .header{
             height: 50px;
             background-color: #8f9d65;
@@ -101,6 +104,33 @@
         }
         .sub_menu{
             display: none;
+        }
+        .table{
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .table th, .table td{
+            text-align: center;
+        }
+        .table caption{
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+        footer{
+            min-width: 1170px;
+            margin-top: 40px;
+            background-color: #e8e8e8;
+            padding: 10px 0px;
+        }
+        footer ul{
+            display: inline-block;
+            list-style-type: none;
+            position: relative;  
+            left: 10%;        
+        }
+        footer ul li{
+            padding: 5px 0px;
         }
     </style>
     <script>
@@ -204,7 +234,99 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <table class="table table-bordered">
+                    <caption>공지사항</caption>
+                    <tr>
+                        <th class="table_no">글번호</th>
+                        <th class="table_title">제목</th>
+                        <th class="table_date">작성일</th>
+                        <th class="table_writer">작성자</th>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>공지사항 - 1</td>
+                        <td>2020.05.06</td>
+                        <td>운영자</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>공지사항 - 1</td>
+                        <td>2020.05.06</td>
+                        <td>운영자</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>공지사항 - 1</td>
+                        <td>2020.05.06</td>
+                        <td>운영자</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>공지사항 - 1</td>
+                        <td>2020.05.06</td>
+                        <td>운영자</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>공지사항 - 1</td>
+                        <td>2020.05.06</td>
+                        <td>운영자</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-xs-6">
+                <table class="table table-bordered">
+                    <caption>이벤트</caption>
+                    <tr>
+                        <th class="table_no">글번호</th>
+                        <th class="table_title">제목</th>
+                        <th class="table_date">작성일</th>
+                        <th class="table_writer">작성자</th>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>이벤트 - 1</td>
+                        <td>2020.05.06</td>
+                        <td>운영자</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>이벤트 - 1</td>
+                        <td>2020.05.06</td>
+                        <td>운영자</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>이벤트 - 1</td>
+                        <td>2020.05.06</td>
+                        <td>운영자</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>공지사항 - 1</td>
+                        <td>2020.05.06</td>
+                        <td>운영자</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>공지사항 - 1</td>
+                        <td>2020.05.06</td>
+                        <td>운영자</td>
+                    </tr>
+                </table>    
+            </div>
+        </div>
     </div>
+    <footer>
+        <ul>
+            <li>사업자 번호 : 0000-0000-00000</li>
+            <li>고객센터 : <a href="tel:0000-0000" style="color:black;text-decoration: none;">0000-0000</a></li>
+            <li>홈페이지 담당자 : OOO</li>
+            <li>주소 : 서울시 OO구 OO동 000-00번지 1층</li>
+        </ul>
+    </footer>
 </body>
 </html>
 
