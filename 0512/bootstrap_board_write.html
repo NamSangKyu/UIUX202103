@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Bootstrap Setting</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="/resource/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/resource/bootstrap/css/bootstrap-theme.css">
+    <script src="/resource/bootstrap/js/bootstrap.js"></script>
+    <style>
+        .container{
+            width:1170px;
+        }
+        .btn {
+            width: 100%;
+        }
+        .width300{
+            width:300px;
+        }
+        form div{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>게시판 글쓰기 페이지</h2>
+        <div class="row">
+            <div class="col-xs-12">
+                <form action="">
+                    <div class="col-xs-1">
+                        <label id="title">제목</label>
+                    </div>
+                    <div class="col-xs-11">
+                        <input type="text" class="form-control width300" id="title">
+                    </div>
+                    <div class="col-xs-1">
+                        <label id="writer">작성자</label>
+                    </div>
+                    <div class="col-xs-11">
+                        <input type="text" class="form-control width300" id="writer">
+                    </div>
+                    <div class="col-xs-12">
+                        <label id="content">내용</label>
+                    </div>
+                    <div class="col-xs-12">
+                        <textarea id="content" rows="10" class="form-control"></textarea>
+                    </div>
+                    <div class="col-xs-1">
+                        <label>첨부파일</label>
+                    </div>
+                    <div class="col-xs-11">
+                        <input type="file">
+                    </div>
+                    <div class="col-xs-12">
+                        <hr>
+                    </div>
+                    <div class="col-xs-1">
+                        <button class="btn btn-default">글쓰기</button>
+                    </div>
+                    <div class="col-xs-1 col-xs-offset-10">
+                        <button class="btn btn-default">취소</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
