@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Bootstrap Setting</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="/resource/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/resource/bootstrap/css/bootstrap-theme.css">
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script src="/resource/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eb20edf543cd8f923bbd6f933314e6a1&libraries=services"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 1170px;
+        }
+
+        .header {
+            height: 50px;
+            background-color: #8f9d65;
+        }
+
+        .header figure {
+            height: 100%;
+            padding: 5px 0px;
+            width: 300px;
+            float: right;
+        }
+
+        figure img {
+            width: 40px;
+            float: left;
+        }
+
+        figure figcaption {
+            float: left;
+            height: 40px;
+            padding-left: 5px;
+        }
+
+        figure figcaption h3 {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            font-size: 16px;
+            line-height: 20px;
+            color: #564c4b;
+        }
+
+        figure figcaption p {
+            font-size: 12px;
+            line-height: 20px;
+        }
+
+        figure a:link,
+        figure a:visited {
+            color: #6d6564;
+            text-decoration: none;
+        }
+
+        .carousel-inner img {
+            width: 100%;
+            height: 300px !important;
+        }
+
+        .carousel-inner {
+            width: 100% !important;
+            height: 300px !important;
+        }
+
+        .nav {
+            height: 50px;
+            background-color: #8f9d65;
+            font-size: 0px;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .nav ul {
+            list-style-type: none;
+            float: left;
+        }
+
+        .nav_container {
+            display: inline-block;
+        }
+
+        .main_menu>li>a:link,
+        .main_menu>li>a:visited {
+            font-size: 18px;
+            font-weight: bold;
+            color: #6d6564;
+            width: 200px;
+            padding: 16px 0px;
+            line-height: 18px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .main_menu>li>a:hover {
+            background-color: #6d6564;
+            color: white;
+        }
+
+        .sub_menu>li>a:link,
+        .sub_menu>li>a:visited {
+            font-size: 16px;
+            color: #7c7574;
+            background-color: #c6d39e;
+            width: 200px;
+            padding: 17px 0px;
+            line-height: 16px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .sub_menu>li>a:hover {
+            background-color: #6d6564;
+            color: white;
+        }
+
+        .sub_menu {
+            display: none;
+        }
+
+        .row button {
+            width: 65px;
+            height: 200px;
+            float: left;
+            background-image: url('/resource/img/arrow.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: center;
+            background-color: transparent;
+            border: none;
+        }
+
+        .row h2 {
+            text-align: center;
+        }
+
+        .row table {
+            float: left;
+            text-align: center;
+        }
+
+        #calender th {
+            text-align: center;
+        }
+        #calender th,#calender td {
+            font-size: 18px;
+        }
+        #calender td:hover{
+            background-color: #e8e8e8;
+        }
+        #calender td:active{
+            background-color: transparent;
+        }
+        #calender td:first-child,
+        #calender th:first-child {
+            color: red;
+        }
+
+        #calender td:last-child,
+        #calender th:last-child {
+            color: blue;
+        }
+
+        #cal_next {
+            transform: rotate(180deg);
+        }
+
+        footer {
+            min-width: 1170px;
+            margin-top: 40px;
+            background-color: #e8e8e8;
+            padding: 10px 0px;
+        }
+
+        footer ul {
+            display: inline-block;
+            list-style-type: none;
+            position: relative;
+            left: 10%;
+        }
+
+        footer ul li {
+            padding: 5px 0px;
+        }
+    </style>
+
+    <script>
+        function createCalender(year, month){
+            var date = new Date(year+"-"+month+"-1");//시작 날짜
+            var tag = "";//빈 문자열
+            var end = new Date();
+            end.setFullYear(date.getFullYear());
+            end.setMonth(date.getMonth()+1);//다음달 설정
+            end.setDate(0);//전달 마지막 달
+            end.setHours(0);
+            end.setMinutes(0);
+            end.setSeconds(0);
+            console.log(date);
+            console.log(end);
+            //첫줄 일요일 날짜
+            date.setDate(date.getDate()-date.getDay());
+            // 마지막 줄 토요일 날짜
+            end.setDate(end.getDate()+6-end.getDay());
+            //달력 줄수
+            var line = (end.getTime()- date.getTime()) / (1000*60*60*24*7);
+            for(i=0;i<line;i++){
+                tag += "<tr>";
+                for(j=0;j<7;j++){
+                    if(date.getMonth() != month-1)
+                        tag += "<td class='disable'>"+date.getDate()+"</td>";
+                    else
+                        tag += "<td>"+date.getDate()+"</td>";
+                    date.setDate(date.getDate()+1);
+                }
+                tag += "</tr>";
+            }
+            console.log(tag);
+            return tag;
+        }
+
+        $(function () {
+            $(".main_menu").mouseenter(function () {
+                $(this).children(".sub_menu").stop().slideDown(500);
+
+            });
+            $(".main_menu").mouseleave(function () {
+                $(this).children(".sub_menu").stop().slideUp(500);
+            });
+
+             //달력 셋팅 부분
+             var today = new Date();
+            today.setDate(1);
+            var tag = createCalender(today.getFullYear(),today.getMonth()+1);           
+            $("#calender > tbody").html(tag);
+            $("article > h2").html(today.getFullYear() + "년 "+ (today.getMonth()+1)+"월" );
+        });
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row header">
+            <div class="col-xs-4 col-xs-offset-8">
+                <figure>
+                    <img src="/resource/img/profile.png">
+                    <figcaption>
+                        <h3>OOO님이 로그인 하셨습니다.</h3>
+                        <p><a href="#">로그아웃</a> | <a href="#">회원정보수정</a></p>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+        <div class="row">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="/resource/img/main_1.jpg" alt="">
+                        <div class="carousel-caption">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="/resource/img/main_2.jpg" alt="">
+                        <div class="carousel-caption">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="/resource/img/main_3.jpg" alt="">
+                        <div class="carousel-caption">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="/resource/img/main_4.jpg" alt="">
+                        <div class="carousel-caption">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 nav">
+                <div class="nav_container">
+                    <ul class="main_menu">
+                        <li><a href="/0504/main_layout.html">HOME</a></li>
+                    </ul>
+                    <ul class="main_menu">
+                        <li><a href="#">예약</a></li>
+                        <ul class="sub_menu">
+                            <li><a href="/0506/sub_page_2.html">예약하기</a></li>
+                            <li><a href="#">예약조회</a></li>
+                        </ul>
+                    </ul>
+                    <ul class="main_menu">
+                        <li><a href="#">펜션스토리</a></li>
+                        <ul class="sub_menu">
+                            <li><a href="#">커뮤니티</a></li>
+                            <li><a href="#">갤러리</a></li>
+                            <li><a href="#">QnA</a></li>
+                        </ul>
+                    </ul>
+                    <ul class="main_menu">
+                        <li><a href="#">펜션소개</a></li>
+                        <ul class="sub_menu">
+                            <li><a href="/0506/sub_page_1.html">오시는길</a></li>
+                            <li><a href="#">시설안내</a></li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h2>2021년 5월</h2>
+                <div class="row">
+                    <div class="col-xs-1">
+                        <button id="cal_pre"></button>
+                    </div>
+                    <div class="col-xs-10">
+                        <table class="table table-bordered" id="calender">
+                            <thead>
+                                <tr>
+                                    <th>일</th>
+                                    <th>월</th>
+                                    <th>화</th>
+                                    <th>수</th>
+                                    <th>목</th>
+                                    <th>금</th>
+                                    <th>토</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <div class="col-xs-1">
+                        <button id="cal_next"></button>
+                    </div>
+                </div>        
+            </div>
+        </div>
+
+    </div>
+    <footer>
+        <ul>
+            <li>사업자 번호 : 0000-0000-00000</li>
+            <li>고객센터 : <a href="tel:0000-0000" style="color:black;text-decoration: none;">0000-0000</a></li>
+            <li>홈페이지 담당자 : OOO</li>
+            <li>주소 : 서울시 OO구 OO동 000-00번지 1층</li>
+        </ul>
+    </footer>
+</body>
+
+</html>
