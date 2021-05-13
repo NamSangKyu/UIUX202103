@@ -14,6 +14,7 @@
         $(function () {
             $("#btn_weather").click(function () {
                 var city = ["Seoul", "Daejeon", "Daegu", "Busan", "Gwangju"];
+                $("#result").html("");
                 for (i = 0; i < city.length; i++) {
                     var appid = "23815d818a51ef76062d119292b5691e";
                     var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city[i]}&appid=${appid}`;
@@ -23,11 +24,20 @@
                         type: "get",
                         dataType: "json",
                         success: function (data) {
-                            console.log(data.name);
+                            var tag = "<tr>";
+                            tag += "<td class='text-center'>"+data.name+"</td>";
+                            tag += "<td class='text-center'>"+data.weather[0].main+"</td>";
+                            tag += "<td class='text-center'>"+(Number(data.main.temp)-273.15).toFixed(2)+"℃</td>";
+                            tag += "<td class='text-center'>"+(Number(data.main.temp_min)-273.15).toFixed(2)+"℃</td>";
+                            tag += "<td class='text-center'>"+(Number(data.main.temp_max)-273.15).toFixed(2)+"℃</td>";
+                            tag += "<td class='text-center'>"+data.wind.speed+"m/sec</td>";
+                            tag += "</tr>";
+                            $("#result").prepend(tag);
                         }
                     });
                 }
             });
+            $("#btn_weather").click();//페이지 로드시 최초 날씨 정보 로드
         });
     </script>
 </head>
@@ -48,6 +58,9 @@
                             <th class="text-center">바람세기</th>
                         </tr>
                     </thead>
+                    <tbody id="result">
+
+                    </tbody>
                 </table>
             </div>
         </div>
