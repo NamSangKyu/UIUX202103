@@ -75,7 +75,15 @@
 					data: param,
 					type: 'get',
 					success: function (data) {
-						alert(data);
+						//서버로부터 받은 데이터
+						console.log(data);
+						var result = data.split("<br>")[1];
+						result = JSON.parse(result);
+						console.log(result);
+						console.log(result.message.result.translatedText);
+						$("#result").val(result.message.result.translatedText);
+					},error :function(xhr,status,error){
+						console.log("code : "+xhr.status +",message : "+ xhr.responseText+",error : "+error);
 					}
 
 				});
