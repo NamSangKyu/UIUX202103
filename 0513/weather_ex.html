@@ -8,10 +8,25 @@
     <script src='/resource/lib/jquery-3.6.0.min.js'></script>
     <script>
         $(function(){
-            var city="seoul";
-            var appid = "23815d818a51ef76062d119292b5691e";
-            var url= `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${appid}`;
-            console.log(url);
+            $("#request").click(function(){
+                var city="seoul";
+                var appid = "23815d818a51ef76062d119292b5691e";
+                var apiUrl= `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${appid}`;
+                console.log(apiUrl);
+                $.ajax({
+                    url : apiUrl,
+                    type:"get",
+                    dataType:"text",
+                    success:function(data){
+                        console.log(data);
+                        $("#result").html(data);
+                        //최저온도, 최고온도, 현재온도
+                        //현재 날씨 상태 (weather.main)
+                        //도시명
+                        //도시명   현재 날씨상태    현재온도    최저온도    최고온도
+                    }                    
+                });
+            });
         });
     </script>
 </head>
