@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Bootstrap Setting</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="/resource/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/resource/bootstrap/css/bootstrap-theme.css">
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script src="/resource/bootstrap/js/bootstrap.js"></script>
+    <script>
+        $(function () {
+            $("#btn_weather").click(function () {
+                var city = ["Seoul", "Daejeon", "Daegu", "Busan", "Gwangju"];
+                for (i = 0; i < city.length; i++) {
+                    var appid = "23815d818a51ef76062d119292b5691e";
+                    var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city[i]}&appid=${appid}`;
+                    console.log(apiUrl);
+                    $.ajax({
+                        url: apiUrl,
+                        type: "get",
+                        dataType: "json",
+                        success: function (data) {
+                            console.log(data.name);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <table class="table table-bordered">
+                    <caption class="text-right"><button id="btn_weather" class="btn btn-info">날씨정보 수신</button></caption>
+                    <thead>
+                        <tr>
+                            <th class="text-center">도시명</th>
+                            <th class="text-center">현재날씨</th>
+                            <th class="text-center">현재온도</th>
+                            <th class="text-center">최저온도</th>
+                            <th class="text-center">최고온도</th>
+                            <th class="text-center">바람세기</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
