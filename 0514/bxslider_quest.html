@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' href='/resource/bxslider/css/jquery.bxslider.css'>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script src='/resource/bxslider/js/jquery.bxslider.js'></script>
+    <script>
+        $(function () {
+            $(".slider").bxSlider();
+        });
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .slider img {
+            width: 100%;
+        }
+        .bx-pager{
+            bottom:20px !important;
+        }
+        .bx-wrapper{
+            box-shadow: none;
+            border: none;
+        }
+        .bx-wrapper .bx-pager.bx-default-pager a{
+            width:30px;
+            height: 10px;
+            border-radius: none;
+            background-color: chartreuse;
+            transition-property: background;
+            transition-duration: 1s;
+        }
+        .bx-wrapper .bx-pager.bx-default-pager a.active{
+            background-color: darkolivegreen;
+        }
+        .bx-wrapper .bx-next,
+        .bx-wrapper .bx-prev {
+            background-image: url(/resource/bxslider/images/controls.png);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <div><img src="/resource/img/main_1.jpg"></div>
+        <div><img src="/resource/img/main_2.jpg"></div>
+        <div><img src="/resource/img/main_3.jpg"></div>
+        <div><img src="/resource/img/main_4.jpg"></div>
+    </div>
+</body>
+
+</html>
