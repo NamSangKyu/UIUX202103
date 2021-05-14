@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' href='/resource/bxslider/css/jquery.bxslider.css'>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script src='/resource/bxslider/js/jquery.bxslider.js'></script>
+    <script>
+        $(function(){
+            $(".slider").bxSlider();
+        });
+    </script>
+    <style>
+        .slider{
+            width: 200px;
+            height: 200px;
+        }
+        .slider div{
+            width: 100%;
+            height: 100%;
+        }
+        .bx-wrapper .bx-next,.bx-wrapper .bx-prev{
+            background-image: url(/resource/bxslider/images/controls.png);
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <div>I am a slide.</div>
+        <div>I am another slide.</div>
+      </div>
+</body>
+</html>
