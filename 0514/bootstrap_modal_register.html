@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Bootstrap Setting</title>
+    <title>Bootstrap modal register</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="/resource/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/resource/bootstrap/css/bootstrap-theme.css">
@@ -14,9 +14,23 @@
         $(function () {
             $("#submit").click(function () {
                 var registerURL = "http://nam2626.dothome.co.kr/register.php";
-                //네임속성  id, pass, name, email, host
-                //$("#close").click();
+                var param = $("#frm").serialize();//해당 폼으로 쿼리스트링을 작성
+                
                 //ajax 처리
+                $.ajax({
+                    url : registerURL,
+                    data : param,
+                    type:"post",
+                    dataType:"json",
+                    success:function(data){
+                        console.log(data);
+                        alert(data.message);
+                        if(data.resultCode == 200){
+                            $("#close").click();
+                            $("#frm")[0].reset();
+                        }
+                    }
+                });
             });
         });
     </script>
@@ -42,7 +56,7 @@
                         <input type="password" class="form-control" id="pass" name="pass">
                         <label for="name">이름</label>
                         <input type="text" class="form-control" id="name" name="name">
-                        <div class="form-group">
+                        <div class="form-group form-inline" style="margin-top:10px;">
                             <label for="email">이메일</label>
                             <input type="text" class="form-control" id="email" name="email">
                             <span class="form-control-static">@</span>
