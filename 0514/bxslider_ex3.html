@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' href='/resource/bxslider/css/jquery.bxslider.css'>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script src='/resource/bxslider/js/jquery.bxslider.js'></script>
+    <script>
+        $(function () {
+            $(".slider").bxSlider({
+                slideWidth:320,
+                maxSlides : 4,
+                minSlides : 2,
+                moveSlides : 3
+            });
+        });
+    </script>
+    <style>
+        .bx-wrapper .bx-next,
+        .bx-wrapper .bx-prev {
+            background-image: url(/resource/bxslider/images/controls.png);
+        }
+        .slider img{
+            width:100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <div><img src="/resource/img/1.jpg" title="1번 이미지"></div>
+        <div><img src="/resource/img/2.jpg" title="2번 이미지"></div>
+        <div><img src="/resource/img/3.jpg" title="3번 이미지"></div>
+        <div><img src="/resource/img/4.jpg" title="4번 이미지"></div>
+        <div><img src="/resource/img/5.jpg" title="5번 이미지"></div>
+        <div><img src="/resource/img/6.jpg" title="6번 이미지"></div>
+        <div><img src="/resource/img/7.jpg" title="7번 이미지"></div>
+        <div><img src="/resource/img/8.jpg" title="8번 이미지"></div>
+        <div><img src="/resource/img/9.jpg" title="9번 이미지"></div>
+    </div>
+</body>
+
+</html>
