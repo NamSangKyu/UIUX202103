@@ -1,0 +1,28 @@
+node js 설치 --> LTS 버전
+콘솔창에서 yarn 설치 
+	npm install --global yarn
+
+리액트 앱 생성 및 실행 - npx/npm
+npx create-react-app 프로젝트명 --> 프로젝트 폴더생성
+npx create-react-app . --> 현재 폴더에 리액트 프로젝트 생성
+해당프로젝트 폴더에서 npm run start
+
+리액트 앱 생성 - yarn
+yarn create react-app 프로젝트명
+해당프로젝트 폴더에서 yarn start
+
+명령프롬프트 명령어 - windows
+파일 및 폴더 목록 조회 : dir
+상위 폴더로 이동 : cd ..
+최상위폴더(root 폴더) - 로컬디스크 C로 이동 : cd \
+원하는 폴더 이동 - dir로 목록 확인 후 : cd 이동할폴더명
+원하는 폴더 생성 : mkdir 폴더명 
+원하는 폴더 삭제 : rmdir 폴더명 --> 폴더가 비어있어야 삭제가 가능
+원하는 폴더 및 하위 폴더 파일까지 전부 삭제 : del 폴더명 /s /q
+
+리눅스 명령어 - linux
+상위폴더 이동 : cd ..
+원하는 폴더 이동 : cd \
+		원하는 경로 /폴더명/폴더명
+현재 폴더까지 경로 출력 : pwd
+
