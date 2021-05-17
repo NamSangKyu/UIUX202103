@@ -80,7 +80,45 @@
             color:#ffffff;
             background: none !important;
         }
+        .vod_bar .view h3{
+            position: absolute;
+            left: 50px;
+            bottom: 50px;
+            color:#ffffff;
+            background: none !important;
+        }
+        footer h3{
+            padding:20px;
+            border-top: 1px solid #e8e8e8;
+            border-bottom: 1px solid #e8e8e8;
+        }
+        footer p{
+            padding:20px;
+        }
+        .bx-wrapper{
+            background: none;
+            border:none;
+            box-shadow: none;
+        }
+        .bx-wrapper .bx-next,
+        .bx-wrapper .bx-prev {
+            background-image: url(/resource/bxslider/images/controls.png);
+        }
     </style>
+    <script>
+        $(function(){
+            $(".advertising").bxSlider({
+                maxSlides : 4,
+                slideWidth : 640,
+                moveSlides :1  
+            });
+            $(".vod_bar").bxSlider({
+                maxSlides : 10,
+                slideWidth : 360,
+                moveSlides :4  
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -168,45 +206,46 @@
         <article>
             <div class="vod_bar">
                 <div class="view">
-                    <img src="/resource/img/thumnail.jpg" alt="">
+                    <img src="/resource/img/section.jpg" alt="">
                     <h3>VOD 제목</h3>
                 </div>
                 <div class="view">
-                    <img src="/resource/img/thumnail.jpg" alt="">
+                    <img src="/resource/img/section.jpg" alt="">
                     <h3>VOD 제목</h3>
                 </div>
                 <div class="view">
-                    <img src="/resource/img/thumnail.jpg" alt="">
+                    <img src="/resource/img/section.jpg" alt="">
                     <h3>VOD 제목</h3>
                 </div>
                 <div class="view">
-                    <img src="/resource/img/thumnail.jpg" alt="">
+                    <img src="/resource/img/section.jpg" alt="">
                     <h3>VOD 제목</h3>
                 </div>
                 <div class="view">
-                    <img src="/resource/img/thumnail.jpg" alt="">
+                    <img src="/resource/img/section.jpg" alt="">
                     <h3>VOD 제목</h3>
                 </div>
                 <div class="view">
-                    <img src="/resource/img/thumnail.jpg" alt="">
+                    <img src="/resource/img/section.jpg" alt="">
                     <h3>VOD 제목</h3>
                 </div>
                 <div class="view">
-                    <img src="/resource/img/thumnail.jpg" alt="">
+                    <img src="/resource/img/section.jpg" alt="">
                     <h3>VOD 제목</h3>
                 </div>
                 <div class="view">
-                    <img src="/resource/img/thumnail.jpg" alt="">
+                    <img src="/resource/img/section.jpg" alt="">
                     <h3>VOD 제목</h3>
                 </div>
                 <div class="view">
-                    <img src="/resource/img/thumnail.jpg" alt="">
+                    <img src="/resource/img/section.jpg" alt="">
                     <h3>VOD 제목</h3>
                 </div>
                 <div class="view">
-                    <img src="/resource/img/thumnail.jpg" alt="">
+                    <img src="/resource/img/section.jpg" alt="">
                     <h3>VOD 제목</h3>
                 </div>
+               
             </div>
         </article>
     </section>
