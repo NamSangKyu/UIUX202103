@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        class Animal {
+            //생성자는 상속 대상에서 제외
+            constructor(age) {
+                console.log("Animal Constructor");
+                this.age = age;
+            }
+            eat() {
+                console.log(`${this.age} 동물이 먹이를 먹습니다.`);
+            }
+        }
+        class Person extends Animal {
+            //자식 생성자에서는 무조건 부모생성자를 먼저 호출
+            //부모 생성자에 필요한 값은 자식 생성자 받아서 super 인수로 보내줌
+            constructor(age) {
+                super(age); //부모 생성자를 호출
+                console.log("Person Constructor");
+            }
+            //재구현, 오버라이딩, 부모가 준 함수를 다시 구현 하겠다
+            eat() {
+                console.log(`${this.age} 사람이 먹이를 먹습니다.`);
+            }
+        }
+        var p = new Person(20);
+        p.eat();
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
