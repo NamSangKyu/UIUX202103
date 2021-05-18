@@ -1,0 +1,17 @@
+JSX  --> Babel에 의해서 컴파일
+
+자바스크립트에서 HTML 태그를 만들수 있게 해주는 것
+
+JSX 문법
+	1. 단일 태그 없음, 무조건 닫는 태그가 있음
+		<br></br>, <br/>
+		<input></input>
+	2. 속성명이 달라짐, 두번째 단어부터 첫글자는 대문자(Camel Case)
+		onclick   --->   onClick
+		onkeyup --->   onKeyUp
+		
+	3. 클래스 속성
+		class ---> className
+
+	4. 한줄은 그냥 JSX표현 작성
+	    그러나 두줄이상은 반드시 ()로 묶어줘야함
