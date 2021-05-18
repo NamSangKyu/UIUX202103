@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        //사칙연산을 수행하는 클래스
+        //각 사칙연산 수행시 해당 연산을 몇번 했는지 카운트 수행
+        class Calculator {
+            //생성자 - 각 연산별로 횟수를 저장할 속성 설정, 초기값은 전부 0
+            constructor() {
+                this.count = { sum: 0, min: 0, mul: 0, div: 0, mod: 0 };
+            }
+            //덧셈 - 매개변수 두개 받아서 두수의 합을 리턴
+            plus(a, b) {
+                this.count.sum++; return a + b;
+            }
+            //뺄셈 - 매개변수 두개 받아서 두수의 차를 리턴
+            minus(a, b) {
+                this.count.min++; return a - b;
+            }
+            //곱셈 - 매개변수 두개 받아서 두수의 곱을 리턴
+            multiple(a, b) {
+                this.count.mul++; return a + b;
+            }
+            //나눗셈 - 매개변수 두개 받아서 두수의 나눈 결과를 리턴 
+            division(a, b) {
+                this.count.div++; return a / b;
+            }
+            //나눗셈 - 나머지 - 매개변수 두개 받아서 두수의 나눈 나머지를 리턴
+            divisionMod(a, b) {
+                this.count.mod++; return a % b;
+            }
+            //count 값을 출력
+            printInfo() {
+                for (var key in this.count) {
+                    console.log(key + " : " + this.count[key]);
+                }
+            }
+        }
+        var cal = new Calculator();
+        console.log(cal.plus(10, 20));
+        console.log(cal.plus(10, 20));
+        console.log(cal.minus(10, 20));
+        console.log(cal.multiple(10, 20));
+        console.log(cal.division(210, 20));
+        cal.printInfo();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

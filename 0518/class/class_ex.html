@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        //클래스 : 함수와 변수를 가지고 있는 틀
+        class Animal {
+            //객체가 생성이 되었을때 제일 먼저, 한번만 실행하는 함수 --> 생성자
+            constructor(age) {
+                //age에 데이터가 없다면 숫자 0으로 셋팅
+                if (age == undefined) age = 0;//기본값 처리
+                document.write(`Animal ${age}생성자 실행<br>`);
+                //받아온 데이터를 객체에 저장하는 부분
+                this.age = age;//객체에 age 변수를 만들고 매개변수로 받은 age를 저장
+                //this.age --> 객체에 age 변수를 만들겠다.
+            }
+            eat(food) {
+                document.write(this.age + "살짜리 동물이 " + food + "를 먹습니다.<br>");
+            }
+        }
+
+        var ani1 = new Animal();
+        var ani2 = new Animal(10); //생성자에게 데이터를 넘겨줌
+        var ani3 = new Animal(20);
+        ani1.eat("사료");
+        ani2.eat("물고기");
+        ani3.eat("육고기");
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
