@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        /*
+  TV 클래스
+    - 변수 : 채널, 음량, 전원
+    - 함수 : 채널Up,채널Down, 음량Up,음량Down
+            전원OnOff     
+    - 생성자 : 채널 초기값 24, 음량 5, 전원 true
+*/
+        class TV {
+            constructor() {
+                this.ch = 24;
+                this.vol = 5;
+                this.power = true;
+            }
+            //채널을 값을 올리는 함수 작성 - 마지막 채널 777에서 올리면 맨처음 채널로 이동 (첫번째 채널 값 1)
+            chanelUp() {
+                if (this.ch < 777)
+                    this.ch++;
+                else
+                    this.ch = 1;
+                console.log("현재 채널 : " + this.ch);
+            }
+            //채널 값을 내리는 함수 작성
+            chanelDown() {
+                if (this.ch > 1)
+                    this.ch--;
+                else
+                    this.ch = 777;
+                console.log("현재 채널 : " + this.ch);
+            }
+            //음량 최소값 0, 음량 최대값 50
+            volUp() {
+                if (this.vol < 50)
+                    this.vol++;
+                console.log("현재 음량 : " + this.vol);
+            }
+            volDown() {
+                if (this.vol > 0)
+                    this.vol--;
+                console.log("현재 음량 : " + this.vol);
+            }
+            powerOnOff() {
+
+            }
+        }
+        var tv = new TV();
+        tv.chanelUp(); tv.chanelUp(); tv.chanelUp(); tv.chanelUp();
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
