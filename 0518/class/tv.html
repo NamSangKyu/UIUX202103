@@ -58,33 +58,61 @@
                     console.log("TV 전원 On");
                 else
                     console.log("TV 전원 Off");
+                return this.#power;
             }
             //setter getter를 반드시 작성할 필요는 없음
             //필드값을 외부로부터 받아오거나 반출할때는 필요
-            getCh(){//외부로 필드값을 반출할때
+            getCh() {//외부로 필드값을 반출할때
                 return this.#ch;
             }
-            setCh(ch){//외부로부터 값을 받아올때
-                if(ch > 0 && ch < 778)
+            setCh(ch) {//외부로부터 값을 받아올때
+                if (ch > 0 && ch < 778)
                     this.#ch = ch;
             }
-            getVol(){
+            getVol() {
                 return this.#vol;
             }
-            setVol(vol){
-                if(vol >= 0 && vol <= 50)
+            setVol(vol) {
+                if (vol >= 0 && vol <= 50)
                     this.#vol = vol;
             }
-            getPower(){
+            getPower() {
                 return this.#power;
             }
         }
 
-        $(function(){
+        $(function () {
             var tv = new TV();
-            for(i=0;i<100;i++)
-                tv.chanelDown();
             $("#ch").val(tv.getCh());
+            $("#vol").val(tv.getVol());
+
+            //채널 제어 - 채널UP/Down 버튼에 대한 이벤트 처리
+            $("#btn_ch_down").click(function () {
+                tv.chanelDown();
+                $("#ch").val(tv.getCh());
+            });
+            $("#btn_ch_up").click(function () {
+                tv.chanelUp();
+                $("#ch").val(tv.getCh());
+            });
+            //음량 제어
+            $("#btn_vol_down").on("click keypress", function () {
+                tv.volDown();
+                $("#vol").val(tv.getVol());
+            });
+
+            $("#btn_vol_up").on("click keypress", function () {
+                tv.volUp();
+                $("#vol").val(tv.getVol());
+            });
+            //전원 제어
+            $("#btn_power").on("click keyup",function(){
+                var status = tv.powerOnOff();
+                if(status)
+                    $("button").removeAttr("disabled");
+                else
+                    $("button").attr("disabled","");
+            });
         });
 
     </script>
@@ -103,7 +131,7 @@
     </div>
     <div>
         <button id="btn_power">전원</button> <span id="powerStatus"></span>
-    </div>   
+    </div>
 </body>
 
 </html>
