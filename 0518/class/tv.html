@@ -8,12 +8,12 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script>
         /*
-  TV 클래스
-    - 변수 : 채널, 음량, 전원
-    - 함수 : 채널Up,채널Down, 음량Up,음량Down
-            전원OnOff     
-    - 생성자 : 채널 초기값 24, 음량 5, 전원 true
-*/
+    TV 클래스
+      - 변수 : 채널, 음량, 전원
+      - 함수 : 채널Up,채널Down, 음량Up,음량Down
+              전원OnOff     
+      - 생성자 : 채널 초기값 24, 음량 5, 전원 true
+  */
         class TV {
             constructor() {
                 this.ch = 24;
@@ -48,11 +48,16 @@
                 console.log("현재 음량 : " + this.vol);
             }
             powerOnOff() {
-
+                this.power = !this.power;
+                if (this.power)
+                    console.log("TV 전원 On");
+                else
+                    console.log("TV 전원 Off");
             }
         }
         var tv = new TV();
         tv.chanelUp(); tv.chanelUp(); tv.chanelUp(); tv.chanelUp();
+        tv.powerOnOff(); tv.powerOnOff(); tv.powerOnOff(); tv.powerOnOff();
 
     </script>
 </head>
