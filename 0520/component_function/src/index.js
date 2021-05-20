@@ -6,10 +6,11 @@ import RoundButton from './App';
 
 ReactDOM.render(
     <div>
-      <RoundButton />
-      <RoundButton />
-      <RoundButton />
-      <RoundButton />
+      <RoundButton id="id1">버튼1</RoundButton>
+      <RoundButton id="id2">버튼2</RoundButton>
+      <RoundButton id="id3">버튼3</RoundButton>
+      <RoundButton id="id4">버튼4</RoundButton>
+      <RoundButton id="id5">버튼5</RoundButton>
     </div>
   ,
   document.getElementById('root')
