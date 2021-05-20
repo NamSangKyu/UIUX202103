@@ -16,46 +16,77 @@
       - 생성자 : 채널 초기값 24, 음량 5, 전원 true
   */
         class TV {
+            #ch; //필드 선언 ---> private field
+            #vol;
+            #power;
             constructor() {
-                this.ch = 24;
-                this.vol = 5;
-                this.power = true;
+                this.#ch = 24;
+                this.#vol = 5;
+                this.#power = true;
+                console.log(this.#ch);
             }
             //채널을 값을 올리는 함수 작성 - 마지막 채널 777에서 올리면 맨처음 채널로 이동 (첫번째 채널 값 1)
             chanelUp() {
-                if (this.ch < 777)
-                    this.ch++;
+                if (this.#ch < 777)
+                    this.#ch++;
                 else
-                    this.ch = 1;
-                console.log("현재 채널 : " + this.ch);
+                    this.#ch = 1;
+                console.log("현재 채널 : " + this.#ch);
             }
             //채널 값을 내리는 함수 작성
             chanelDown() {
-                if (this.ch > 1)
-                    this.ch--;
+                if (this.#ch > 1)
+                    this.#ch--;
                 else
-                    this.ch = 777;
-                console.log("현재 채널 : " + this.ch);
+                    this.#ch = 777;
+                console.log("현재 채널 : " + this.#ch);
             }
             //음량 최소값 0, 음량 최대값 50
             volUp() {
-                if (this.vol < 50)
-                    this.vol++;
-                console.log("현재 음량 : " + this.vol);
+                if (this.#vol < 50)
+                    this.#vol++;
+                console.log("현재 음량 : " + this.#vol);
             }
             volDown() {
-                if (this.vol > 0)
-                    this.vol--;
-                console.log("현재 음량 : " + this.vol);
+                if (this.#vol > 0)
+                    this.#vol--;
+                console.log("현재 음량 : " + this.#vol);
             }
             powerOnOff() {
-                this.power = !this.power;
-                if (this.power)
+                this.#power = !this.#power;
+                if (this.#power)
                     console.log("TV 전원 On");
                 else
                     console.log("TV 전원 Off");
             }
+            //setter getter를 반드시 작성할 필요는 없음
+            //필드값을 외부로부터 받아오거나 반출할때는 필요
+            getCh(){//외부로 필드값을 반출할때
+                return this.#ch;
+            }
+            setCh(ch){//외부로부터 값을 받아올때
+                if(ch > 0 && ch < 778)
+                    this.#ch = ch;
+            }
+            getVol(){
+                return this.#vol;
+            }
+            setVol(vol){
+                if(vol >= 0 && vol <= 50)
+                    this.#vol = vol;
+            }
+            getPower(){
+                return this.#power;
+            }
         }
+
+        $(function(){
+            var tv = new TV();
+            for(i=0;i<100;i++)
+                tv.chanelDown();
+            $("#ch").val(tv.getCh());
+        });
+
     </script>
 </head>
 
