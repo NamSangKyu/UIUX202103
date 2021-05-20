@@ -6,6 +6,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
     <script>
         /*
     TV 클래스
@@ -55,15 +56,23 @@
                     console.log("TV 전원 Off");
             }
         }
-        var tv = new TV();
-        tv.chanelUp(); tv.chanelUp(); tv.chanelUp(); tv.chanelUp();
-        tv.powerOnOff(); tv.powerOnOff(); tv.powerOnOff(); tv.powerOnOff();
-
     </script>
 </head>
 
 <body>
-
+    <div>
+        <button id="btn_ch_down">채널Down</button>
+        <input type="text" id="ch" readonly>
+        <button id="btn_ch_up">채널Up</button>
+    </div>
+    <div>
+        <button id="btn_vol_down">음량Down</button>
+        <input type="text" id="vol" readonly>
+        <button id="btn_vol_up">음량Up</button>
+    </div>
+    <div>
+        <button id="btn_power">전원</button> <span id="powerStatus"></span>
+    </div>   
 </body>
 
 </html>
