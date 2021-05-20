@@ -109,9 +109,9 @@
             $("#btn_power").on("click keyup",function(){
                 var status = tv.powerOnOff();
                 if(status)
-                    $("button").removeAttr("disabled");
+                    $("button").not(this).removeAttr("disabled");
                 else
-                    $("button").attr("disabled","");
+                    $("button").not(this).attr("disabled","");
             });
         });
 
