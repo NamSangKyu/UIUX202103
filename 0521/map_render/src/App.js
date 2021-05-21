@@ -19,10 +19,12 @@ class Circle extends React.Component{
       "border" : "5px solid red"
     };
     const lineItems = line.map((data,index) =>{
-      var border = style.border.split(" ");
+      var itemStyle = {...style}; //객체 복사
+      var border = itemStyle.border.split(" ");
       border[2] = color[index];
-      style.border = border.join(" ");
-      return (<div style={style}>{data}</div>);
+      itemStyle.border = border.join(" ");
+      console.log(itemStyle.border);
+      return (<div style={itemStyle}>{data}</div>);
     } );
     return (<div>{lineItems}</div>);
   }
