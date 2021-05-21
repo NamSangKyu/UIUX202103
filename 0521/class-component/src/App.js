@@ -18,9 +18,9 @@ class RoundButton extends React.Component{
         onClick={this.eventFunction} id={this.props.id}>
           {this.props.children}- {this.props.id}</button>);
     }
-    eventFunction(){
-      //const {id, children} = this.props;
-      alert("버튼 클릭이벤트 발생");
+    eventFunction = () => {
+      alert(this.props.id + "버튼 클릭이벤트 발생");
+      console.log(this);
     }
 }
 
