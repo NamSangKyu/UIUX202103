@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Counter from './App';
+import AppFunc from './AppFunc';
 
 ReactDOM.render(
   <div>
     <Counter/>
+    <hr/>
+    <AppFunc/>
   </div>,
   document.getElementById('root')
 );
