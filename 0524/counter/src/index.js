@@ -1,18 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Counter from './App';
 
-function showAlert(){
-  alert("경고창 출력");
-}
 ReactDOM.render(
-  <div> 
-    <App id="app1" click={showAlert}>내용1</App>
-    <App id="app2" click={showAlert}>내용2</App>
-    <App id="app3" click={showAlert}>내용3</App>
-    <App id="app4" click={showAlert}>내용4</App>
+  <div>
+    <Counter/>
   </div>,
   document.getElementById('root')
 );
