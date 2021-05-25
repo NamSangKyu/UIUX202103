@@ -21,12 +21,26 @@ class ListForm extends React.Component{
     event.target.reset();
   }
 }
+class ListItem extends React.Component{
+  constructor(props){
+    super(props);
+  }
+  render(){
+    return (
+      <li>
+        {this.props.text} - <button>삭제</button>
+      </li>
+    );
+  }
+}
 class List extends React.Component{
   constructor(props){
     super(props);
   }
   render(){
-    const tag = this.props.list.map((obj) =>(<li>{obj}</li>));
+    const tag = this.props.list.map((obj, index) =>(<ListItem
+      text={obj} index={index} remove={this.props.remove}
+    />));
     return (<ul>{tag}</ul>);
   }
 }
@@ -39,7 +53,7 @@ class ListApp extends React.Component{
     return (
       <div>
         <ListForm addItem = {this.addItem.bind(this)}/>
-        <List list={this.state.app_list} />
+        <List list={this.state.app_list} remove={this.removeItem.bind(this)}/>
       </div>
     );
   }
@@ -47,6 +61,14 @@ class ListApp extends React.Component{
     this.setState(prevState=>{
       const newList = prevState.app_list.concat(text);
       return {app_list : newList};
+    });
+  }
+  removeItem(removeIndex){
+    this.state(prevState => {
+      const newList = prevState.app_list.filter((obj,index) =>{
+        return removeIndex != index;
+      });
+      return {app_list:newList};
     });
   }
 }
