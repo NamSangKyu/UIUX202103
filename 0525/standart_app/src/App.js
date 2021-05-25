@@ -13,7 +13,12 @@ class ListForm extends React.Component{
   }
   addItem(event){
     event.preventDefault();
-    alert(this.input.value);
+    //alert(this.input.value);
+    //ListApp에서 (props를 통해)보내준 addItem를 사용 
+    this.props.addItem(this.input.value);
+    //입력 후 텍스트 상자 초기화
+    //this.input.value = "";
+    event.target.reset();
   }
 }
 class List extends React.Component{
