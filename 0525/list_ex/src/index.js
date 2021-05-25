@@ -6,7 +6,8 @@ import List from './App';
 
 ReactDOM.render(
   <div>
-    <List />
+    <List/>
+    <List/>
   </div>,
   document.getElementById('root')
 );
