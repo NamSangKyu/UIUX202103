@@ -6,10 +6,14 @@ class ListForm extends React.Component{
   }
   //render --> input text, 버튼
   render(){
-    return (<form>
-        <input type='text'></input>{' '}
+    return (<form onSubmit={this.addItem.bind(this)}>
+        <input type='text' ref={ref => this.input = ref}></input>{' '}
         <button>추가</button>
     </form>);
+  }
+  addItem(event){
+    event.preventDefault();
+    alert(this.input.value);
   }
 }
 class List extends React.Component{
@@ -29,10 +33,16 @@ class ListApp extends React.Component{
   render(){
     return (
       <div>
-        <ListForm />
+        <ListForm addItem = {this.addItem.bind(this)}/>
         <List list={this.state.app_list} />
       </div>
     );
+  }
+  addItem(text){
+    this.setState(prevState=>{
+      const newList = prevState.app_list.concat(text);
+      return {app_list : newList};
+    });
   }
 }
 export default ListApp;
