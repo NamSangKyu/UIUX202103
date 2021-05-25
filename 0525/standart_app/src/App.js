@@ -28,9 +28,13 @@ class ListItem extends React.Component{
   render(){
     return (
       <li>
-        {this.props.text} - <button>삭제</button>
+        {this.props.text}
+         - <button onClick={this.removeItem.bind(this)}>삭제</button>
       </li>
     );
+  }
+  removeItem(){
+    this.props.remove(this.props.index);
   }
 }
 class List extends React.Component{
@@ -64,7 +68,7 @@ class ListApp extends React.Component{
     });
   }
   removeItem(removeIndex){
-    this.state(prevState => {
+    this.setState(prevState => {
       const newList = prevState.app_list.filter((obj,index) =>{
         return removeIndex != index;
       });
