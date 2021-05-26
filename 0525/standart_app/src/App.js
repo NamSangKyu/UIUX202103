@@ -24,14 +24,26 @@ class ListForm extends React.Component{
 class ListItem extends React.Component{
   constructor(props){
     super(props);
+    this.state = {editMode : false};
+  }
+  changeEditMode(){
+    //editMode state 값을 true로 바꿈
+    this.setState({editMode : true});
   }
   render(){
-    return (
+    //editMode 값에 따라서 span이 아니라 input 태그로 편집 할수 있게 태그를 추가
+    const normal = (
       <li>
-        {this.props.text}
+        <span onDoubleClick={this.changeEditMode.bind(this)}>{this.props.text}</span>
          - <button onClick={this.removeItem.bind(this)}>삭제</button>
       </li>
     );
+    const edit = (
+      <li>
+          <input type="text" defaultValue={this.props.text}/>
+      </li>
+    );
+    return this.state.editMode ? edit : normal;
   }
   removeItem(){
     this.props.remove(this.props.index);
