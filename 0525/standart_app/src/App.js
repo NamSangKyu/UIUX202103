@@ -61,7 +61,7 @@ class List extends React.Component{
   }
   render(){
     const tag = this.props.list.map((obj, index) =>(<ListItem
-      text={obj} index={index} remove={this.props.remove}
+      text={obj} index={index} remove={this.props.remove} update={this.props.update}
     />));
     return (<ul>{tag}</ul>);
   }
@@ -75,7 +75,8 @@ class ListApp extends React.Component{
     return (
       <div>
         <ListForm addItem = {this.addItem.bind(this)}/>
-        <List list={this.state.app_list} remove={this.removeItem.bind(this)}/>
+        <List list={this.state.app_list} remove={this.removeItem.bind(this)}
+          update={this.updateItem.bind(this)}/>
       </div>
     );
   }
@@ -91,6 +92,16 @@ class ListApp extends React.Component{
         return removeIndex != index;
       });
       return {app_list:newList};
+    });
+  }
+  updateItem(updateIndex, item){
+    this.setState(prevState => {
+      const newList = prevState.app_list.map((obj,index)=>{
+        if(updateIndex == index)
+          return item;//편집한 인덱스 번호랑 동일할 때
+        return obj; //편집한 인덱스 번호가 다를 때
+      });
+      return {app_list : newList};
     });
   }
 }
