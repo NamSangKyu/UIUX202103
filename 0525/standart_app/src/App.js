@@ -31,8 +31,9 @@ class ListFilter extends React.Component{
       </div>
     );
   }
-  changeFilter(){
-
+  changeFilter(e){
+    console.log(e.target.value);
+    this.props.changeFilter(this.input.value);
   }
 }
 class ListItem extends React.Component{
@@ -83,7 +84,9 @@ class List extends React.Component{
     super(props);
   }
   render(){
-    const tag = this.props.list.map((obj, index) =>(<ListItem
+    const tag = this.props.list.filter((obj)=>{
+      return obj.text.includes(this.props.filter);
+    }).map((obj, index) =>(<ListItem
       item={obj} index={index} key={obj.id} remove={this.props.remove} update={this.props.update}
     />));
     return (<ul>{tag}</ul>);
@@ -101,7 +104,7 @@ class ListApp extends React.Component{
         <ListForm addItem = {this.addItem.bind(this)}/>
         <ListFilter changeFilter={this.changeFilter.bind(this)} />
         <List list={this.state.app_list} remove={this.removeItem.bind(this)}
-          update={this.updateItem.bind(this)}/>
+          update={this.updateItem.bind(this)} filter={this.state.filter}/>
       </div>
     );
   }
