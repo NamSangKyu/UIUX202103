@@ -34,6 +34,12 @@ class ListItem extends React.Component{
     //editMode값 false 변경 --> input 태그에 이벤트 처리(onBlur)
     this.setState({editMode : false});
   }
+  editFin(event){//편집이 완료된 경우
+    if(event.keyCode == 13){//엔터를 눌렀을때
+      this.props.update(this.props.index,this.txt.value);
+      this.cancelEdit();
+    }
+  }
   render(){
     //editMode 값에 따라서 span이 아니라 input 태그로 편집 할수 있게 태그를 추가
     const normal = (
@@ -46,7 +52,9 @@ class ListItem extends React.Component{
     const edit = (
       <li>
           <input type="text" defaultValue={this.props.text} 
-          onBlur={this.cancelEdit.bind(this)} autoFocus/>
+          onBlur={this.cancelEdit.bind(this)} ref ={ref=>this.txt = ref} 
+          onKeyUp={this.editFin.bind(this)}
+          autoFocus/>
       </li>
     );
     return this.state.editMode ? edit : normal;
