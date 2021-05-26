@@ -50,7 +50,7 @@ class ListItem extends React.Component{
   }
   editFin(event){//편집이 완료된 경우
     if(event.keyCode == 13){//엔터를 눌렀을때
-      this.props.update(this.props.text.id,this.txt.value);
+      this.props.update(this.props.item.id,this.txt.value);
       this.cancelEdit();
     }
   }
@@ -59,13 +59,13 @@ class ListItem extends React.Component{
     const normal = (
       <li>
         <span onDoubleClick={this.changeEditMode.bind(this)}>
-          {this.props.text}</span> - <button onClick={this.removeItem.bind(this)}>
+          {this.props.item.text}</span> - <button onClick={this.removeItem.bind(this)}>
             삭제</button>
       </li>
     );
     const edit = (
       <li>
-          <input type="text" defaultValue={this.props.text} 
+          <input type="text" defaultValue={this.props.item.text} 
           onBlur={this.cancelEdit.bind(this)} ref ={ref=>this.txt = ref} 
           onKeyUp={this.editFin.bind(this)}
           autoFocus/>
@@ -75,7 +75,7 @@ class ListItem extends React.Component{
   }
   removeItem(){
     console.log(this.props);
-    this.props.remove(this.props.key);
+    this.props.remove(this.props.item.id);
   }
 }
 class List extends React.Component{
@@ -84,7 +84,7 @@ class List extends React.Component{
   }
   render(){
     const tag = this.props.list.map((obj, index) =>(<ListItem
-      text={obj.text} index={index} key={obj.id} remove={this.props.remove} update={this.props.update}
+      item={obj} index={index} key={obj.id} remove={this.props.remove} update={this.props.update}
     />));
     return (<ul>{tag}</ul>);
   }
