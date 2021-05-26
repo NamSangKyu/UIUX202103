@@ -30,17 +30,23 @@ class ListItem extends React.Component{
     //editMode state 값을 true로 바꿈
     this.setState({editMode : true});
   }
+  cancelEdit(){
+    //editMode값 false 변경 --> input 태그에 이벤트 처리(onBlur)
+    this.setState({editMode : false});
+  }
   render(){
     //editMode 값에 따라서 span이 아니라 input 태그로 편집 할수 있게 태그를 추가
     const normal = (
       <li>
-        <span onDoubleClick={this.changeEditMode.bind(this)}>{this.props.text}</span>
-         - <button onClick={this.removeItem.bind(this)}>삭제</button>
+        <span onDoubleClick={this.changeEditMode.bind(this)}>
+          {this.props.text}</span> - <button onClick={this.removeItem.bind(this)}>
+            삭제</button>
       </li>
     );
     const edit = (
       <li>
-          <input type="text" defaultValue={this.props.text}/>
+          <input type="text" defaultValue={this.props.text} 
+          onBlur={this.cancelEdit.bind(this)} autoFocus/>
       </li>
     );
     return this.state.editMode ? edit : normal;
