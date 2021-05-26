@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import './App.css';
+
 class ListForm extends React.Component{
   //생성자
   constructor(props){
@@ -55,11 +57,20 @@ class ListItem extends React.Component{
       this.cancelEdit();
     }
   }
+  changeComplete(e){
+    this.props.update(this.props.item.id,this.props.item.text,e.target.checked);
+  }
   render(){
+    const style = {};
+    if(this.props.item.complete){
+      style['text-decoration'] = 'line-through';
+    }
     //editMode 값에 따라서 span이 아니라 input 태그로 편집 할수 있게 태그를 추가
     const normal = (
-      <li>
-        <span onDoubleClick={this.changeEditMode.bind(this)}>
+      <li><input type="checkbox" checked={this.props.item.complete} 
+      onChange={this.changeComplete.bind(this)}/>
+        <span onDoubleClick={this.changeEditMode.bind(this)}
+          style={style}>
           {this.props.item.text}</span> - <button onClick={this.removeItem.bind(this)}>
             삭제</button>
       </li>
@@ -101,6 +112,8 @@ class ListApp extends React.Component{
   render(){
     return (
       <div>
+        <img src="/img/2.jpg" alt="" width='100' />
+        <div className='box'></div>
         <ListForm addItem = {this.addItem.bind(this)}/>
         <ListFilter changeFilter={this.changeFilter.bind(this)} />
         <List list={this.state.app_list} remove={this.removeItem.bind(this)}
@@ -115,7 +128,8 @@ class ListApp extends React.Component{
     this.setState(prevState=>{
       const newList = prevState.app_list.concat({
         id:this.id++,
-        text : itemText
+        text : itemText,
+        complete : false
       });
       return {app_list : newList};
     });
@@ -128,11 +142,12 @@ class ListApp extends React.Component{
       return {app_list:newList};
     });
   }
-  updateItem(updateId, item){
+  updateItem(updateId, item, complete){
     this.setState(prevState => {
       const newList = prevState.app_list.map((obj)=>{
         if(updateId == obj.id){
           obj.text = item;
+          obj.complete = complete;
         }
         return obj; 
       });
