@@ -21,6 +21,20 @@ class ListForm extends React.Component{
     event.target.reset();
   }
 }
+class ListFilter extends React.Component{
+  render(){
+    return (
+      <div>
+        필터 : <input type='text' ref = {ref => this.input = ref} 
+          onChange={this.changeFilter.bind(this)}
+        />
+      </div>
+    );
+  }
+  changeFilter(){
+
+  }
+}
 class ListItem extends React.Component{
   constructor(props){
     super(props);
@@ -36,7 +50,7 @@ class ListItem extends React.Component{
   }
   editFin(event){//편집이 완료된 경우
     if(event.keyCode == 13){//엔터를 눌렀을때
-      this.props.update(this.props.index,this.txt.value);
+      this.props.update(this.props.text.id,this.txt.value);
       this.cancelEdit();
     }
   }
@@ -60,7 +74,8 @@ class ListItem extends React.Component{
     return this.state.editMode ? edit : normal;
   }
   removeItem(){
-    this.props.remove(this.props.index);
+    console.log(this.props);
+    this.props.remove(this.props.key);
   }
 }
 class List extends React.Component{
@@ -69,7 +84,7 @@ class List extends React.Component{
   }
   render(){
     const tag = this.props.list.map((obj, index) =>(<ListItem
-      text={obj} index={index} remove={this.props.remove} update={this.props.update}
+      text={obj.text} index={index} key={obj.id} remove={this.props.remove} update={this.props.update}
     />));
     return (<ul>{tag}</ul>);
   }
@@ -77,37 +92,46 @@ class List extends React.Component{
 class ListApp extends React.Component{
   constructor(props){
     super(props);
-    this.state = {app_list : ['A','1',2]};
+    this.state = {app_list : [],filter : ''};
+    this.id = 1;
   }
   render(){
     return (
       <div>
         <ListForm addItem = {this.addItem.bind(this)}/>
+        <ListFilter changeFilter={this.changeFilter.bind(this)} />
         <List list={this.state.app_list} remove={this.removeItem.bind(this)}
           update={this.updateItem.bind(this)}/>
       </div>
     );
   }
-  addItem(text){
+  changeFilter(newFilter){
+    this.setState({filter : newFilter});
+  }
+  addItem(itemText){
     this.setState(prevState=>{
-      const newList = prevState.app_list.concat(text);
+      const newList = prevState.app_list.concat({
+        id:this.id++,
+        text : itemText
+      });
       return {app_list : newList};
     });
   }
-  removeItem(removeIndex){
+  removeItem(removeId){
     this.setState(prevState => {
-      const newList = prevState.app_list.filter((obj,index) =>{
-        return removeIndex != index;
+      const newList = prevState.app_list.filter((obj) =>{
+        return removeId != obj.id;
       });
       return {app_list:newList};
     });
   }
-  updateItem(updateIndex, item){
+  updateItem(updateId, item){
     this.setState(prevState => {
-      const newList = prevState.app_list.map((obj,index)=>{
-        if(updateIndex == index)
-          return item;//편집한 인덱스 번호랑 동일할 때
-        return obj; //편집한 인덱스 번호가 다를 때
+      const newList = prevState.app_list.map((obj)=>{
+        if(updateId == obj.id){
+          obj.text = item;
+        }
+        return obj; 
       });
       return {app_list : newList};
     });
