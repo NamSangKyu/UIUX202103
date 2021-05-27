@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='https://developers.kakao.com/sdk/js/kakao.js'></script>
+    <script src="/resource/lib/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            Kakao.init('b47842a9ce675ef1512bc18787d79f6d');
+            if(Kakao.Auth.getAccessToken()){
+                $("#token-result").html(Kakao.Auth.getAccessToken());
+            }
+            displayToken();
+            
+        });
+            function loginWithKakao() {
+                Kakao.Auth.authorize({
+                    redirectUri: 'http://127.0.0.1:5500/oauth'
+                });
+            }
+            function displayToken() {
+                const token = getCookie('authorize-access-token')
+                if(token) {
+                  Kakao.Auth.setAccessToken(token)
+                  Kakao.Auth.getStatusInfo(({ status }) => {
+                    if(status === 'connected') {
+                      document.getElementById('token-result').innerText = 'login success. token: ' + Kakao.Auth.getAccessToken()
+                    } else {
+                      Kakao.Auth.setAccessToken(null)
+                    }
+                  })
+                }
+              }
+              function getCookie(name) {
+                const value = "; " + document.cookie;
+                const parts = value.split("; " + name + "=");
+                if (parts.length === 2) return parts.pop().split(";").shift();
+              }
+      </script>
+</head>
+<body>
+    <a id="custom-login-btn" href="javascript:loginWithKakao()">
+        <img
+          src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
+          width="222"
+        />
+      </a>
+      <p id="token-result"></p>
+      
+        
+      <a href='#' id='logout'>로그아웃</a>
+      <a href='#' id='unlink'>회원탈퇴</a>
+      <div id="result">
+
+      </div>
+    
+</body>
+</html>
