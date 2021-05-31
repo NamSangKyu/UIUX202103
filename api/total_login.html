@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name="google-signin-client_id"
+        content="558448701954-3967v3i2m0a5rjk9gdctb2fhu6ht07ba.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src='https://developers.kakao.com/sdk/js/kakao.js'></script>
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>
+        //카카오 로그인
+        function init_kakao() {
+            Kakao.init('1f8e1170eca4d7d9082f6cfac00904ce');
+        }
+        function getProfile() {
+            Kakao.API.request({
+                url: '/v2/user/me',
+                success: function (response) {
+                    console.log(response);
+                    $("#result").html(response.id + " " +
+                        response.kakao_account.email + " " + response.kakao_account.profile.nickname);
+                },
+                fail: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+        function loginWithKakao() {
+
+            Kakao.Auth.login({
+                success: function (authObj) {
+                    //alert(JSON.stringify(authObj))
+                    console.log(JSON.stringify(authObj));
+                    console.log(authObj);
+                    getProfile();
+                },
+                fail: function (err) {
+                    alert(JSON.stringify(err))
+                },
+            });
+        }
+        //구글 로그인
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        }
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+              console.log('User signed out.');
+            });
+          }
+        $(function () {
+            init_kakao();
+            $("#logout").click(function (e) {
+                e.preventDefault();
+                if (Kakao.Auth.getAccessToken()) {
+                    console.log("토근이 존재합니다.", Kakao.Auth.getAccessToken());
+                    Kakao.Auth.logout(function () {
+                        console.log("로그아웃 되었습니다.", Kakao.Auth.getAccessToken());
+                    });
+                    $("#result").html("");
+
+                } else {
+                    alert("로그인 해주세요");
+                }
+            });
+            $("#unlink").click(function (e) {
+                e.preventDefault();
+                Kakao.API.request({
+                    url: '/v1/user/unlink',
+                    success: function (response) {
+                        console.log("탈퇴 결과 : ", response);
+                    },
+                    fail: function (err) {
+                        alert("탈퇴 실패");
+                        console.log("탈퇴 실패 : ", err);
+                    }
+                });
+            });
+        });
+
+
+    </script>
+</head>
+
+<body>
+    <a id="custom-login-btn" href="javascript:loginWithKakao()">
+        <img src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg" width="222" />
+    </a>
+
+    <a href='#' id='logout'>로그아웃</a>
+    <a href='#' id='unlink'>회원탈퇴</a>
+    <div id="result">
+
+    </div>
+    <!--네이버 로그인 버튼 출력부분 및 처리부분-->
+  <div id="naver_id_login"></div>
+  <script>
+    var naver_id_login = new naver_id_login("V53OAUWiMxVZD7Ae48U4", 
+    "http://127.0.0.1:5500/api/callback.html");
+    var state = naver_id_login.getUniqState();
+    naver_id_login.setButton("white", 2,40);
+    naver_id_login.setDomain("http://127.0.0.1:5500/api/callback.html");
+    naver_id_login.setState(state);
+    naver_id_login.setPopup();
+    naver_id_login.init_naver_id_login();
+  </script>
+  <!-- 구글 로그인 -->
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  <a href="#" onclick="signOut();">Sign out</a>
+</body>
+
+</html>
