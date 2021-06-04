@@ -12,15 +12,28 @@
             border:1px solid black;
         }
         .cols1{
-            width: 20%;
+            width: calc(100% / 4 - 2px);
             height: 300px;
             border:1px solid red;
             float:left;
         }
         .cols2{
-            width: 80%;
+            width: calc(100% / 4 * 3 - 2px);
             height: 300px;
             border:1px solid blue;
+            float:left;
+        }
+        .cols3{
+            width: calc(100% / 3 - 2px);
+            height: 300px;
+            border:1px solid green;
+            float:left;
+        }
+        .cols4{
+            width: 33.3%;
+            height: 300px;
+            border:1px solid red;
+            box-sizing: border-box;
             float:left;
         }
     </style>
@@ -29,6 +42,12 @@
     <div class="container">
         <div class="cols1"></div>
         <div class="cols2"></div>
+        <div class="cols3"></div>
+        <div class="cols3"></div>
+        <div class="cols3"></div>
+        <div class="cols4"></div>
+        <div class="cols4"></div>
+        <div class="cols4"></div>
     </div>    
 </body>
 </html>
