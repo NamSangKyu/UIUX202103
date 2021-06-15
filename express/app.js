@@ -18,5 +18,11 @@ app.all('/',(request,response)=>{
 })
 app.get('/get.do',(request,response)=>{
     const data = {key1 : "데이터1", key2 : "데이터2"}
+    //사용자가 ajax로 보낸 데이터를 확인하는 부분
+    console.log(request.query);
+    for(const key in request.query){
+        const element = request.query[key];
+        console.log(element);
+    }
     response.send(JSON.stringify(data))
 })
