@@ -5,6 +5,24 @@ const FileStore = require('session-file-store')(session)
 var mysql = require('mysql')
 const app = express()
 const port = 3000
+//mysql 접속 설정
+var connection = mysql.createConnection({
+    host : '127.0.0.1',
+    port : '3306',
+    user : 'root',
+    password : '123456',
+    database : 'web_db'
+});
+connection.connect();
+//세션 설정
+app.use(session({
+    secret : 'seesionID',
+    resave : false,
+    saveUninitialized : false,
+    store : new FileStore()
+}))
+//-------------------------
+
 app.listen(port, () =>{
     console.log(`서버 실행 완료 포트번호 ${port}`)
 })
@@ -25,4 +43,25 @@ app.get('/get.do',(request,response)=>{
         console.log(element);
     }
     response.send(JSON.stringify(data))
+})
+//로그인
+app.get('/login.do',(request,response)=>{
+    var sess = request.session;
+    if(sess.is_logined){
+        console.log("이미 로그인 되어 있습니다.");
+        return
+    }
+    var id = request.query.id;
+    var pass = request.query.pass;
+    var result = {};
+    if(!request.session.num)
+        request.session.num = 1;
+    else
+        request.session.num += 1;
+    sess.is_logined = true;
+    result["flag"] = 0;
+    result["tokken"] = sess.id;
+    sess.name = id;
+    console.log(sess.name + " 로그인 성공");
+    response.send(result);
 })
