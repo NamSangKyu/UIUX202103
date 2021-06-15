@@ -12,8 +12,8 @@
                 var d = $(this).serialize();
                 alert(d);
                 $.ajax({
-                    //url : "http://localhost:3000/login.do",
-                    url : "http://52.79.228.124:52898/login.do",
+                    url : "http://localhost:3000/login.do",
+                    //url : "http://52.79.228.124:52898/login.do",
                     data : d,
                     method:"get",
                     success:function(r){

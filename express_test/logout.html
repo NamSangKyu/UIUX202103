@@ -10,8 +10,8 @@
         $(function(){
             var tok = location.href.split("=")[1];
             $.ajax({
-                //url : "http://localhost:3000/profile.do",
-                url : "http://52.79.228.124:52898/profile.do",
+                url : "http://localhost:3000/profile.do",
+                //url : "http://52.79.228.124:52898/profile.do",
                 data : "tokken="+tok,
                 method:"get",
                 success:function(r){
@@ -22,8 +22,8 @@
             });
             $("button").click(function(){
                 $.ajax({
-                    //url : "http://localhost:3000/logout.do",
-                    url : "http://52.79.228.124:52898/logout.do",
+                    url : "http://localhost:3000/logout.do",
+                    //url : "http://52.79.228.124:52898/logout.do",
                     data : "tokken="+tok,
                     method:"get",
                     success:function(r){

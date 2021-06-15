@@ -65,3 +65,28 @@ app.get('/login.do',(request,response)=>{
     console.log(sess.name + " 로그인 성공");
     response.send(result);
 })
+//로그인 정보 가져오기
+app.get('/profile.do',(request,response)=>{
+    var tokken = request.query.tokken;
+    var fs = require('fs');
+    var result = {};
+    fs.readFile(`sessions/${tokken}.json`,'utf8',function(err,data){
+        console.log(data);
+        var d = JSON.parse(data);
+        result['name'] = d.name;
+        response.send(result);
+    });
+});
+//로그아웃
+app.get('/logout.do',(request,response)=>{
+    var tokken = request.query.tokken;
+    var fs = require('fs');
+    var result = {};
+    request.session.destroy();//세션 정보 삭제
+    fs.rm(`sessions/${tokken}.json`,{recursive:true}, (err)=>{
+        if(err != null)
+            console.log(err);
+    });
+    result[flag] = 1;
+    response.send(result);
+})
