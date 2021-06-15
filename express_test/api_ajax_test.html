@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>API 서버 호출 테스트</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='/resource/lib/jquery-3.6.0.min.js'></script>
+    <script>
+        $(function(){
+            $("button").click(function(){
+                $.ajax({
+                    url : "http://localhost:3000/get.do",
+                    data : "test=data&name=홍길동",
+                    method : "get",
+                    success : function(r){
+                        $("div").text(r);
+                    }
+                })
+            });
+        }); 
+    </script>
+</head>
+<body>
+    <button>호출</button>
+    <div></div>
+</body>
+</html>
