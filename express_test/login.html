@@ -36,7 +36,10 @@
                         SetCookie("tokken",r.tokken);
                         console.log(document.cookie);
                         alert("test");
-                        location.href="logout.html";
+                        if(r.flag == 0)
+                            location.href="logout.html";
+                        else
+                            alert(r.msg);
                     }
                 });
                 e.preventDefault();
