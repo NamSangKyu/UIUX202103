@@ -7,18 +7,36 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script src="/resource/lib/jquery-3.6.0.min.js"></script>
     <script>
+        function SetCookie( strName, strValue, iSecond )
+		{
+			var strCookie = strName + "=" + encodeURIComponent(strValue);
+			if( typeof iSecond === "number" )
+			{
+				strCookie += "; max-age=" + iSecond;
+			}
+
+			// QQQ: path, domain 유효범위를 설정하고 싶으면 여기서 strCookie 변수에 추가해 주어야 한다.
+
+			document.cookie = strCookie;
+		}
+
+		
+
         $(function(){
             $("#frm").submit(function(e){
                 var d = $(this).serialize();
                 alert(d);
                 $.ajax({
                     url : "http://localhost:3000/login.do",
-                    //url : "http://52.79.228.124:52898/login.do",
+                    //url : "http://13.124.31.225:51733/login.do",
                     data : d,
                     method:"get",
                     success:function(r){
                         $("div").text(r.tokken);
-                        location.href="logout.html?tokken="+r.tokken;
+                        SetCookie("tokken",r.tokken);
+                        console.log(document.cookie);
+                        alert("test");
+                        location.href="logout.html";
                     }
                 });
                 e.preventDefault();
