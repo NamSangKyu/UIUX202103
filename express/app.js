@@ -62,7 +62,10 @@ app.get('/login.do',(request,response)=>{
     result["flag"] = 0;
     result["tokken"] = sess.id;
     sess.name = id;
+    sess.key = sess.id;
     console.log(sess.name + " 로그인 성공");
+    console.log(sess.cookie);
+
     response.send(result);
 })
 //로그인 정보 가져오기
